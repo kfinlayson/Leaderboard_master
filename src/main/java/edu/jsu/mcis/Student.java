@@ -1,10 +1,15 @@
 package edu.jsu.mcis;
 
+import java.util.*;
+
 public class Student {
 	private String studentID;
 	private String firstName;
 	private String lastName;
 	private String email;
+	private List<String[]> studentData;
+	private HashMap studentMap;
+	private DataReader reader;
 	
 	public Student (String studentID){
 		this.studentID = studentID;
@@ -20,6 +25,41 @@ public class Student {
 		firstName = " ";
 		lastName = " ";
 		email = " ";
+		reader = new DataReader();
+		studentData = reader.getStudentData();
+		studentMap = new HashMap<String, String>();
+		setStudentMaps();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void setStudentMaps() {
+		String key = "";
+		for(String[] token : studentData) {
+			if(token != studentData.get(0)) {
+				for(String element : token) {
+					if(element == token[0]) {
+						key = element;
+						setID(element);
+					}
+					else if(element == token[1]) {
+						setFirstName(element);
+					}
+					else if(element == token[2]) {
+						setLastName(element);
+					}
+					else if(element == token[3]) {
+						setStudentEmail(element);
+					}
+					studentMap.put(key, this.toString());
+				}
+			}
+		}
+		
+	}
+	
+	public Object getStudentInfo(String studentID) {
+		Object object = studentMap.get(studentID);
+		return object;
 	}
 
 	public String getID() {
@@ -27,6 +67,13 @@ public class Student {
 	}
 	public void setID(String studentID) {
 		this.studentID = studentID;
+	}
+	
+	public boolean hasID(String studentID) {
+		if(studentMap.containsKey(studentID)) {
+			return true;
+		}
+		else return false;
 	}
 	
 	public String getFirstName() {

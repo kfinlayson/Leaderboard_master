@@ -36,6 +36,12 @@ task uberjar(type: Jar) {
     with jar
 }
 
+task runJar(dependsOn:jar) << {
+	javaexec {
+		main="-jar"; args "C:/Users/Blake/Desktop/CS310/Leaderboard_master/build/libs/Leaderboard_master-1.0-all"
+	}
+}
+
 repositories {
     mavenCentral()
 }
