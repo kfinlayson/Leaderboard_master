@@ -2,7 +2,7 @@ package edu.jsu.mcis;
 
 import org.junit.*;
 import static org.junit.Assert.*;
-
+import org.junit.rules.ExpectedException;
 import java.io.*;
 import java.util.*;
 
@@ -30,6 +30,11 @@ public class TestShell {
 						"99003";
     }
 	
+	
+        
+    @Rule
+	public ExpectedException expectedEx = ExpectedException.none();
+	
 	@Test
 	public void testGetStudentInfoByID() {
 		try {
@@ -52,10 +57,7 @@ public class TestShell {
 	
 	@Test(expected=InvalidIDException.class)
 	public void testExceptionThrownWithInvalidID() {
-		try {
-			data.getStudent("");
-		}
-		catch(InvalidIDException e) {}
+		data.getStudent("");
 	}
 	/*
 	@Test

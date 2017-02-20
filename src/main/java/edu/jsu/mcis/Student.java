@@ -21,7 +21,7 @@ public class Student {
 		this.email = email;
 	}
 	public Student() {
-		studentID = " ";
+		//studentID = " ";
 		firstName = " ";
 		lastName = " ";
 		email = " ";
