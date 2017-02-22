@@ -38,7 +38,7 @@ public class TestShell {
 	@Test
 	public void testGetStudentInfoByID() {
 		try {
-			String info = data.getStudent(studentID);
+			String info = data.getStudent(studentID).toString();
 			String expectedOutput = "[111111] Jerrod Shields jshields@jsu.edu"; 
 			assertEquals(expectedOutput, info);
 		} 
@@ -48,7 +48,7 @@ public class TestShell {
 	@Test
 	public void testGetCourseInfoByID() {
 		try {
-			String info = data.getCourse(courseID);
+			String info = data.getCourse(courseID).toString();
 			String expectedOutput = "[99018] Spring 2014 (16 students)"; 
 			assertEquals(expectedOutput, info);
 		}
