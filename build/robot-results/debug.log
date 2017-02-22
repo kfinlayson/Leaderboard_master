@@ -1,0 +1,51 @@
+==============================================================================
+20170222 11:18:40.881 - INFO - + START SUITE: Acceptancetest [ ]
+==============================================================================
+20170222 11:18:40.998 - INFO - +- START SUITE: Acceptancetest.Feature01 [ ]
+==============================================================================
+20170222 11:18:41.008 - INFO - +-- START TEST: Test Gamegogy Load Student Data [ ]
+------------------------------------------------------------------------------
+20170222 11:18:41.019 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ student | 111128 ]
+20170222 11:18:41.046 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (24)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170222 11:18:41.050 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170222 11:18:41.059 - INFO - ${output} = [111128] Maritza Abbott mabbott@jsu.edu
+20170222 11:18:41.067 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (13)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170222 11:18:41.071 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f01stu_expected} | ${output} ]
+20170222 11:18:41.088 - INFO - +--- END KW: BuiltIn.Should Be Equal (17)
+------------------------------------------------------------------------------
+20170222 11:18:41.098 - INFO - +-- END TEST: Test Gamegogy Load Student Data (88)
+------------------------------------------------------------------------------
+20170222 11:18:41.105 - INFO - +-- START TEST: Test Gamegogy Load Course Data [ ]
+------------------------------------------------------------------------------
+20170222 11:18:41.116 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ course | 99018 ]
+20170222 11:18:41.143 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (26)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170222 11:18:41.146 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170222 11:18:41.154 - INFO - ${output} = [99018] Spring 2014 (16 students)
+20170222 11:18:41.158 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (11)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170222 11:18:41.161 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f01crs_expected} | ${output} ]
+20170222 11:18:41.178 - INFO - +--- END KW: BuiltIn.Should Be Equal (16)
+------------------------------------------------------------------------------
+20170222 11:18:41.190 - INFO - +-- END TEST: Test Gamegogy Load Course Data (78)
+------------------------------------------------------------------------------
+20170222 11:18:41.197 - INFO - +-- START TEST: Test Gamegogy With No Arguments [ ]
+------------------------------------------------------------------------------
+20170222 11:18:41.205 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ ]
+20170222 11:18:41.228 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (20)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170222 11:18:41.231 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170222 11:18:41.238 - INFO - ${output} =
+20170222 11:18:41.243 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (11)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170222 11:18:41.246 - INFO - +--- START KW: BuiltIn.Should Be Equal [  | ${output} ]
+20170222 11:18:41.262 - INFO - +--- END KW: BuiltIn.Should Be Equal (12)
+------------------------------------------------------------------------------
+20170222 11:18:41.272 - INFO - +-- END TEST: Test Gamegogy With No Arguments (71)
+------------------------------------------------------------------------------
+20170222 11:18:41.303 - INFO - +- END SUITE: Acceptancetest.Feature01 (388)
+==============================================================================
+20170222 11:18:41.327 - INFO - + END SUITE: Acceptancetest (1066)
+==============================================================================

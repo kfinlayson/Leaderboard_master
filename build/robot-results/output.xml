@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_111)" generated="20170222 11:18:40.204">
+<suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest" name="Acceptancetest" id="s1">
+<suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest\feature01.robot" name="Feature01" id="s1-s1">
+<test name="Test Gamegogy Load Student Data" id="s1-s1-t1">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>student</arg>
+<arg>111128</arg>
+</arguments>
+<status endtime="20170222 11:18:41.042" starttime="20170222 11:18:41.018" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170222 11:18:41.059">${output} = [111128] Maritza Abbott mabbott@jsu.edu</msg>
+<status endtime="20170222 11:18:41.062" starttime="20170222 11:18:41.049" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f01stu_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170222 11:18:41.086" starttime="20170222 11:18:41.069" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170222 11:18:41.092" starttime="20170222 11:18:41.004" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Load Course Data" id="s1-s1-t2">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>course</arg>
+<arg>99018</arg>
+</arguments>
+<status endtime="20170222 11:18:41.141" starttime="20170222 11:18:41.115" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170222 11:18:41.154">${output} = [99018] Spring 2014 (16 students)</msg>
+<status endtime="20170222 11:18:41.156" starttime="20170222 11:18:41.145" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f01crs_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170222 11:18:41.176" starttime="20170222 11:18:41.160" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170222 11:18:41.180" starttime="20170222 11:18:41.102" status="PASS"></status>
+</test>
+<test name="Test Gamegogy With No Arguments" id="s1-s1-t3">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<status endtime="20170222 11:18:41.225" starttime="20170222 11:18:41.205" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170222 11:18:41.238">${output} = </msg>
+<status endtime="20170222 11:18:41.241" starttime="20170222 11:18:41.230" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170222 11:18:41.257" starttime="20170222 11:18:41.245" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170222 11:18:41.264" starttime="20170222 11:18:41.193" status="PASS"></status>
+</test>
+<status endtime="20170222 11:18:41.278" starttime="20170222 11:18:40.890" status="PASS"></status>
+</suite>
+<status endtime="20170222 11:18:41.309" starttime="20170222 11:18:40.243" status="PASS"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" name="Acceptancetest" id="s1">Acceptancetest</stat>
+<stat pass="3" fail="0" name="Feature01" id="s1-s1">Acceptancetest.Feature01</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

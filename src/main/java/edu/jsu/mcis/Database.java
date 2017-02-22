@@ -4,28 +4,27 @@ import java.util.*;
 
 public class Database {
 	
-	private Student student;
-	private Course course;
-	private List<String[]> studentData;
-	private HashMap studentMap;
 	private DataReader reader;
+	private List<String[]> studentData;
 	private List<String[]> courseData;
-	private HashMap courseMap;
+	private TreeMap<String, Student> studentMap;
+	private TreeMap<String, Course> courseMap;
 	
 	public Database() {
-		student = new Student();
-		course = new Course();
 		reader = new DataReader();
 		studentData = reader.getStudentData();
-		studentMap = new HashMap<String, Student>();
 		courseData = reader.getCourseData();
-		courseMap = new HashMap<String, Course>();
+		studentMap = new TreeMap<String, Student>();
+		courseMap = new TreeMap<String, Course>();
+		setStudentMaps();
+		setCourseMaps();
 	}
 	
 	@SuppressWarnings("unchecked")
 	private void setStudentMaps() {
 		String key = "";
 		for(String[] token : studentData) {
+			Student student = new Student();
 			if(token != studentData.get(0)) {
 				for(String element : token) {
 					if(element == token[0]) {
@@ -41,7 +40,7 @@ public class Database {
 					else if(element == token[3]) {
 						student.setStudentEmail(element);
 					}
-					studentMap.put(key, student.toString());
+					studentMap.put(key, student);
 				}
 			}
 		}
@@ -52,6 +51,7 @@ public class Database {
 	private void setCourseMaps() {
 		String key = "";
 		for(String[] token : courseData) {
+			Course course = new Course();
 			if(token != courseData.get(0)) {
 				for(String element : token) {
 					if(element == token[0]) {
@@ -67,21 +67,21 @@ public class Database {
 					else if(element == token[3]) {
 						course.setCourseSize(element);
 					}
-					courseMap.put(key, course.toString());
+					courseMap.put(key, course);
 				}
 			}
 		}
 		
 	}
 	
-	public boolean hasCourseID(String courseID) {
+	private boolean hasCourseID(String courseID) {
 		if(courseMap.containsKey(courseID)) {
 			return true;
 		}
 		else return false;
 	}
 	
-	public boolean hasStudentID(String studentID) {
+	private boolean hasStudentID(String studentID) {
 		if(studentMap.containsKey(studentID)) {
 			return true;
 		}
@@ -102,5 +102,33 @@ public class Database {
 			throw new InvalidIDException(s);
 		}
 		else return (Course)courseMap.get(courseID);
+	}
+	
+	public String getAllStudentIDs() {
+		String s = "";
+		List<String> array = new ArrayList<String>(studentMap.keySet());
+		for ( int i = 0; i < array.size(); i++ ) {
+			if(array.get(i) != array.get(array.size() - 1)) {
+				s += array.get(i) + "\n";
+			}
+			else {
+				s += array.get(i);
+			}
+		}
+		return s;
+	}
+	
+	public String getAllCourseIDs() {
+		String s = "";
+		List<String> array = new ArrayList<String>(courseMap.keySet());
+		for ( int i = 0; i < array.size(); i++ ) {
+			if(array.get(i) != array.get(array.size() - 1)) {
+				s += array.get(i) + "\n";
+			}
+			else {
+				s += array.get(i);
+			}
+		}
+		return s;
 	}
 }

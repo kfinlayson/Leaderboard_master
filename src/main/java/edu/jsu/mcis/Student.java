@@ -13,7 +13,6 @@ public class Student {
 		firstName = " ";
 		lastName = " ";
 		email = " ";
-		
 	}
 
 	public String getID() {
