@@ -11,6 +11,8 @@ public class GamegogyKeywords {
 	private String arg2;
 	private Student studentData;
 	private Course courseData;
+	private String allStudentIDs;
+	private String allCourseIDs;
 	private boolean argumentGiven;
 	
 	public GamegogyKeywords() {
@@ -18,6 +20,8 @@ public class GamegogyKeywords {
 		rt = Runtime.getRuntime();
 		arg1 = "";
 		arg2 = "";
+		allStudentIDs = "";
+		allCourseIDs = "";
 		studentData = new Student();
 		courseData = new Course();
 		argumentGiven = false;
@@ -26,6 +30,21 @@ public class GamegogyKeywords {
 	public void startGamegogyCLIWithArguments() {
 		try {
 			rt.exec("java Gamegogy ");
+		}
+		catch(IOException e) {};
+	}
+	
+	public void startGamegogyCLIWithArguments(String arg1) {
+		this.arg1 = arg1;
+		try {
+			rt.exec("java Gamegogy " + arg1);
+			if(arg1.equals("studentids")) {
+				allStudentIDs = data.getAllStudentIDs();
+			}
+			if(arg1.equals("courseids")) {
+				allCourseIDs = data.getAllCourseIDs();
+			}
+			argumentGiven = true;
 		}
 		catch(IOException e) {};
 	}
@@ -54,16 +73,30 @@ public class GamegogyKeywords {
 			if(arg1.equals("course")) {
 				return courseData.toString();
 			}
+			if(arg1.equals("studentids")) {
+				return allStudentIDs;
+			}
+			if(arg1.equals("courseids")) {
+				return allCourseIDs;
+			}
 		}
 		return "";
 	}
 	
-	public void loadStudentData(String studentID) {
+	public void loadStudentData() {
 		studentData = data.getStudent(arg2);
 	}
 	
-	public void loadCourseData(String courseID) {
+	public void loadCourseData() {
 		courseData = data.getCourse(arg2);
+	}
+	
+	public void loadStudentList() {
+		allStudentIDs = data.getAllStudentIDs();
+	} 
+	
+	public void loadCourseList() {
+		allCourseIDs = data.getAllCourseIDs();
 	}
 
 }

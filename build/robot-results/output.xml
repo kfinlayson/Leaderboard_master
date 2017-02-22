@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_111)" generated="20170222 11:18:40.204">
+<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_111)" generated="20170222 11:47:09.762">
 <suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest" name="Acceptancetest" id="s1">
 <suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest\feature01.robot" name="Feature01" id="s1-s1">
 <test name="Test Gamegogy Load Student Data" id="s1-s1-t1">
@@ -8,14 +8,14 @@
 <arg>student</arg>
 <arg>111128</arg>
 </arguments>
-<status endtime="20170222 11:18:41.042" starttime="20170222 11:18:41.018" status="PASS"></status>
+<status endtime="20170222 11:47:10.294" starttime="20170222 11:47:10.267" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170222 11:18:41.059">${output} = [111128] Maritza Abbott mabbott@jsu.edu</msg>
-<status endtime="20170222 11:18:41.062" starttime="20170222 11:18:41.049" status="PASS"></status>
+<msg level="INFO" timestamp="20170222 11:47:10.310">${output} = [111128] Maritza Abbott mabbott@jsu.edu</msg>
+<status endtime="20170222 11:47:10.313" starttime="20170222 11:47:10.300" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -23,9 +23,9 @@
 <arg>${f01stu_expected}</arg>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170222 11:18:41.086" starttime="20170222 11:18:41.069" status="PASS"></status>
+<status endtime="20170222 11:47:10.329" starttime="20170222 11:47:10.317" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170222 11:18:41.092" starttime="20170222 11:18:41.004" status="PASS"></status>
+<status critical="yes" endtime="20170222 11:47:10.332" starttime="20170222 11:47:10.259" status="PASS"></status>
 </test>
 <test name="Test Gamegogy Load Course Data" id="s1-s1-t2">
 <kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
@@ -33,14 +33,14 @@
 <arg>course</arg>
 <arg>99018</arg>
 </arguments>
-<status endtime="20170222 11:18:41.141" starttime="20170222 11:18:41.115" status="PASS"></status>
+<status endtime="20170222 11:47:10.362" starttime="20170222 11:47:10.346" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170222 11:18:41.154">${output} = [99018] Spring 2014 (16 students)</msg>
-<status endtime="20170222 11:18:41.156" starttime="20170222 11:18:41.145" status="PASS"></status>
+<msg level="INFO" timestamp="20170222 11:47:10.373">${output} = [99018] Spring 2014 (16 students)</msg>
+<status endtime="20170222 11:47:10.376" starttime="20170222 11:47:10.366" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -48,44 +48,148 @@
 <arg>${f01crs_expected}</arg>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170222 11:18:41.176" starttime="20170222 11:18:41.160" status="PASS"></status>
+<status endtime="20170222 11:47:10.390" starttime="20170222 11:47:10.380" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170222 11:18:41.180" starttime="20170222 11:18:41.102" status="PASS"></status>
+<status critical="yes" endtime="20170222 11:47:10.396" starttime="20170222 11:47:10.337" status="PASS"></status>
 </test>
 <test name="Test Gamegogy With No Arguments" id="s1-s1-t3">
 <kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
-<status endtime="20170222 11:18:41.225" starttime="20170222 11:18:41.205" status="PASS"></status>
+<status endtime="20170222 11:47:10.430" starttime="20170222 11:47:10.415" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170222 11:18:41.238">${output} = </msg>
-<status endtime="20170222 11:18:41.241" starttime="20170222 11:18:41.230" status="PASS"></status>
+<msg level="INFO" timestamp="20170222 11:47:10.448">${output} = </msg>
+<status endtime="20170222 11:47:10.450" starttime="20170222 11:47:10.434" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
 <arguments>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170222 11:18:41.257" starttime="20170222 11:18:41.245" status="PASS"></status>
+<status endtime="20170222 11:47:10.467" starttime="20170222 11:47:10.454" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170222 11:18:41.264" starttime="20170222 11:18:41.193" status="PASS"></status>
+<status critical="yes" endtime="20170222 11:47:10.472" starttime="20170222 11:47:10.406" status="PASS"></status>
 </test>
-<status endtime="20170222 11:18:41.278" starttime="20170222 11:18:40.890" status="PASS"></status>
+<status endtime="20170222 11:47:10.489" starttime="20170222 11:47:10.184" status="PASS"></status>
 </suite>
-<status endtime="20170222 11:18:41.309" starttime="20170222 11:18:40.243" status="PASS"></status>
+<suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest\feature02.robot" name="Feature02" id="s1-s2">
+<test name="Test Gamegogy Load Student List" id="s1-s2-t1">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>studentids</arg>
+</arguments>
+<status endtime="20170222 11:47:10.797" starttime="20170222 11:47:10.734" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170222 11:47:10.808">${output} = 111111
+111112
+111113
+111114
+111115
+111116
+111117
+111118
+111119
+111120
+111121
+111122
+111123
+111124
+111125
+111126
+111127
+111128
+111129
+111130
+111131
+111132
+111133
+111134
+111135
+111136
+111137
+111138
+1111...</msg>
+<status endtime="20170222 11:47:10.813" starttime="20170222 11:47:10.801" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f02stu_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170222 11:47:10.837" starttime="20170222 11:47:10.817" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170222 11:47:10.840" starttime="20170222 11:47:10.722" status="PASS"></status>
+</test>
+<test name="Test Gamegogy Load Course List" id="s1-s2-t2">
+<kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
+<arguments>
+<arg>courseids</arg>
+</arguments>
+<status endtime="20170222 11:47:10.871" starttime="20170222 11:47:10.852" status="PASS"></status>
+</kw>
+<kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
+<assign>
+<var>${output}</var>
+</assign>
+<msg level="INFO" timestamp="20170222 11:47:10.888">${output} = 99000
+99001
+99002
+99003
+99004
+99005
+99006
+99007
+99008
+99009
+99010
+99011
+99012
+99013
+99014
+99015
+99016
+99017
+99018
+99019
+99020
+99021
+99022
+99023
+99024</msg>
+<status endtime="20170222 11:47:10.891" starttime="20170222 11:47:10.877" status="PASS"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${f02crs_expected}</arg>
+<arg>${output}</arg>
+</arguments>
+<status endtime="20170222 11:47:10.904" starttime="20170222 11:47:10.894" status="PASS"></status>
+</kw>
+<status critical="yes" endtime="20170222 11:47:10.907" starttime="20170222 11:47:10.845" status="PASS"></status>
+</test>
+<status endtime="20170222 11:47:10.927" starttime="20170222 11:47:10.505" status="PASS"></status>
+</suite>
+<status endtime="20170222 11:47:10.942" starttime="20170222 11:47:09.802" status="PASS"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0">Critical Tests</stat>
-<stat pass="3" fail="0">All Tests</stat>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" name="Acceptancetest" id="s1">Acceptancetest</stat>
+<stat pass="5" fail="0" name="Acceptancetest" id="s1">Acceptancetest</stat>
 <stat pass="3" fail="0" name="Feature01" id="s1-s1">Acceptancetest.Feature01</stat>
+<stat pass="2" fail="0" name="Feature02" id="s1-s2">Acceptancetest.Feature02</stat>
 </suite>
 </statistics>
 <errors>

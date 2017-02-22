@@ -1,10 +1,7 @@
 package edu.jsu.mcis;
 
 public class Main {
-	
-	public Main() {
-		
-	}
+
 	
 	public static void main(String[] args) {
 		Database data = new Database();
