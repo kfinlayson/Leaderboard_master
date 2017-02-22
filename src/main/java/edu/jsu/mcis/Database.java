@@ -74,6 +74,35 @@ public class Database {
 		
 	}
 	
+	/* still needs changes to make this work correctly. Just sayin'.
+	@SuppressWarnings("unchecked")
+	private void setAssignmentMaps() {
+		String key = "";
+		for(String[] token : assignmentData) {
+			Course course = new Course();
+			if(token != assignmentData.get(0)) {
+				for(String element : token) {
+					if(element == token[0]) {
+						key = element;
+						course.setCourseID(element);
+					}
+					else if(element == token[1]) {
+						course.setCourseTerm(element);
+					}
+					else if(element == token[2]) {
+						course.setCourseYear(element);
+					}
+					else if(element == token[3]) {
+						course.setCourseSize(element);
+					}
+					courseMap.put(key, course);
+				}
+			}
+		}
+		
+	}
+	*/
+	
 	private boolean hasCourseID(String courseID) {
 		if(courseMap.containsKey(courseID)) {
 			return true;
