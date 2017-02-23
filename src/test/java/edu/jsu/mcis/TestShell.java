@@ -15,6 +15,7 @@ public class TestShell {
 	private String allStudentIDs;
 	private String allCourseIDs;
 	private HashMap studentMap;
+	private Assignment assignment;
 
     @Before
     public void setUp(){
@@ -45,6 +46,8 @@ public class TestShell {
 						"111405\n111406\n111407\n111408\n111409\n111410";
 		allCourseIDs = "99000\n99001\n99002\n99003\n99004\n99005\n99006\n99007\n99008\n99009\n99010\n99011\n99012\n99013\n99014\n99015\n" +
 					   "99016\n99017\n99018\n99019\n99020\n99021\n99022\n99023\n99024";
+					   
+		assignment = new Assignment("99000");
     }
 	
 	
@@ -87,6 +90,30 @@ public class TestShell {
 	public void testGetAllCourseIDs() {
 		String info = data.getAllCourseIDs();
 		assertEquals(allCourseIDs, info);
+	}
+	
+	//@Test
+	public void testAssignmentToStringWorks(){
+		assertEquals(assignment.toString()," ");
+	}
+	
+	@Test
+	public void testAssignmentGetMaxScore(){
+		assignment.findMaxScore("Assignment 1");
+		assertEquals("65",assignment.getMaxScore());
+	}
+	
+	@Test
+	public void testAssignmentGetMaxScoreID(){
+		assignment.findMaxScore("Assignment 1");
+		assertEquals("111318",assignment.getMaxScoreID());
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testGetAssignmentList() {
+		String[] expected = {"Total", "Assignment 1", "Assignment 2", "Assignment 3", "Assignment 4", "Assignment 5", "Assignment 6", "Assignment 7", "Assignment 8", "Assignment 9", "Exam 1" };
+		assertEquals(expected, assignment.getAssignmentList());
 	}
 	
 }
