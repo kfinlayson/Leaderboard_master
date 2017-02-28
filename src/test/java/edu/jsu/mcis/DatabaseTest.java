@@ -6,16 +6,13 @@ import org.junit.rules.ExpectedException;
 import java.io.*;
 import java.util.*;
 
-public class TestShell {
-	private Student student;
-	private Course course;
+public class DatabaseTest {
+
 	private Database data;
 	private String studentID;
 	private String courseID;
 	private String allStudentIDs;
 	private String allCourseIDs;
-	private HashMap studentMap;
-	private Assignment assignment;
 
     @Before
     public void setUp(){
@@ -47,7 +44,6 @@ public class TestShell {
 		allCourseIDs = "99000\n99001\n99002\n99003\n99004\n99005\n99006\n99007\n99008\n99009\n99010\n99011\n99012\n99013\n99014\n99015\n" +
 					   "99016\n99017\n99018\n99019\n99020\n99021\n99022\n99023\n99024";
 					   
-		assignment = new Assignment("99000");
     }
 	
 	
@@ -66,6 +62,17 @@ public class TestShell {
 	}
 	
 	@Test
+	public void testStudentGetters() {
+		String id = data.getStudent(studentID).getID();
+		String first = data.getStudent(studentID).getFirstName();
+		String last = data.getStudent(studentID).getLastName();
+		String email = data.getStudent(studentID).getStudentEmail();
+		String allGetters = id + " " + first + " " + last + " " + email;
+		String expected = "111111 Jerrod Shields jshields";
+		assertEquals(expected, allGetters);
+	}
+	
+	@Test
 	public void testGetCourseInfoByID() {
 		try {
 			String info = data.getCourse(courseID).toString();
@@ -75,9 +82,25 @@ public class TestShell {
 		catch(InvalidIDException e) {}
 	}
 	
+	@Test
+	public void testCourseGetters() {
+		String id = data.getCourse(courseID).getCourseID();
+		String term = data.getCourse(courseID).getCourseTerm();
+		String year = data.getCourse(courseID).getCourseYear();
+		String size = data.getCourse(courseID).getCourseSize();
+		String allGetters = id + " " + term + " " + year + " " + size;
+		String expected = "99018 Spring 2014 16";
+		assertEquals(expected, allGetters);
+	}
+	
 	@Test(expected=InvalidIDException.class)
-	public void testExceptionThrownWithInvalidID() {
+	public void testExceptionThrownWithInvalidStudentID() {
 		data.getStudent("");
+	}
+	
+	@Test(expected=InvalidIDException.class)
+	public void testExceptionThrownWithInvalidCourseID() {
+		data.getCourse("");
 	}
 	
 	@Test
@@ -92,28 +115,12 @@ public class TestShell {
 		assertEquals(allCourseIDs, info);
 	}
 	
-	//@Test
-	public void testAssignmentToStringWorks(){
-		assertEquals(assignment.toString()," ");
-	}
-	
-	@Test
-	public void testAssignmentGetMaxScore(){
-		assignment.findMaxScore("Assignment 1");
-		assertEquals("65",assignment.getMaxScore());
-	}
-	
-	@Test
-	public void testAssignmentGetMaxScoreID(){
-		assignment.findMaxScore("Assignment 1");
-		assertEquals("111318",assignment.getMaxScoreID());
-	}
-	
 	@SuppressWarnings("deprecation")
 	@Test
-	public void testGetAssignmentList() {
-		String[] expected = {"Total", "Assignment 1", "Assignment 2", "Assignment 3", "Assignment 4", "Assignment 5", "Assignment 6", "Assignment 7", "Assignment 8", "Assignment 9", "Exam 1" };
-		assertEquals(expected, assignment.getAssignmentList());
+	public void testGetAllCourseIDsArray() {
+		String[] allCourseIDsArray = allCourseIDs.split("\n");
+		String[] info = data.getAllCourseIDsArray();
+		assertEquals(allCourseIDsArray, info);
 	}
 	
 }

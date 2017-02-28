@@ -1,27 +1,41 @@
 package edu.jsu.mcis;
 
+import java.io.*;
 import java.util.*;
+import au.com.bytecode.opencsv.*;
 
 public class Database {
 	
-	private DataReader reader;
-	private List<String[]> studentData;
-	private List<String[]> courseData;
-	private TreeMap<String, Student> studentMap;
-	private TreeMap<String, Course> courseMap;
+	private Map<String, Student> studentMap;
+	private Map<String, Course> courseMap;
 	
 	public Database() {
-		reader = new DataReader();
-		studentData = reader.getStudentData();
-		courseData = reader.getCourseData();
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
-		setStudentMaps();
-		setCourseMaps();
+		readData();
+	}
+	
+	private void readData() {
+		try{
+			CSVReader studentReader = new CSVReader(new FileReader("src/main/resources/students.csv"));
+			try{
+				List<String[]> studentData =  studentReader.readAll();
+				setStudentMaps(studentData);
+			}
+			catch(IOException e) {}
+			
+			CSVReader courseReader = new CSVReader(new FileReader("src/main/resources/courses.csv"));
+			try{
+				List<String[]> courseData =  courseReader.readAll();
+				setCourseMaps(courseData);
+			}
+			catch(IOException e) {}
+		}
+		catch(FileNotFoundException e) {}
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void setStudentMaps() {
+	private void setStudentMaps(List<String[]> studentData) {
 		String key = "";
 		for(String[] token : studentData) {
 			Student student = new Student();
@@ -48,7 +62,7 @@ public class Database {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void setCourseMaps() {
+	private void setCourseMaps(List<String[]> courseData) {
 		String key = "";
 		for(String[] token : courseData) {
 			Course course = new Course();
@@ -73,7 +87,6 @@ public class Database {
 		}
 		
 	}
-	
 	
 	private boolean hasCourseID(String courseID) {
 		if(courseMap.containsKey(courseID)) {

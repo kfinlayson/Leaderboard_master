@@ -1,31 +1,42 @@
 package edu.jsu.mcis;
 
+import java.io.*;
 import java.util.*;
+import au.com.bytecode.opencsv.*;
 
 public class Assignment {
-	private List<String[]> data;
+	
 	private String maxScore;
 	private String maxScoreID;
-	private DataReader reader;
 	private String[][] assignmentArray;
 	private String[] assignmentList;
 	
 	public Assignment(String course){
-		reader = new DataReader(course);
-		data = reader.getAssignmentData();
-		int rowSize = data.size();
-		int colSize = data.get(0).length;
-		assignmentList = new String[rowSize-1];
-		assignmentArray = new String[rowSize][colSize];
-		for(int i = 0; i < rowSize; i++) {
-			for(int j = 0; j < colSize; j++) {
-				assignmentArray[i][j] = data.get(i)[j];
+		readData(course);
+	}
+	
+	private void readData(String fileName) {
+		try{
+			CSVReader assignmentReader = new CSVReader(new FileReader("src/main/resources/courses/" + fileName + ".csv"));
+			try{
+				List<String[]> assignmentData =  assignmentReader.readAll();
+				int rowSize = assignmentData.size();
+				int colSize = assignmentData.get(0).length;
+				assignmentList = new String[rowSize-1];
+				assignmentArray = new String[rowSize][colSize];
+				for(int i = 0; i < rowSize; i++) {
+					for(int j = 0; j < colSize; j++) {
+						assignmentArray[i][j] = assignmentData.get(i)[j];
+					}
+				}
 			}
+			catch(IOException e) {}
+			
 		}
+		catch(FileNotFoundException e) {}
 	}
 	
 	public void findMaxScore(String assignment) {
-		int correctCol = 0;
 		int max = 0;
 		int temp = 0;
 		for(int i = 0; i < assignmentArray.length; i++) {
@@ -57,16 +68,5 @@ public class Assignment {
 	
 	public String getMaxScoreID() {
 		return maxScoreID;
-	}
-	@Override
-	public String toString(){
-		String s = "";
-		for(int i = 0; i < assignmentArray.length; i++){
-			for(int j = 0; j < assignmentArray[0].length;j++){
-				s += " " + assignmentArray[i][j];
-			}
-			s += "\n";
-		}
-		return s;
 	}
 }

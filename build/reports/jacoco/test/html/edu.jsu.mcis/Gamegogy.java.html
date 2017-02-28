@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Gamegogy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Leaderboard_master</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis</a> &gt; <span class="el_source">Gamegogy.java</span></div><h1>Gamegogy.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis;
+
+import java.awt.*;
+import java.awt.event.*; 
+import java.awt.event.ActionListener; 
+import java.awt.event.ActionEvent; 
+import javax.swing.*;
+
+public class Gamegogy extends JPanel{
+	
+	private Database database;
+	
+	private JComboBox courseComboBox;
+	private JComboBox columnComboBox;
+
+	private JLabel courseTerm;
+	private JLabel courseEnrollment;
+	private JLabel studentId;
+	private JLabel studentName;
+	private JLabel studentEmail;
+	private JLabel studentScore;
+	
+	@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L24">	public Gamegogy() {</span>
+		
+<span class="nc" id="L26">		database = new Database();</span>
+<span class="nc" id="L27">		courseComboBox = new JComboBox(database.getAllCourseIDsArray());</span>
+<span class="nc" id="L28">		courseComboBox.setName(&quot;courseComboBox&quot;);</span>
+		
+<span class="nc" id="L30">		courseComboBox.setSelectedIndex(0);</span>
+<span class="nc" id="L31">		Assignment assignment = new Assignment(&quot;99000&quot;);</span>
+		
+<span class="nc" id="L33">		columnComboBox = new JComboBox(assignment.getAssignmentList());</span>
+<span class="nc" id="L34">		columnComboBox.setName(&quot;columnComboBox&quot;);</span>
+		
+<span class="nc" id="L36">		columnComboBox.setSelectedIndex(0);</span>
+		
+<span class="nc" id="L38">		courseComboBox.setPreferredSize(new Dimension(100,65));</span>
+<span class="nc" id="L39">		columnComboBox.setPreferredSize(new Dimension(100,65));</span>
+<span class="nc" id="L40">		JLabel courseLabel = new JLabel(&quot;Course&quot;);</span>
+<span class="nc" id="L41">		JLabel columnLabel = new JLabel(&quot;Column&quot;);</span>
+		
+<span class="nc" id="L43">		JPanel dropDownGrid = new JPanel();</span>
+<span class="nc" id="L44">		dropDownGrid.setLayout(new GridLayout(1,5));</span>
+<span class="nc" id="L45">		dropDownGrid.add(courseLabel);</span>
+<span class="nc" id="L46">		dropDownGrid.add(courseComboBox);</span>
+<span class="nc" id="L47">		dropDownGrid.add(new JLabel(&quot;&quot;));</span>
+<span class="nc" id="L48">		dropDownGrid.add(columnLabel);</span>
+<span class="nc" id="L49">		dropDownGrid.add(columnComboBox);</span>
+		
+<span class="nc" id="L51">		JPanel labelGridMain = new JPanel();</span>
+<span class="nc" id="L52">		labelGridMain.setLayout(new GridLayout(1,3));</span>
+<span class="nc" id="L53">		JPanel labelGrid1 = new JPanel();</span>
+<span class="nc" id="L54">		labelGrid1.setLayout(new GridLayout(1,2));</span>
+<span class="nc" id="L55">		JPanel labelGrid2 = new JPanel();</span>
+<span class="nc" id="L56">		labelGrid2.setLayout(new GridLayout(1,2));</span>
+		
+<span class="nc" id="L58">		JLabel courseTermLabel = new JLabel(&quot;Term: &quot;);</span>
+<span class="nc" id="L59">		Course course = database.getCourse(courseComboBox.getSelectedItem().toString());</span>
+<span class="nc" id="L60">		courseTerm = new JLabel(course.getCourseTerm() + &quot; &quot; + course.getCourseYear());</span>
+<span class="nc" id="L61">		courseTerm.setName(&quot;courseTerm&quot;);</span>
+<span class="nc" id="L62">		labelGrid1.add(courseTermLabel);</span>
+<span class="nc" id="L63">		labelGrid1.add(courseTerm);</span>
+		
+<span class="nc" id="L65">		JLabel courseEnrollmentLabel = new JLabel(&quot;Enrollment: &quot;);</span>
+<span class="nc" id="L66">		courseEnrollment = new JLabel(course.getCourseSize()); </span>
+<span class="nc" id="L67">		courseEnrollment.setName(&quot;courseEnrollment&quot;);</span>
+<span class="nc" id="L68">		labelGrid2.add(courseEnrollmentLabel);</span>
+<span class="nc" id="L69">		labelGrid2.add(courseEnrollment);</span>
+		
+<span class="nc" id="L71">		labelGridMain.add(labelGrid1);</span>
+<span class="nc" id="L72">		labelGridMain.add(new JLabel(&quot;&quot;));</span>
+<span class="nc" id="L73">		labelGridMain.add(labelGrid2);</span>
+		
+<span class="nc" id="L75">		JPanel studentInfoBoxMain = new JPanel();</span>
+<span class="nc" id="L76">		studentInfoBoxMain.setLayout(new GridLayout(1,2));</span>
+		
+<span class="nc" id="L78">		JPanel studentInfoBox1 = new JPanel();</span>
+<span class="nc" id="L79">		studentInfoBox1.setLayout(new GridLayout(4,1));</span>
+		
+<span class="nc" id="L81">		JLabel studentIdLabel = new JLabel(&quot;ID: &quot;);</span>
+<span class="nc" id="L82">		studentInfoBox1.add(studentIdLabel);</span>
+		
+<span class="nc" id="L84">		JLabel studentNameLabel = new JLabel(&quot;Name: &quot;);</span>
+<span class="nc" id="L85">		studentInfoBox1.add(studentNameLabel);</span>
+		
+<span class="nc" id="L87">		JLabel studentEmailLabel = new JLabel(&quot;Email: &quot;);</span>
+<span class="nc" id="L88">		studentInfoBox1.add(studentEmailLabel);</span>
+		
+<span class="nc" id="L90">		JLabel studentScoreLabel = new JLabel(&quot;Score: &quot;);</span>
+<span class="nc" id="L91">		studentInfoBox1.add(studentScoreLabel);</span>
+		
+<span class="nc" id="L93">		JPanel studentInfoBox2 = new JPanel();</span>
+<span class="nc" id="L94">		studentInfoBox2.setLayout(new GridLayout(4,1));</span>
+		
+		
+<span class="nc" id="L97">		assignment.findMaxScore(columnComboBox.getSelectedItem().toString());</span>
+<span class="nc" id="L98">		Student student = database.getStudent(assignment.getMaxScoreID());</span>
+<span class="nc" id="L99">		studentId = new JLabel(student.getID());</span>
+<span class="nc" id="L100">		studentId.setName(&quot;studentId&quot;);</span>
+<span class="nc" id="L101">		studentInfoBox2.add(studentId);</span>
+<span class="nc" id="L102">		studentName = new JLabel(student.getFirstName() + &quot; &quot; + student.getLastName());</span>
+<span class="nc" id="L103">		studentName.setName(&quot;studentName&quot;);</span>
+<span class="nc" id="L104">		studentInfoBox2.add(studentName);</span>
+<span class="nc" id="L105">		studentEmail = new JLabel(student.getStudentEmail() + &quot;@jsu.edu&quot;);</span>
+<span class="nc" id="L106">		studentEmail.setName(&quot;studentEmail&quot;);</span>
+<span class="nc" id="L107">		studentInfoBox2.add(studentEmail);</span>
+<span class="nc" id="L108">		studentScore = new JLabel(assignment.getMaxScore());</span>
+<span class="nc" id="L109">		studentScore.setName(&quot;studentScore&quot;);</span>
+<span class="nc" id="L110">		studentInfoBox2.add(studentScore);</span>
+		
+<span class="nc" id="L112">		studentInfoBoxMain.add(studentInfoBox1);</span>
+<span class="nc" id="L113">		studentInfoBoxMain.add(studentInfoBox2);</span>
+		
+<span class="nc" id="L115">		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));</span>
+		
+<span class="nc" id="L117">		setLayout(new GridLayout(3,1));</span>
+<span class="nc" id="L118">		add(dropDownGrid);</span>
+<span class="nc" id="L119">		add(labelGridMain);</span>
+<span class="nc" id="L120">		add(studentInfoBoxMain);</span>
+		
+<span class="nc" id="L122">		courseComboBox.addItemListener(new ItemListener(){</span>
+			public void itemStateChanged(ItemEvent item){
+<span class="nc" id="L124">				String course = (String)courseComboBox.getSelectedItem();</span>
+<span class="nc" id="L125">				Assignment temp = new Assignment(course);</span>
+<span class="nc" id="L126">				DefaultComboBoxModel model = new DefaultComboBoxModel(temp.getAssignmentList());</span>
+<span class="nc" id="L127">				columnComboBox.setModel(model);</span>
+<span class="nc" id="L128">			}</span>
+		});
+<span class="nc" id="L130">		columnComboBox.addItemListener(new ItemListener(){</span>
+			public void itemStateChanged(ItemEvent item){
+<span class="nc" id="L132">				String course = (String)courseComboBox.getSelectedItem();</span>
+<span class="nc" id="L133">				Assignment temp = new Assignment(course);</span>
+				
+<span class="nc" id="L135">				String assignmentString = (String)columnComboBox.getSelectedItem();</span>
+<span class="nc" id="L136">				courseTerm.setText(database.getCourse(course).getCourseTerm() + &quot; &quot; + database.getCourse(course).getCourseYear());</span>
+<span class="nc" id="L137">				courseEnrollment.setText(database.getCourse(course).getCourseSize());</span>
+				
+<span class="nc" id="L139">				temp.findMaxScore(assignmentString);</span>
+<span class="nc" id="L140">				studentId.setText(temp.getMaxScoreID());</span>
+<span class="nc" id="L141">				studentName.setText(database.getStudent(temp.getMaxScore()).getFirstName() + &quot; &quot; + database.getStudent(temp.getMaxScore()).getLastName()) ;</span>
+<span class="nc" id="L142">				studentEmail.setText(database.getStudent(temp.getMaxScore()).getStudentEmail() + &quot;@jsu.edu&quot;);</span>
+<span class="nc" id="L143">				studentScore.setText(temp.getMaxScore());</span>
+<span class="nc" id="L144">			}</span>
+		});
+<span class="nc" id="L146">	}</span>
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

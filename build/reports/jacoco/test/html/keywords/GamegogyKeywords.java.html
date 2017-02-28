@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GamegogyKeywords.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Leaderboard_master</a> &gt; <a href="index.source.html" class="el_package">keywords</a> &gt; <span class="el_source">GamegogyKeywords.java</span></div><h1>GamegogyKeywords.java</h1><pre class="source lang-java linenums">package keywords;
+
+import edu.jsu.mcis.*;
+import java.io.*;
+
+public class GamegogyKeywords {
+    
+	private Database data;
+	private Runtime rt;
+	private String arg1;
+	private String arg2;
+	private Student studentData;
+	private Course courseData;
+	private String allStudentIDs;
+	private String allCourseIDs;
+	private boolean argumentGiven;
+	
+<span class="nc" id="L18">	public GamegogyKeywords() {</span>
+<span class="nc" id="L19">		data = new Database();</span>
+<span class="nc" id="L20">		rt = Runtime.getRuntime();</span>
+<span class="nc" id="L21">		arg1 = &quot;&quot;;</span>
+<span class="nc" id="L22">		arg2 = &quot;&quot;;</span>
+<span class="nc" id="L23">		allStudentIDs = &quot;&quot;;</span>
+<span class="nc" id="L24">		allCourseIDs = &quot;&quot;;</span>
+<span class="nc" id="L25">		studentData = new Student();</span>
+<span class="nc" id="L26">		courseData = new Course();</span>
+<span class="nc" id="L27">		argumentGiven = false;</span>
+<span class="nc" id="L28">	}</span>
+	
+	public void startGamegogyCLIWithArguments() {
+		try {
+<span class="nc" id="L32">			rt.exec(&quot;java Gamegogy &quot;);</span>
+		}
+<span class="nc" id="L34">		catch(IOException e) {};</span>
+<span class="nc" id="L35">	}</span>
+	
+	public void startGamegogyCLIWithArguments(String arg1) {
+<span class="nc" id="L38">		this.arg1 = arg1;</span>
+		try {
+<span class="nc" id="L40">			rt.exec(&quot;java Gamegogy &quot; + arg1);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">			if(arg1.equals(&quot;studentids&quot;)) {</span>
+<span class="nc" id="L42">				allStudentIDs = data.getAllStudentIDs();</span>
+			}
+<span class="nc bnc" id="L44" title="All 2 branches missed.">			if(arg1.equals(&quot;courseids&quot;)) {</span>
+<span class="nc" id="L45">				allCourseIDs = data.getAllCourseIDs();</span>
+			}
+<span class="nc" id="L47">			argumentGiven = true;</span>
+		}
+<span class="nc" id="L49">		catch(IOException e) {};</span>
+<span class="nc" id="L50">	}</span>
+	
+	public void startGamegogyCLIWithArguments(String arg1, String arg2) {
+<span class="nc" id="L53">		this.arg1 = arg1;</span>
+<span class="nc" id="L54">		this.arg2 = arg2;</span>
+		try {
+<span class="nc" id="L56">			rt.exec(&quot;java Gamegogy &quot; + arg1 + &quot; &quot; + arg2);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">			if(arg1.equals(&quot;student&quot;)) {</span>
+<span class="nc" id="L58">				studentData = data.getStudent(arg2);</span>
+			}
+<span class="nc bnc" id="L60" title="All 2 branches missed.">			if(arg1.equals(&quot;course&quot;)) {</span>
+<span class="nc" id="L61">				courseData = data.getCourse(arg2);</span>
+			}
+<span class="nc" id="L63">			argumentGiven = true;</span>
+		}
+<span class="nc" id="L65">		catch(IOException e) {};</span>
+<span class="nc" id="L66">	}</span>
+	
+	public String getCommandLineOutput() {
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		if(argumentGiven) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">			if(arg1.equals(&quot;student&quot;)) {</span>
+<span class="nc" id="L71">				return studentData.toString();</span>
+			}
+<span class="nc bnc" id="L73" title="All 2 branches missed.">			if(arg1.equals(&quot;course&quot;)) {</span>
+<span class="nc" id="L74">				return courseData.toString();</span>
+			}
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			if(arg1.equals(&quot;studentids&quot;)) {</span>
+<span class="nc" id="L77">				return allStudentIDs;</span>
+			}
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			if(arg1.equals(&quot;courseids&quot;)) {</span>
+<span class="nc" id="L80">				return allCourseIDs;</span>
+			}
+		}
+<span class="nc" id="L83">		return &quot;&quot;;</span>
+	}
+	
+	public void loadStudentData() {
+<span class="nc" id="L87">		studentData = data.getStudent(arg2);</span>
+<span class="nc" id="L88">	}</span>
+	
+	public void loadCourseData() {
+<span class="nc" id="L91">		courseData = data.getCourse(arg2);</span>
+<span class="nc" id="L92">	}</span>
+	
+	public void loadStudentList() {
+<span class="nc" id="L95">		allStudentIDs = data.getAllStudentIDs();</span>
+<span class="nc" id="L96">	} </span>
+	
+	public void loadCourseList() {
+<span class="nc" id="L99">		allCourseIDs = data.getAllCourseIDs();</span>
+<span class="nc" id="L100">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
