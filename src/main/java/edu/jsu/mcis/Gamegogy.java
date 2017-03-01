@@ -34,7 +34,7 @@ public class Gamegogy extends JPanel{
 		});
 		courseComboBox.setSelectedIndex(0);
 		
-		columnComboBox = new JComboBox( new Assignment(database.getAllCourseIDsArray()[0]).getAssignmentList());
+		//columnComboBox = new JComboBox( new Grades(database.getAllCourseIDsArray()[0]).getAssignmentList());
 		columnComboBox.setName("columnComboBox");
 		columnComboBox.setSelectedIndex(0);
 		columnComboBox.addItemListener(new ItemListener(){
@@ -118,19 +118,21 @@ public class Gamegogy extends JPanel{
 	}
 	
 	private void updateColumnComboBox(){
-			String course = (String)courseComboBox.getSelectedItem();
-			Assignment temp = new Assignment(course);
+			String courseID = (String)courseComboBox.getSelectedItem();
+			Course course = database.getCourse(courseID);
+			Grades temp = course.getGrades();
 			DefaultComboBoxModel model = new DefaultComboBoxModel(temp.getAssignmentList());
 			columnComboBox = new JComboBox(model);
 			//columnComboBox.setSelectedIndex(0);
 	}
 	private void updateLabels(){
-			String course = (String)courseComboBox.getSelectedItem();
-			Assignment temp = new Assignment(course);
+			String courseID = (String)courseComboBox.getSelectedItem();
+			Course course = database.getCourse(courseID);
+			Grades temp = course.getGrades();
 				
 			String assignmentString = (String)columnComboBox.getSelectedItem();
-			courseTerm.setText(database.getCourse(course).getCourseTerm() + " " + database.getCourse(course).getCourseYear());
-			courseEnrollment.setText(database.getCourse(course).getCourseSize());
+			courseTerm.setText(database.getCourse(courseID).getCourseTerm() + " " + database.getCourse(courseID).getCourseYear());
+			courseEnrollment.setText(database.getCourse(courseID).getCourseSize());
 				
 			temp.findMaxScore(assignmentString);
 			studentId.setText(temp.getMaxScoreID());

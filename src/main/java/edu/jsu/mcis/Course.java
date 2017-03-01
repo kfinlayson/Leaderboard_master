@@ -1,20 +1,49 @@
 package edu.jsu.mcis;
 
+import java.io.*;
+import au.com.bytecode.opencsv.*;
 import java.util.*;
 
 public class Course {
+	
 	private String courseID;
 	private String term;
 	private String year;
 	private String classSize;
-	
-	
+	private Grades grades;
+
 	public Course() {
 		courseID = " ";
 		term = " ";
 		year = " ";
 		classSize = " ";
 		
+	}
+	
+	private void readData(String fileName) {
+		try{
+			CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + fileName + ".csv"));
+			try{
+				List<String[]> gradesData =  gradesReader.readAll();
+				int rowSize = gradesData.size();
+				int colSize = gradesData.get(0).length;
+				String[][] gradesArray = new String[rowSize][colSize];
+				for(int i = 0; i < rowSize; i++) {
+					for(int j = 0; j < colSize; j++) {
+						gradesArray[i][j] = gradesData.get(i)[j];
+					}
+				}
+				grades = new Grades(gradesArray);
+			}
+			catch(IOException e) {}
+			
+		}
+		catch(FileNotFoundException e) {}
+	}
+	
+	public Grades getGrades() {
+		readData(courseID);
+		return grades;
 	}
 	
 	public String getCourseID() {

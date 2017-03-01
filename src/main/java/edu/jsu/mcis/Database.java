@@ -15,6 +15,7 @@ public class Database {
 		readData();
 	}
 	
+	//replace path with file name passed by user
 	private void readData() {
 		try{
 			CSVReader studentReader = new CSVReader(new FileReader("src/main/resources/students.csv"));
@@ -41,17 +42,17 @@ public class Database {
 			Student student = new Student();
 			if(token != studentData.get(0)) {
 				for(String element : token) {
-					if(element == token[0]) {
+					if(element.equals(token[0])) {
 						key = element;
 						student.setID(element);
 					}
-					else if(element == token[1]) {
+					else if(element.equals(token[1])) {
 						student.setFirstName(element);
 					}
-					else if(element == token[2]) {
+					else if(element.equals(token[2])) {
 						student.setLastName(element);
 					}
-					else if(element == token[3]) {
+					else if(element.equals(token[3])) {
 						student.setStudentEmail(element);
 					}
 					studentMap.put(key, student);
@@ -68,17 +69,17 @@ public class Database {
 			Course course = new Course();
 			if(token != courseData.get(0)) {
 				for(String element : token) {
-					if(element == token[0]) {
+					if(element.equals(token[0])) {
 						key = element;
 						course.setCourseID(element);
 					}
-					else if(element == token[1]) {
+					else if(element.equals(token[1])) {
 						course.setCourseTerm(element);
 					}
-					else if(element == token[2]) {
+					else if(element.equals(token[2])) {
 						course.setCourseYear(element);
 					}
-					else if(element == token[3]) {
+					else if(element.equals(token[3])) {
 						course.setCourseSize(element);
 					}
 					courseMap.put(key, course);
