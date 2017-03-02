@@ -95,11 +95,13 @@ public class GradesTest {
 		Map<String,Integer> actual = grades.getAssignmentGrades("Assignment 1");
 		assertEquals(expected, actual);
 	}
-	
-	@SuppressWarnings("deprecation")
+
 	@Test
 	public void testGetAssignmentList() {
-		String[] expected = {"Total", "Assignment 1", "Assignment 2", "Assignment 3", "Assignment 4", "Assignment 5", "Assignment 6", "Assignment 7", "Assignment 8", "Assignment 9", "Exam 1" };
-		assertEquals(expected, grades.getAssignmentList());
+		String[] expected = { "Total", "Assignment 1", "Assignment 2", "Assignment 3", "Assignment 4", "Assignment 5", "Assignment 6", "Assignment 7", "Assignment 8", "Assignment 9", "Exam 1" };
+		String[] actual = grades.getAssignmentList();
+		for(int i = 0; i < expected.length; i++) {
+			assertEquals(expected[i], actual[i]);
+		}
 	}
 }

@@ -33,60 +33,102 @@ public class Grades {
 	
 <span class="fc" id="L34">	}</span>
 	
-	public int getStudentAssignmentGrade(String id, String assignment) {
-<span class="fc" id="L37">		int grade = 0;</span>
-<span class="fc bfc" id="L38" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray.length; i++) {</span>
-<span class="fc bfc" id="L39" title="All 2 branches covered.">			if(gradesArray[0][i].equals(assignment)) {</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">				for(int j = 0; j &lt; gradesArray[0].length; j++) {</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">					if(gradesArray[j][0].equals(id)) {</span>
-<span class="fc" id="L42">						grade = Integer.parseInt(gradesArray[j][i]);</span>
+	public int getStudentAssignmentGrade(String studentID, String assignment) throws InvalidIDException {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">		if(!hasStudentID(studentID)) {</span>
+<span class="fc" id="L38">			String s = &quot;The ID &quot; + studentID + &quot; is invalid or does not exist&quot;;</span>
+<span class="fc" id="L39">			throw new InvalidIDException(s);</span>
+		}
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		else if(!hasAssignment(assignment)) {</span>
+<span class="fc" id="L42">			String s = &quot;The assignment &quot; + assignment + &quot; is invalid or does not exist&quot;;</span>
+<span class="fc" id="L43">			throw new InvalidIDException(s);</span>
+		}
+		else {
+<span class="fc" id="L46">			int grade = 0;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			for(int i = 0; i &lt; gradesArray.length; i++) {</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">				if(gradesArray[0][i].equals(assignment)) {</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">					for(int j = 0; j &lt; gradesArray[0].length; j++) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">						if(gradesArray[j][0].equals(studentID)) {</span>
+<span class="fc" id="L51">							grade = Integer.parseInt(gradesArray[j][i]);</span>
+						}
 					}
 				}
 			}
+<span class="fc" id="L56">			return grade;</span>
 		}
-<span class="fc" id="L47">		return grade;</span>
 	}
 	
-	public Map&lt;String,Integer&gt; getStudentGrades(String id) {
-<span class="fc" id="L51">		Map&lt;String,Integer&gt; studentGrades = new TreeMap&lt;String,Integer&gt;();</span>
-<span class="fc bfc" id="L52" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray[0].length; i++) {</span>
-<span class="fc bfc" id="L53" title="All 2 branches covered.">			if(gradesArray[i][0].equals(id)) {</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">				for(int j = 1; j &lt; gradesArray.length; j++) {</span>
-<span class="fc" id="L55">					int grade = Integer.parseInt(gradesArray[i][j]);</span>
-<span class="fc" id="L56">					studentGrades.put(gradesArray[0][j], grade);</span>
+	public Map&lt;String,Integer&gt; getStudentGrades(String studentID) throws InvalidIDException {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		if(!hasStudentID(studentID)) {</span>
+<span class="fc" id="L62">			String s = &quot;The ID &quot; + studentID + &quot; is invalid or does not exist&quot;;</span>
+<span class="fc" id="L63">			throw new InvalidIDException(s);</span>
+		}
+		else {
+<span class="fc" id="L66">			Map&lt;String,Integer&gt; studentGrades = new TreeMap&lt;String,Integer&gt;();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			for(int i = 0; i &lt; gradesArray[0].length; i++) {</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">				if(gradesArray[i][0].equals(studentID)) {</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">					for(int j = 1; j &lt; gradesArray.length; j++) {</span>
+<span class="fc" id="L70">						int grade = Integer.parseInt(gradesArray[i][j]);</span>
+<span class="fc" id="L71">						studentGrades.put(gradesArray[0][j], grade);</span>
+					}
 				}
 			}
+<span class="fc" id="L75">			return studentGrades;</span>
 		}
-<span class="fc" id="L60">		return studentGrades;</span>
+		
 	}
 	
-	public Map&lt;String,Integer&gt; getAssignmentGrades(String assignment) {
-<span class="fc" id="L64">		Map&lt;String,Integer&gt; assignmentGrades = new TreeMap&lt;String,Integer&gt;();</span>
-<span class="fc bfc" id="L65" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray.length; i++) {</span>
-<span class="fc bfc" id="L66" title="All 2 branches covered.">			if(gradesArray[0][i].equals(assignment)) {</span>
-<span class="fc bfc" id="L67" title="All 2 branches covered.">				for(int j = 1; j &lt; gradesArray[0].length; j++) {</span>
-<span class="fc" id="L68">					int grade = Integer.parseInt(gradesArray[j][i]);</span>
-<span class="fc" id="L69">					assignmentGrades.put(gradesArray[j][0], grade);</span>
+	public Map&lt;String,Integer&gt; getAssignmentGrades(String assignment) throws InvalidIDException {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">		if(!hasAssignment(assignment)) {</span>
+<span class="fc" id="L82">			String s = &quot;The assignment &quot; + assignment + &quot; is invalid or does not exist&quot;;</span>
+<span class="fc" id="L83">			throw new InvalidIDException(s);</span>
+		}
+		else {
+<span class="fc" id="L86">			Map&lt;String,Integer&gt; assignmentGrades = new TreeMap&lt;String,Integer&gt;();</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">			for(int i = 0; i &lt; gradesArray.length; i++) {</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">				if(gradesArray[0][i].equals(assignment)) {</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">					for(int j = 1; j &lt; gradesArray[0].length; j++) {</span>
+<span class="fc" id="L90">						int grade = Integer.parseInt(gradesArray[j][i]);</span>
+<span class="fc" id="L91">						assignmentGrades.put(gradesArray[j][0], grade);</span>
+					}
 				}
 			}
+<span class="fc" id="L95">			return assignmentGrades;</span>
 		}
-<span class="fc" id="L73">		return assignmentGrades;</span>
+		
+	}
+	
+	private boolean hasStudentID(String studentID) {
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		for(int i = 1; i &lt; gradesArray[0].length; i++) {</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">			if(gradesArray[i][0].equals(studentID)) {</span>
+<span class="fc" id="L103">				return true;</span>
+			}
+		}
+<span class="fc" id="L106">		return false;</span>
+	}
+	
+	private boolean hasAssignment(String assignment) {
+<span class="fc bfc" id="L110" title="All 2 branches covered.">		for(int i = 1; i &lt; gradesArray[0].length; i++) {</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">			if(gradesArray[0][i].equals(assignment)) {</span>
+<span class="fc" id="L112">				return true;</span>
+			}
+		}
+<span class="fc" id="L115">		return false;</span>
 	}
 	
 	public String[] getAssignmentList() {
-<span class="fc" id="L77">		String[] assignmentList = new String[gradesArray.length-1];</span>
-<span class="fc bfc" id="L78" title="All 2 branches covered.">		for(int i = 1; i &lt; gradesArray.length; i++) {</span>
-<span class="fc" id="L79">			assignmentList[i-1] = gradesArray[0][i];</span>
+<span class="fc" id="L119">		String[] assignmentList = new String[gradesArray.length];</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">		for(int i = 1; i &lt; gradesArray.length; i++) {</span>
+<span class="fc" id="L121">			assignmentList[i-1] = gradesArray[0][i];</span>
 		}
-<span class="fc" id="L81">		return assignmentList;</span>
+<span class="fc" id="L123">		return assignmentList;</span>
 	}
 	
 	public String getMaxScore(){
-<span class="fc" id="L85">		return maxScore;</span>
+<span class="fc" id="L127">		return maxScore;</span>
 	}
 	
 	public String getMaxScoreID() {
-<span class="fc" id="L89">		return maxScoreID;</span>
+<span class="fc" id="L131">		return maxScoreID;</span>
 	}
 	
 }

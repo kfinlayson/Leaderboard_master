@@ -33,114 +33,115 @@ public class Gamegogy extends JPanel{
 <span class="nc" id="L33">			}</span>
 		});
 <span class="nc" id="L35">		courseComboBox.setSelectedIndex(0);</span>
-		
-		//columnComboBox = new JComboBox( new Grades(database.getAllCourseIDsArray()[0]).getAssignmentList());
-<span class="nc" id="L38">		columnComboBox.setName(&quot;columnComboBox&quot;);</span>
-<span class="nc" id="L39">		columnComboBox.setSelectedIndex(0);</span>
-<span class="nc" id="L40">		columnComboBox.addItemListener(new ItemListener(){</span>
+<span class="nc" id="L36">		Course course = database.getCourse((String)courseComboBox.getSelectedItem());</span>
+<span class="nc" id="L37">		Grades grades = course.getGrades();</span>
+<span class="nc" id="L38">		columnComboBox = new JComboBox(grades.getAssignmentList());</span>
+<span class="nc" id="L39">		columnComboBox.setName(&quot;columnComboBox&quot;);</span>
+<span class="nc" id="L40">		columnComboBox.setSelectedIndex(0);</span>
+<span class="nc" id="L41">		columnComboBox.addItemListener(new ItemListener(){</span>
 			public void itemStateChanged(ItemEvent item){
-<span class="nc" id="L42">				updateLabels();</span>
-<span class="nc" id="L43">			}</span>
+<span class="nc" id="L43">				updateLabels();</span>
+<span class="nc" id="L44">			}</span>
 		});
 		
 		
-<span class="nc" id="L47">		courseComboBox.setPreferredSize(new Dimension(100,65));</span>
-<span class="nc" id="L48">		columnComboBox.setPreferredSize(new Dimension(100,65));</span>
+<span class="nc" id="L48">		courseComboBox.setPreferredSize(new Dimension(100,65));</span>
+<span class="nc" id="L49">		columnComboBox.setPreferredSize(new Dimension(100,65));</span>
 		
-<span class="nc" id="L50">		JPanel dropDownGrid = new JPanel();</span>
-<span class="nc" id="L51">		dropDownGrid.setLayout(new GridLayout(1,5));</span>
-<span class="nc" id="L52">		dropDownGrid.add(new JLabel(&quot;Course&quot;));</span>
-<span class="nc" id="L53">		dropDownGrid.add(courseComboBox);</span>
-<span class="nc" id="L54">		dropDownGrid.add(new JLabel(&quot;&quot;));</span>
-<span class="nc" id="L55">		dropDownGrid.add(new JLabel(&quot;Column&quot;));</span>
-<span class="nc" id="L56">		dropDownGrid.add(columnComboBox);</span>
-		
-		
-<span class="nc" id="L59">		JPanel labelGridMain = new JPanel();</span>
-<span class="nc" id="L60">		labelGridMain.setLayout(new GridLayout(1,3));</span>
-<span class="nc" id="L61">		JPanel labelGrid1 = new JPanel();</span>
-<span class="nc" id="L62">		labelGrid1.setLayout(new GridLayout(1,2));</span>
-<span class="nc" id="L63">		JPanel labelGrid2 = new JPanel();</span>
-<span class="nc" id="L64">		labelGrid2.setLayout(new GridLayout(1,2));</span>
-		
-<span class="nc" id="L66">		courseTerm = new JLabel();</span>
-<span class="nc" id="L67">		courseTerm.setName(&quot;courseTerm&quot;);</span>
-<span class="nc" id="L68">		labelGrid1.add(new JLabel(&quot;Term: &quot;));</span>
-<span class="nc" id="L69">		labelGrid1.add(courseTerm);</span>
-		
-<span class="nc" id="L71">		courseEnrollment = new JLabel(); </span>
-<span class="nc" id="L72">		courseEnrollment.setName(&quot;courseEnrollment&quot;);</span>
-<span class="nc" id="L73">		labelGrid2.add(new JLabel(&quot;Enrollment: &quot;));</span>
-<span class="nc" id="L74">		labelGrid2.add(courseEnrollment);</span>
-		
-<span class="nc" id="L76">		labelGridMain.add(labelGrid1);</span>
-<span class="nc" id="L77">		labelGridMain.add(new JLabel(&quot;&quot;));</span>
-<span class="nc" id="L78">		labelGridMain.add(labelGrid2);</span>
+<span class="nc" id="L51">		JPanel dropDownGrid = new JPanel();</span>
+<span class="nc" id="L52">		dropDownGrid.setLayout(new GridLayout(1,5));</span>
+<span class="nc" id="L53">		dropDownGrid.add(new JLabel(&quot;Course&quot;));</span>
+<span class="nc" id="L54">		dropDownGrid.add(courseComboBox);</span>
+<span class="nc" id="L55">		dropDownGrid.add(new JLabel(&quot;&quot;));</span>
+<span class="nc" id="L56">		dropDownGrid.add(new JLabel(&quot;Column&quot;));</span>
+<span class="nc" id="L57">		dropDownGrid.add(columnComboBox);</span>
 		
 		
-<span class="nc" id="L81">		JPanel studentInfoBoxMain = new JPanel();</span>
-<span class="nc" id="L82">		studentInfoBoxMain.setLayout(new GridLayout(1,2));</span>
+<span class="nc" id="L60">		JPanel labelGridMain = new JPanel();</span>
+<span class="nc" id="L61">		labelGridMain.setLayout(new GridLayout(1,3));</span>
+<span class="nc" id="L62">		JPanel labelGrid1 = new JPanel();</span>
+<span class="nc" id="L63">		labelGrid1.setLayout(new GridLayout(1,2));</span>
+<span class="nc" id="L64">		JPanel labelGrid2 = new JPanel();</span>
+<span class="nc" id="L65">		labelGrid2.setLayout(new GridLayout(1,2));</span>
 		
-<span class="nc" id="L84">		JPanel studentInfoBox1 = new JPanel();</span>
-<span class="nc" id="L85">		studentInfoBox1.setLayout(new GridLayout(4,1));</span>
-<span class="nc" id="L86">		studentInfoBox1.add(new JLabel(&quot;ID: &quot;));</span>
-<span class="nc" id="L87">		studentInfoBox1.add(new JLabel(&quot;Name: &quot;));</span>
-<span class="nc" id="L88">		studentInfoBox1.add(new JLabel(&quot;Email: &quot;));</span>
-<span class="nc" id="L89">		studentInfoBox1.add(new JLabel(&quot;Score: &quot;));</span>
+<span class="nc" id="L67">		courseTerm = new JLabel();</span>
+<span class="nc" id="L68">		courseTerm.setName(&quot;courseTerm&quot;);</span>
+<span class="nc" id="L69">		labelGrid1.add(new JLabel(&quot;Term: &quot;));</span>
+<span class="nc" id="L70">		labelGrid1.add(courseTerm);</span>
 		
-<span class="nc" id="L91">		JPanel studentInfoBox2 = new JPanel();</span>
-<span class="nc" id="L92">		studentInfoBox2.setLayout(new GridLayout(4,1));</span>
-<span class="nc" id="L93">		studentId = new JLabel();</span>
-<span class="nc" id="L94">		studentId.setName(&quot;studentId&quot;);</span>
-<span class="nc" id="L95">		studentInfoBox2.add(studentId);</span>
-<span class="nc" id="L96">		studentName = new JLabel();</span>
-<span class="nc" id="L97">		studentName.setName(&quot;studentName&quot;);</span>
-<span class="nc" id="L98">		studentInfoBox2.add(studentName);</span>
-<span class="nc" id="L99">		studentEmail = new JLabel();</span>
-<span class="nc" id="L100">		studentEmail.setName(&quot;studentEmail&quot;);</span>
-<span class="nc" id="L101">		studentInfoBox2.add(studentEmail);</span>
-<span class="nc" id="L102">		studentScore = new JLabel();</span>
-<span class="nc" id="L103">		studentScore.setName(&quot;studentScore&quot;);</span>
-<span class="nc" id="L104">		studentInfoBox2.add(studentScore);</span>
+<span class="nc" id="L72">		courseEnrollment = new JLabel(); </span>
+<span class="nc" id="L73">		courseEnrollment.setName(&quot;courseEnrollment&quot;);</span>
+<span class="nc" id="L74">		labelGrid2.add(new JLabel(&quot;Enrollment: &quot;));</span>
+<span class="nc" id="L75">		labelGrid2.add(courseEnrollment);</span>
 		
-<span class="nc" id="L106">		studentInfoBoxMain.add(studentInfoBox1);</span>
-<span class="nc" id="L107">		studentInfoBoxMain.add(studentInfoBox2);</span>
-<span class="nc" id="L108">		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));</span>
+<span class="nc" id="L77">		labelGridMain.add(labelGrid1);</span>
+<span class="nc" id="L78">		labelGridMain.add(new JLabel(&quot;&quot;));</span>
+<span class="nc" id="L79">		labelGridMain.add(labelGrid2);</span>
 		
 		
-<span class="nc" id="L111">		setLayout(new GridLayout(3,1));</span>
-<span class="nc" id="L112">		add(dropDownGrid);</span>
-<span class="nc" id="L113">		add(labelGridMain);</span>
-<span class="nc" id="L114">		add(studentInfoBoxMain);</span>
+<span class="nc" id="L82">		JPanel studentInfoBoxMain = new JPanel();</span>
+<span class="nc" id="L83">		studentInfoBoxMain.setLayout(new GridLayout(1,2));</span>
+		
+<span class="nc" id="L85">		JPanel studentInfoBox1 = new JPanel();</span>
+<span class="nc" id="L86">		studentInfoBox1.setLayout(new GridLayout(4,1));</span>
+<span class="nc" id="L87">		studentInfoBox1.add(new JLabel(&quot;ID: &quot;));</span>
+<span class="nc" id="L88">		studentInfoBox1.add(new JLabel(&quot;Name: &quot;));</span>
+<span class="nc" id="L89">		studentInfoBox1.add(new JLabel(&quot;Email: &quot;));</span>
+<span class="nc" id="L90">		studentInfoBox1.add(new JLabel(&quot;Score: &quot;));</span>
+		
+<span class="nc" id="L92">		JPanel studentInfoBox2 = new JPanel();</span>
+<span class="nc" id="L93">		studentInfoBox2.setLayout(new GridLayout(4,1));</span>
+<span class="nc" id="L94">		studentId = new JLabel();</span>
+<span class="nc" id="L95">		studentId.setName(&quot;studentId&quot;);</span>
+<span class="nc" id="L96">		studentInfoBox2.add(studentId);</span>
+<span class="nc" id="L97">		studentName = new JLabel();</span>
+<span class="nc" id="L98">		studentName.setName(&quot;studentName&quot;);</span>
+<span class="nc" id="L99">		studentInfoBox2.add(studentName);</span>
+<span class="nc" id="L100">		studentEmail = new JLabel();</span>
+<span class="nc" id="L101">		studentEmail.setName(&quot;studentEmail&quot;);</span>
+<span class="nc" id="L102">		studentInfoBox2.add(studentEmail);</span>
+<span class="nc" id="L103">		studentScore = new JLabel();</span>
+<span class="nc" id="L104">		studentScore.setName(&quot;studentScore&quot;);</span>
+<span class="nc" id="L105">		studentInfoBox2.add(studentScore);</span>
+		
+<span class="nc" id="L107">		studentInfoBoxMain.add(studentInfoBox1);</span>
+<span class="nc" id="L108">		studentInfoBoxMain.add(studentInfoBox2);</span>
+<span class="nc" id="L109">		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));</span>
+		
+		
+<span class="nc" id="L112">		setLayout(new GridLayout(3,1));</span>
+<span class="nc" id="L113">		add(dropDownGrid);</span>
+<span class="nc" id="L114">		add(labelGridMain);</span>
+<span class="nc" id="L115">		add(studentInfoBoxMain);</span>
 		
 	
 		
-<span class="nc" id="L118">	}</span>
+<span class="nc" id="L119">	}</span>
 	
 	private void updateColumnComboBox(){
-<span class="nc" id="L121">			String courseID = (String)courseComboBox.getSelectedItem();</span>
-<span class="nc" id="L122">			Course course = database.getCourse(courseID);</span>
-<span class="nc" id="L123">			Grades temp = course.getGrades();</span>
-<span class="nc" id="L124">			DefaultComboBoxModel model = new DefaultComboBoxModel(temp.getAssignmentList());</span>
-<span class="nc" id="L125">			columnComboBox = new JComboBox(model);</span>
+<span class="nc" id="L122">			String courseID = (String)courseComboBox.getSelectedItem();</span>
+<span class="nc" id="L123">			Course course = database.getCourse(courseID);</span>
+<span class="nc" id="L124">			Grades temp = course.getGrades();</span>
+<span class="nc" id="L125">			DefaultComboBoxModel model = new DefaultComboBoxModel(temp.getAssignmentList());</span>
+<span class="nc" id="L126">			columnComboBox = new JComboBox(model);</span>
 			//columnComboBox.setSelectedIndex(0);
-<span class="nc" id="L127">	}</span>
+<span class="nc" id="L128">	}</span>
 	private void updateLabels(){
-<span class="nc" id="L129">			String courseID = (String)courseComboBox.getSelectedItem();</span>
-<span class="nc" id="L130">			Course course = database.getCourse(courseID);</span>
-<span class="nc" id="L131">			Grades temp = course.getGrades();</span>
+<span class="nc" id="L130">			String courseID = (String)courseComboBox.getSelectedItem();</span>
+<span class="nc" id="L131">			Course course = database.getCourse(courseID);</span>
+<span class="nc" id="L132">			Grades temp = course.getGrades();</span>
 				
-<span class="nc" id="L133">			String assignmentString = (String)columnComboBox.getSelectedItem();</span>
-<span class="nc" id="L134">			courseTerm.setText(database.getCourse(courseID).getCourseTerm() + &quot; &quot; + database.getCourse(courseID).getCourseYear());</span>
-<span class="nc" id="L135">			courseEnrollment.setText(database.getCourse(courseID).getCourseSize());</span>
+<span class="nc" id="L134">			String assignmentString = (String)columnComboBox.getSelectedItem();</span>
+<span class="nc" id="L135">			courseTerm.setText(database.getCourse(courseID).getCourseTerm() + &quot; &quot; + database.getCourse(courseID).getCourseYear());</span>
+<span class="nc" id="L136">			courseEnrollment.setText(database.getCourse(courseID).getCourseSize());</span>
 				
-<span class="nc" id="L137">			temp.findMaxScore(assignmentString);</span>
-<span class="nc" id="L138">			studentId.setText(temp.getMaxScoreID());</span>
-<span class="nc" id="L139">			studentName.setText(database.getStudent(temp.getMaxScore()).getFirstName() + &quot; &quot; + database.getStudent(temp.getMaxScore()).getLastName()) ;</span>
-<span class="nc" id="L140">			studentEmail.setText(database.getStudent(temp.getMaxScore()).getStudentEmail() + &quot;@jsu.edu&quot;);</span>
-<span class="nc" id="L141">			studentScore.setText(temp.getMaxScore());</span>
+<span class="nc" id="L138">			temp.findMaxScore(assignmentString);</span>
+<span class="nc" id="L139">			studentId.setText(temp.getMaxScoreID());</span>
+<span class="nc" id="L140">			studentName.setText(database.getStudent(temp.getMaxScore()).getFirstName() + &quot; &quot; + database.getStudent(temp.getMaxScore()).getLastName()) ;</span>
+<span class="nc" id="L141">			studentEmail.setText(database.getStudent(temp.getMaxScore()).getStudentEmail() + &quot;@jsu.edu&quot;);</span>
+<span class="nc" id="L142">			studentScore.setText(temp.getMaxScore());</span>
 		
-<span class="nc" id="L143">	}</span>
+<span class="nc" id="L144">	}</span>
 	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
