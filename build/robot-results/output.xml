@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_111)" generated="20170228 13:55:12.151">
+<robot generator="Robot 3.0 (Jython 2.7.0 on java1.8.0_111)" generated="20170302 16:08:43.655">
 <suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest" name="Acceptancetest" id="s1">
 <suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest\feature01.robot" name="Feature01" id="s1-s1">
 <test name="Test Gamegogy Load Student Data" id="s1-s1-t1">
@@ -8,14 +8,14 @@
 <arg>student</arg>
 <arg>111128</arg>
 </arguments>
-<status endtime="20170228 13:55:12.823" starttime="20170228 13:55:12.810" status="PASS"></status>
+<status endtime="20170302 16:08:44.208" starttime="20170302 16:08:44.189" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:12.831">${output} = [111128] Maritza Abbott mabbott@jsu.edu</msg>
-<status endtime="20170228 13:55:12.833" starttime="20170228 13:55:12.826" status="PASS"></status>
+<msg level="INFO" timestamp="20170302 16:08:44.217">${output} = [111128] Maritza Abbott mabbott@jsu.edu</msg>
+<status endtime="20170302 16:08:44.221" starttime="20170302 16:08:44.211" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -23,9 +23,9 @@
 <arg>${f01stu_expected}</arg>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170228 13:55:12.846" starttime="20170228 13:55:12.835" status="PASS"></status>
+<status endtime="20170302 16:08:44.235" starttime="20170302 16:08:44.224" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170228 13:55:12.849" starttime="20170228 13:55:12.801" status="PASS"></status>
+<status critical="yes" endtime="20170302 16:08:44.239" starttime="20170302 16:08:44.179" status="PASS"></status>
 </test>
 <test name="Test Gamegogy Load Course Data" id="s1-s1-t2">
 <kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
@@ -33,14 +33,14 @@
 <arg>course</arg>
 <arg>99018</arg>
 </arguments>
-<status endtime="20170228 13:55:12.887" starttime="20170228 13:55:12.871" status="PASS"></status>
+<status endtime="20170302 16:08:44.270" starttime="20170302 16:08:44.254" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:12.902">${output} = [99018] Spring 2014 (16 students)</msg>
-<status endtime="20170228 13:55:12.904" starttime="20170228 13:55:12.889" status="PASS"></status>
+<msg level="INFO" timestamp="20170302 16:08:44.283">${output} = [99018] Spring 2014 (16 students)</msg>
+<status endtime="20170302 16:08:44.286" starttime="20170302 16:08:44.274" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -48,31 +48,31 @@
 <arg>${f01crs_expected}</arg>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170228 13:55:12.913" starttime="20170228 13:55:12.906" status="PASS"></status>
+<status endtime="20170302 16:08:44.304" starttime="20170302 16:08:44.289" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170228 13:55:12.915" starttime="20170228 13:55:12.857" status="PASS"></status>
+<status critical="yes" endtime="20170302 16:08:44.307" starttime="20170302 16:08:44.247" status="PASS"></status>
 </test>
 <test name="Test Gamegogy With No Arguments" id="s1-s1-t3">
 <kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
-<status endtime="20170228 13:55:12.976" starttime="20170228 13:55:12.942" status="PASS"></status>
+<status endtime="20170302 16:08:44.351" starttime="20170302 16:08:44.337" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:12.984">${output} = </msg>
-<status endtime="20170228 13:55:12.986" starttime="20170228 13:55:12.979" status="PASS"></status>
+<msg level="INFO" timestamp="20170302 16:08:44.362">${output} = </msg>
+<status endtime="20170302 16:08:44.365" starttime="20170302 16:08:44.356" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
 <arguments>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170228 13:55:12.993" starttime="20170228 13:55:12.988" status="PASS"></status>
+<status endtime="20170302 16:08:44.377" starttime="20170302 16:08:44.368" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170228 13:55:12.996" starttime="20170228 13:55:12.929" status="PASS"></status>
+<status critical="yes" endtime="20170302 16:08:44.379" starttime="20170302 16:08:44.327" status="PASS"></status>
 </test>
-<status endtime="20170228 13:55:13.002" starttime="20170228 13:55:12.678" status="PASS"></status>
+<status endtime="20170302 16:08:44.401" starttime="20170302 16:08:44.078" status="PASS"></status>
 </suite>
 <suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest\feature02.robot" name="Feature02" id="s1-s2">
 <test name="Test Gamegogy Load Student List" id="s1-s2-t1">
@@ -80,13 +80,13 @@
 <arguments>
 <arg>studentids</arg>
 </arguments>
-<status endtime="20170228 13:55:13.188" starttime="20170228 13:55:13.172" status="PASS"></status>
+<status endtime="20170302 16:08:44.592" starttime="20170302 16:08:44.566" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:13.195">${output} = 111111
+<msg level="INFO" timestamp="20170302 16:08:44.605">${output} = 111111
 111112
 111113
 111114
@@ -115,7 +115,7 @@
 111137
 111138
 1111...</msg>
-<status endtime="20170228 13:55:13.197" starttime="20170228 13:55:13.190" status="PASS"></status>
+<status endtime="20170302 16:08:44.607" starttime="20170302 16:08:44.598" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -123,22 +123,22 @@
 <arg>${f02stu_expected}</arg>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170228 13:55:13.204" starttime="20170228 13:55:13.198" status="PASS"></status>
+<status endtime="20170302 16:08:44.617" starttime="20170302 16:08:44.610" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170228 13:55:13.206" starttime="20170228 13:55:13.132" status="PASS"></status>
+<status critical="yes" endtime="20170302 16:08:44.622" starttime="20170302 16:08:44.560" status="PASS"></status>
 </test>
 <test name="Test Gamegogy Load Course List" id="s1-s2-t2">
 <kw library="keywords.GamegogyKeywords" name="Start Gamegogy CLI With Arguments">
 <arguments>
 <arg>courseids</arg>
 </arguments>
-<status endtime="20170228 13:55:13.248" starttime="20170228 13:55:13.219" status="PASS"></status>
+<status endtime="20170302 16:08:44.680" starttime="20170302 16:08:44.662" status="PASS"></status>
 </kw>
 <kw library="keywords.GamegogyKeywords" name="Get Command Line Output">
 <assign>
 <var>${output}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:13.257">${output} = 99000
+<msg level="INFO" timestamp="20170302 16:08:44.689">${output} = 99000
 99001
 99002
 99003
@@ -163,7 +163,7 @@
 99022
 99023
 99024</msg>
-<status endtime="20170228 13:55:13.258" starttime="20170228 13:55:13.250" status="PASS"></status>
+<status endtime="20170302 16:08:44.691" starttime="20170302 16:08:44.682" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -171,11 +171,11 @@
 <arg>${f02crs_expected}</arg>
 <arg>${output}</arg>
 </arguments>
-<status endtime="20170228 13:55:13.266" starttime="20170228 13:55:13.260" status="PASS"></status>
+<status endtime="20170302 16:08:44.705" starttime="20170302 16:08:44.695" status="PASS"></status>
 </kw>
-<status critical="yes" endtime="20170228 13:55:13.268" starttime="20170228 13:55:13.210" status="PASS"></status>
+<status critical="yes" endtime="20170302 16:08:44.707" starttime="20170302 16:08:44.629" status="PASS"></status>
 </test>
-<status endtime="20170228 13:55:13.272" starttime="20170228 13:55:13.018" status="PASS"></status>
+<status endtime="20170302 16:08:44.736" starttime="20170302 16:08:44.413" status="PASS"></status>
 </suite>
 <suite source="C:\Users\Blake\Desktop\CS310\Leaderboard_master\src\test\acceptancetest\feature03.robot" name="Feature03" id="s1-s3">
 <test name="Test Gamegogy Default Values" id="s1-s3-t1">
@@ -184,14 +184,14 @@
 <arguments>
 <arg>edu.jsu.mcis.Main</arg>
 </arguments>
-<status endtime="20170228 13:55:25.484" starttime="20170228 13:55:24.977" status="PASS"></status>
+<status endtime="20170302 16:08:51.416" starttime="20170302 16:08:46.838" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Select Window">
 <doc>Selects a window as current context and sets focus to it.</doc>
 <arguments>
 <arg>Gamegogy</arg>
 </arguments>
-<status endtime="20170228 13:55:25.768" starttime="20170228 13:55:25.490" status="PASS"></status>
+<status endtime="20170302 16:08:51.767" starttime="20170302 16:08:51.425" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Get Selected Item From Combo Box">
 <doc>Returns an item from a combobox.</doc>
@@ -201,8 +201,8 @@
 <assign>
 <var>${courseId}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:26.234">${courseId} = 99000</msg>
-<status endtime="20170228 13:55:26.237" starttime="20170228 13:55:25.772" status="PASS"></status>
+<msg level="INFO" timestamp="20170302 16:08:52.288">${courseId} = 99000</msg>
+<status endtime="20170302 16:08:52.290" starttime="20170302 16:08:51.770" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -210,7 +210,7 @@
 <arg>99000</arg>
 <arg>${courseId}</arg>
 </arguments>
-<status endtime="20170228 13:55:26.257" starttime="20170228 13:55:26.243" status="PASS"></status>
+<status endtime="20170302 16:08:52.299" starttime="20170302 16:08:52.293" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Get Selected Item From Combo Box">
 <doc>Returns an item from a combobox.</doc>
@@ -220,8 +220,8 @@
 <assign>
 <var>${columnName}</var>
 </assign>
-<msg level="INFO" timestamp="20170228 13:55:26.559">${columnName} = Total</msg>
-<status endtime="20170228 13:55:26.562" starttime="20170228 13:55:26.260" status="PASS"></status>
+<msg level="INFO" timestamp="20170302 16:08:52.584">${columnName} = Total</msg>
+<status endtime="20170302 16:08:52.585" starttime="20170302 16:08:52.301" status="PASS"></status>
 </kw>
 <kw library="BuiltIn" name="Should Be Equal">
 <doc>Fails if the given objects are unequal.</doc>
@@ -229,7 +229,7 @@
 <arg>Total</arg>
 <arg>${columnName}</arg>
 </arguments>
-<status endtime="20170228 13:55:26.579" starttime="20170228 13:55:26.567" status="PASS"></status>
+<status endtime="20170302 16:08:52.591" starttime="20170302 16:08:52.586" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Label Text Should Be">
 <doc>Checks the equality of given text and the text displayed on a label.</doc>
@@ -237,50 +237,10 @@
 <arg>courseTerm</arg>
 <arg>Spring 2013</arg>
 </arguments>
-<status endtime="20170228 13:55:26.644" starttime="20170228 13:55:26.585" status="PASS"></status>
+<msg level="FAIL" timestamp="20170302 16:08:52.661">Expected label 'courseTerm' value to be 'Spring 2013', but was ''</msg>
+<status endtime="20170302 16:08:52.665" starttime="20170302 16:08:52.593" status="FAIL"></status>
 </kw>
-<kw library="SwingLibrary" name="Label Text Should Be">
-<doc>Checks the equality of given text and the text displayed on a label.</doc>
-<arguments>
-<arg>courseEnrollment</arg>
-<arg>11</arg>
-</arguments>
-<status endtime="20170228 13:55:26.656" starttime="20170228 13:55:26.646" status="PASS"></status>
-</kw>
-<kw library="SwingLibrary" name="Label Text Should Be">
-<doc>Checks the equality of given text and the text displayed on a label.</doc>
-<arguments>
-<arg>studentId</arg>
-<arg>111318</arg>
-</arguments>
-<status endtime="20170228 13:55:26.668" starttime="20170228 13:55:26.658" status="PASS"></status>
-</kw>
-<kw library="SwingLibrary" name="Label Text Should Be">
-<doc>Checks the equality of given text and the text displayed on a label.</doc>
-<arguments>
-<arg>studentName</arg>
-<arg>Cathleen Guzman</arg>
-</arguments>
-<status endtime="20170228 13:55:26.676" starttime="20170228 13:55:26.669" status="PASS"></status>
-</kw>
-<kw library="SwingLibrary" name="Label Text Should Be">
-<doc>Checks the equality of given text and the text displayed on a label.</doc>
-<arguments>
-<arg>studentEmail</arg>
-<arg>cguzman@jsu.edu</arg>
-</arguments>
-<status endtime="20170228 13:55:26.685" starttime="20170228 13:55:26.677" status="PASS"></status>
-</kw>
-<kw library="SwingLibrary" name="Label Text Should Be">
-<doc>Checks the equality of given text and the text displayed on a label.</doc>
-<arguments>
-<arg>studentScore</arg>
-<arg>925.0</arg>
-</arguments>
-<msg level="FAIL" timestamp="20170228 13:55:26.714">Expected label 'studentScore' value to be '925.0', but was '925'</msg>
-<status endtime="20170228 13:55:26.718" starttime="20170228 13:55:26.687" status="FAIL"></status>
-</kw>
-<status critical="yes" endtime="20170228 13:55:26.722" starttime="20170228 13:55:24.972" status="FAIL">Expected label 'studentScore' value to be '925.0', but was '925'</status>
+<status critical="yes" endtime="20170302 16:08:52.668" starttime="20170302 16:08:46.830" status="FAIL">Expected label 'courseTerm' value to be 'Spring 2013', but was ''</status>
 </test>
 <test name="Test Gamegogy Course Select" id="s1-s3-t2">
 <kw library="SwingLibrary" name="Start Application">
@@ -288,14 +248,14 @@
 <arguments>
 <arg>edu.jsu.mcis.Main</arg>
 </arguments>
-<status endtime="20170228 13:55:26.808" starttime="20170228 13:55:26.732" status="PASS"></status>
+<status endtime="20170302 16:08:52.761" starttime="20170302 16:08:52.678" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Select Window">
 <doc>Selects a window as current context and sets focus to it.</doc>
 <arguments>
 <arg>Gamegogy</arg>
 </arguments>
-<status endtime="20170228 13:55:26.861" starttime="20170228 13:55:26.811" status="PASS"></status>
+<status endtime="20170302 16:08:52.809" starttime="20170302 16:08:52.764" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Select From Combo Box">
 <doc>Selects an item from a combobox.</doc>
@@ -303,37 +263,10 @@
 <arg>courseComboBox</arg>
 <arg>7</arg>
 </arguments>
-<status endtime="20170228 13:55:27.292" starttime="20170228 13:55:26.863" status="PASS"></status>
+<msg level="FAIL" timestamp="20170302 16:08:53.316">Exception in Path selecting</msg>
+<status endtime="20170302 16:08:53.320" starttime="20170302 16:08:52.813" status="FAIL"></status>
 </kw>
-<kw library="SwingLibrary" name="Get Selected Item From Combo Box">
-<doc>Returns an item from a combobox.</doc>
-<arguments>
-<arg>columnComboBox</arg>
-</arguments>
-<assign>
-<var>${columnName}</var>
-</assign>
-<msg level="INFO" timestamp="20170228 13:55:27.578">${columnName} = Total</msg>
-<status endtime="20170228 13:55:27.583" starttime="20170228 13:55:27.298" status="PASS"></status>
-</kw>
-<kw library="BuiltIn" name="Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>Total</arg>
-<arg>${columnName}</arg>
-</arguments>
-<status endtime="20170228 13:55:27.600" starttime="20170228 13:55:27.589" status="PASS"></status>
-</kw>
-<kw library="SwingLibrary" name="Label Text Should Be">
-<doc>Checks the equality of given text and the text displayed on a label.</doc>
-<arguments>
-<arg>courseTerm</arg>
-<arg>Spring 2012</arg>
-</arguments>
-<msg level="FAIL" timestamp="20170228 13:55:27.664">Expected label 'courseTerm' value to be 'Spring 2012', but was 'Spring 2013'</msg>
-<status endtime="20170228 13:55:27.671" starttime="20170228 13:55:27.605" status="FAIL"></status>
-</kw>
-<status critical="yes" endtime="20170228 13:55:27.674" starttime="20170228 13:55:26.727" status="FAIL">Expected label 'courseTerm' value to be 'Spring 2012', but was 'Spring 2013'</status>
+<status critical="yes" endtime="20170302 16:08:53.323" starttime="20170302 16:08:52.673" status="FAIL">Exception in Path selecting</status>
 </test>
 <test name="Test Gamegogy Column Select" id="s1-s3-t3">
 <kw library="SwingLibrary" name="Start Application">
@@ -341,14 +274,14 @@
 <arguments>
 <arg>edu.jsu.mcis.Main</arg>
 </arguments>
-<status endtime="20170228 13:55:27.755" starttime="20170228 13:55:27.689" status="PASS"></status>
+<status endtime="20170302 16:08:53.398" starttime="20170302 16:08:53.335" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Select Window">
 <doc>Selects a window as current context and sets focus to it.</doc>
 <arguments>
 <arg>Gamegogy</arg>
 </arguments>
-<status endtime="20170228 13:55:27.802" starttime="20170228 13:55:27.763" status="PASS"></status>
+<status endtime="20170302 16:08:53.441" starttime="20170302 16:08:53.400" status="PASS"></status>
 </kw>
 <kw library="SwingLibrary" name="Select From Combo Box">
 <doc>Selects an item from a combobox.</doc>
@@ -356,14 +289,14 @@
 <arg>courseComboBox</arg>
 <arg>9</arg>
 </arguments>
-<msg level="FAIL" timestamp="20170228 13:55:28.196">Exception in Path selecting</msg>
-<status endtime="20170228 13:55:28.201" starttime="20170228 13:55:27.806" status="FAIL"></status>
+<msg level="FAIL" timestamp="20170302 16:08:53.860">Exception in Path selecting</msg>
+<status endtime="20170302 16:08:53.864" starttime="20170302 16:08:53.444" status="FAIL"></status>
 </kw>
-<status critical="yes" endtime="20170228 13:55:28.206" starttime="20170228 13:55:27.681" status="FAIL">Exception in Path selecting</status>
+<status critical="yes" endtime="20170302 16:08:53.866" starttime="20170302 16:08:53.329" status="FAIL">Exception in Path selecting</status>
 </test>
-<status endtime="20170228 13:55:28.223" starttime="20170228 13:55:13.279" status="FAIL"></status>
+<status endtime="20170302 16:08:53.877" starttime="20170302 16:08:44.745" status="FAIL"></status>
 </suite>
-<status endtime="20170228 13:55:28.270" starttime="20170228 13:55:12.185" status="FAIL"></status>
+<status endtime="20170302 16:08:53.914" starttime="20170302 16:08:43.676" status="FAIL"></status>
 </suite>
 <statistics>
 <total>

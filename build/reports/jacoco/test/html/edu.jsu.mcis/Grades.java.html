@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Grades.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Leaderboard_master</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis</a> &gt; <span class="el_source">Grades.java</span></div><h1>Grades.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis;
+
+import java.io.*;
+import java.util.*;
+import au.com.bytecode.opencsv.*;
+
+public class Grades {
+	
+	private String maxScore;
+	private String maxScoreID;
+	private String[][] gradesArray;
+	
+<span class="fc" id="L13">	public Grades(String[][] gradesArray) {</span>
+<span class="fc" id="L14">		this.gradesArray = gradesArray;</span>
+<span class="fc" id="L15">	}</span>
+	
+	public void findMaxScore(String assignment) {
+<span class="fc" id="L18">		int max = 0;</span>
+<span class="fc" id="L19">		int temp = 0;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray.length; i++) {</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">			if(gradesArray[0][i].equals(assignment)){</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">				for(int j = 1; j &lt; gradesArray[0].length; j++){</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">					if(Integer.parseInt(gradesArray[j][i]) &gt; max){</span>
+<span class="fc" id="L24">						max = Integer.parseInt(gradesArray[j][i]);</span>
+<span class="fc" id="L25">						temp = j;</span>
+					}
+				}
+			}
+		}			
+		
+<span class="fc" id="L31">		maxScoreID = gradesArray[temp][0];</span>
+<span class="fc" id="L32">		maxScore = &quot;&quot; + max;</span>
+	
+<span class="fc" id="L34">	}</span>
+	
+	public int getStudentAssignmentGrade(String id, String assignment) {
+<span class="fc" id="L37">		int grade = 0;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray.length; i++) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">			if(gradesArray[0][i].equals(assignment)) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">				for(int j = 0; j &lt; gradesArray[0].length; j++) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">					if(gradesArray[j][0].equals(id)) {</span>
+<span class="fc" id="L42">						grade = Integer.parseInt(gradesArray[j][i]);</span>
+					}
+				}
+			}
+		}
+<span class="fc" id="L47">		return grade;</span>
+	}
+	
+	public Map&lt;String,Integer&gt; getStudentGrades(String id) {
+<span class="fc" id="L51">		Map&lt;String,Integer&gt; studentGrades = new TreeMap&lt;String,Integer&gt;();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray[0].length; i++) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">			if(gradesArray[i][0].equals(id)) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">				for(int j = 1; j &lt; gradesArray.length; j++) {</span>
+<span class="fc" id="L55">					int grade = Integer.parseInt(gradesArray[i][j]);</span>
+<span class="fc" id="L56">					studentGrades.put(gradesArray[0][j], grade);</span>
+				}
+			}
+		}
+<span class="fc" id="L60">		return studentGrades;</span>
+	}
+	
+	public Map&lt;String,Integer&gt; getAssignmentGrades(String assignment) {
+<span class="fc" id="L64">		Map&lt;String,Integer&gt; assignmentGrades = new TreeMap&lt;String,Integer&gt;();</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		for(int i = 0; i &lt; gradesArray.length; i++) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">			if(gradesArray[0][i].equals(assignment)) {</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">				for(int j = 1; j &lt; gradesArray[0].length; j++) {</span>
+<span class="fc" id="L68">					int grade = Integer.parseInt(gradesArray[j][i]);</span>
+<span class="fc" id="L69">					assignmentGrades.put(gradesArray[j][0], grade);</span>
+				}
+			}
+		}
+<span class="fc" id="L73">		return assignmentGrades;</span>
+	}
+	
+	public String[] getAssignmentList() {
+<span class="fc" id="L77">		String[] assignmentList = new String[gradesArray.length-1];</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		for(int i = 1; i &lt; gradesArray.length; i++) {</span>
+<span class="fc" id="L79">			assignmentList[i-1] = gradesArray[0][i];</span>
+		}
+<span class="fc" id="L81">		return assignmentList;</span>
+	}
+	
+	public String getMaxScore(){
+<span class="fc" id="L85">		return maxScore;</span>
+	}
+	
+	public String getMaxScoreID() {
+<span class="fc" id="L89">		return maxScoreID;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

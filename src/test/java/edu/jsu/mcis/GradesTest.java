@@ -18,6 +18,30 @@ public class GradesTest {
 		
 	}
 	
+	
+	@Rule
+	public ExpectedException expectedEx = ExpectedException.none();
+	
+	@Test(expected=InvalidIDException.class)
+	public void testExceptionThrownWithInvalidStudentID() {
+		grades.getStudentAssignmentGrade("", "Total");
+	}
+	
+	@Test(expected=InvalidIDException.class)
+	public void testExceptionThrownWithInvalidAssignment() {
+		grades.getStudentAssignmentGrade("111318", "");
+	}
+	
+	@Test(expected=InvalidIDException.class)
+	public void testExceptionThrownWithGetStudentGrades() {
+		grades.getStudentGrades("");
+	}
+	
+	@Test(expected=InvalidIDException.class)
+	public void testExceptionThrownWithGetAssignmentGrades() {
+		grades.getAssignmentGrades("");
+	}
+	
 	@Test
 	public void testAssignmentGetMaxScore(){
 		grades.findMaxScore("Assignment 1");
@@ -51,6 +75,24 @@ public class GradesTest {
 		expected.put("Assignment 9", 58);
 		expected.put("Exam 1", 384);
 		Map<String,Integer> actual = grades.getStudentGrades("111318");
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testGetAssignmentGrades() {
+		Map<String,Integer> expected = new TreeMap<String,Integer>();
+		expected.put("111318", 65);
+		expected.put("111383", 55);
+		expected.put("111190", 40);
+		expected.put("111406", 34);
+		expected.put("111115", 41);
+		expected.put("111211", 36);
+		expected.put("111208", 41);
+		expected.put("111310", 58);
+		expected.put("111335", 36);
+		expected.put("111141", 34);
+		expected.put("111262", 46);
+		Map<String,Integer> actual = grades.getAssignmentGrades("Assignment 1");
 		assertEquals(expected, actual);
 	}
 	

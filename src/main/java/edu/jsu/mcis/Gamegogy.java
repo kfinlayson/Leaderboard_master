@@ -33,8 +33,9 @@ public class Gamegogy extends JPanel{
 			}
 		});
 		courseComboBox.setSelectedIndex(0);
-		
-		//columnComboBox = new JComboBox( new Grades(database.getAllCourseIDsArray()[0]).getAssignmentList());
+		Course course = database.getCourse((String)courseComboBox.getSelectedItem());
+		Grades grades = course.getGrades();
+		columnComboBox = new JComboBox(grades.getAssignmentList());
 		columnComboBox.setName("columnComboBox");
 		columnComboBox.setSelectedIndex(0);
 		columnComboBox.addItemListener(new ItemListener(){

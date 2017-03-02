@@ -1,61 +1,61 @@
 ==============================================================================
-20170228 13:55:12.671 - INFO - + START SUITE: Acceptancetest [ ]
+20170302 16:08:44.070 - INFO - + START SUITE: Acceptancetest [ ]
 ==============================================================================
-20170228 13:55:12.792 - INFO - +- START SUITE: Acceptancetest.Feature01 [ ]
+20170302 16:08:44.172 - INFO - +- START SUITE: Acceptancetest.Feature01 [ ]
 ==============================================================================
-20170228 13:55:12.802 - INFO - +-- START TEST: Test Gamegogy Load Student Data [ ]
+20170302 16:08:44.182 - INFO - +-- START TEST: Test Gamegogy Load Student Data [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:12.811 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ student | 111128 ]
-20170228 13:55:12.825 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (13)
+20170302 16:08:44.190 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ student | 111128 ]
+20170302 16:08:44.210 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (19)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:12.827 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
-20170228 13:55:12.831 - INFO - ${output} = [111128] Maritza Abbott mabbott@jsu.edu
-20170228 13:55:12.834 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (7)
+20170302 16:08:44.212 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170302 16:08:44.217 - INFO - ${output} = [111128] Maritza Abbott mabbott@jsu.edu
+20170302 16:08:44.222 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (10)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:12.836 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f01stu_expected} | ${output} ]
-20170228 13:55:12.847 - INFO - +--- END KW: BuiltIn.Should Be Equal (11)
+20170302 16:08:44.225 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f01stu_expected} | ${output} ]
+20170302 16:08:44.237 - INFO - +--- END KW: BuiltIn.Should Be Equal (11)
 ------------------------------------------------------------------------------
-20170228 13:55:12.853 - INFO - +-- END TEST: Test Gamegogy Load Student Data (48)
+20170302 16:08:44.245 - INFO - +-- END TEST: Test Gamegogy Load Student Data (60)
 ------------------------------------------------------------------------------
-20170228 13:55:12.858 - INFO - +-- START TEST: Test Gamegogy Load Course Data [ ]
+20170302 16:08:44.249 - INFO - +-- START TEST: Test Gamegogy Load Course Data [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:12.871 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ course | 99018 ]
-20170228 13:55:12.888 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (16)
+20170302 16:08:44.255 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ course | 99018 ]
+20170302 16:08:44.272 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (16)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:12.890 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
-20170228 13:55:12.902 - INFO - ${output} = [99018] Spring 2014 (16 students)
-20170228 13:55:12.905 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (15)
+20170302 16:08:44.275 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170302 16:08:44.283 - INFO - ${output} = [99018] Spring 2014 (16 students)
+20170302 16:08:44.288 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (12)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:12.907 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f01crs_expected} | ${output} ]
-20170228 13:55:12.914 - INFO - +--- END KW: BuiltIn.Should Be Equal (7)
+20170302 16:08:44.292 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f01crs_expected} | ${output} ]
+20170302 16:08:44.306 - INFO - +--- END KW: BuiltIn.Should Be Equal (15)
 ------------------------------------------------------------------------------
-20170228 13:55:12.927 - INFO - +-- END TEST: Test Gamegogy Load Course Data (58)
+20170302 16:08:44.323 - INFO - +-- END TEST: Test Gamegogy Load Course Data (60)
 ------------------------------------------------------------------------------
-20170228 13:55:12.931 - INFO - +-- START TEST: Test Gamegogy With No Arguments [ ]
+20170302 16:08:44.330 - INFO - +-- START TEST: Test Gamegogy With No Arguments [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:12.942 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ ]
-20170228 13:55:12.978 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (34)
+20170302 16:08:44.338 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ ]
+20170302 16:08:44.354 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (14)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:12.980 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
-20170228 13:55:12.984 - INFO - ${output} =
-20170228 13:55:12.987 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (7)
+20170302 16:08:44.357 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170302 16:08:44.362 - INFO - ${output} =
+20170302 16:08:44.366 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (9)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:12.988 - INFO - +--- START KW: BuiltIn.Should Be Equal [  | ${output} ]
-20170228 13:55:12.995 - INFO - +--- END KW: BuiltIn.Should Be Equal (5)
+20170302 16:08:44.370 - INFO - +--- START KW: BuiltIn.Should Be Equal [  | ${output} ]
+20170302 16:08:44.378 - INFO - +--- END KW: BuiltIn.Should Be Equal (9)
 ------------------------------------------------------------------------------
-20170228 13:55:12.998 - INFO - +-- END TEST: Test Gamegogy With No Arguments (67)
+20170302 16:08:44.389 - INFO - +-- END TEST: Test Gamegogy With No Arguments (52)
 ------------------------------------------------------------------------------
-20170228 13:55:13.017 - INFO - +- END SUITE: Acceptancetest.Feature01 (324)
+20170302 16:08:44.412 - INFO - +- END SUITE: Acceptancetest.Feature01 (323)
 ==============================================================================
-20170228 13:55:13.128 - INFO - +- START SUITE: Acceptancetest.Feature02 [ ]
+20170302 16:08:44.554 - INFO - +- START SUITE: Acceptancetest.Feature02 [ ]
 ==============================================================================
-20170228 13:55:13.133 - INFO - +-- START TEST: Test Gamegogy Load Student List [ ]
+20170302 16:08:44.562 - INFO - +-- START TEST: Test Gamegogy Load Student List [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:13.172 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ studentids ]
-20170228 13:55:13.189 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (16)
+20170302 16:08:44.566 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ studentids ]
+20170302 16:08:44.597 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (26)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:13.190 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
-20170228 13:55:13.195 - INFO - ${output} = 111111
+20170302 16:08:44.600 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170302 16:08:44.605 - INFO - ${output} = 111111
 111112
 111113
 111114
@@ -84,20 +84,20 @@
 111137
 111138
 1111...
-20170228 13:55:13.197 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (7)
+20170302 16:08:44.608 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (9)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:13.199 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f02stu_expected} | ${output} ]
-20170228 13:55:13.205 - INFO - +--- END KW: BuiltIn.Should Be Equal (6)
+20170302 16:08:44.611 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f02stu_expected} | ${output} ]
+20170302 16:08:44.620 - INFO - +--- END KW: BuiltIn.Should Be Equal (7)
 ------------------------------------------------------------------------------
-20170228 13:55:13.209 - INFO - +-- END TEST: Test Gamegogy Load Student List (74)
+20170302 16:08:44.627 - INFO - +-- END TEST: Test Gamegogy Load Student List (62)
 ------------------------------------------------------------------------------
-20170228 13:55:13.212 - INFO - +-- START TEST: Test Gamegogy Load Course List [ ]
+20170302 16:08:44.630 - INFO - +-- START TEST: Test Gamegogy Load Course List [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:13.219 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ courseids ]
-20170228 13:55:13.249 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (29)
+20170302 16:08:44.662 - INFO - +--- START KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments [ courseids ]
+20170302 16:08:44.681 - INFO - +--- END KW: keywords.GamegogyKeywords.Start Gamegogy CLI With Arguments (18)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:13.251 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
-20170228 13:55:13.257 - INFO - ${output} = 99000
+20170302 16:08:44.683 - INFO - +--- START KW: keywords.GamegogyKeywords.Get Command Line Output [ ]
+20170302 16:08:44.689 - INFO - ${output} = 99000
 99001
 99002
 99003
@@ -122,106 +122,71 @@
 99022
 99023
 99024
-20170228 13:55:13.259 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (8)
+20170302 16:08:44.693 - INFO - +--- END KW: keywords.GamegogyKeywords.Get Command Line Output (9)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:13.261 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f02crs_expected} | ${output} ]
-20170228 13:55:13.267 - INFO - +--- END KW: BuiltIn.Should Be Equal (6)
+20170302 16:08:44.696 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${f02crs_expected} | ${output} ]
+20170302 16:08:44.706 - INFO - +--- END KW: BuiltIn.Should Be Equal (10)
 ------------------------------------------------------------------------------
-20170228 13:55:13.271 - INFO - +-- END TEST: Test Gamegogy Load Course List (58)
+20170302 16:08:44.710 - INFO - +-- END TEST: Test Gamegogy Load Course List (78)
 ------------------------------------------------------------------------------
-20170228 13:55:13.278 - INFO - +- END SUITE: Acceptancetest.Feature02 (254)
+20170302 16:08:44.744 - INFO - +- END SUITE: Acceptancetest.Feature02 (323)
 ==============================================================================
-20170228 13:55:24.964 - INFO - +- START SUITE: Acceptancetest.Feature03 [ ]
+20170302 16:08:46.820 - INFO - +- START SUITE: Acceptancetest.Feature03 [ ]
 ==============================================================================
-20170228 13:55:24.974 - INFO - +-- START TEST: Test Gamegogy Default Values [ ]
+20170302 16:08:46.831 - INFO - +-- START TEST: Test Gamegogy Default Values [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:24.977 - INFO - +--- START KW: SwingLibrary.Start Application [ edu.jsu.mcis.Main ]
-20170228 13:55:25.489 - INFO - +--- END KW: SwingLibrary.Start Application (507)
+20170302 16:08:46.838 - INFO - +--- START KW: SwingLibrary.Start Application [ edu.jsu.mcis.Main ]
+20170302 16:08:51.423 - INFO - +--- END KW: SwingLibrary.Start Application (4578)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:25.491 - INFO - +--- START KW: SwingLibrary.Select Window [ Gamegogy ]
-20170228 13:55:25.753 - DEBUG - Jemmy: Start to wait frame "Frame with name or title 'Gamegogy'" opened
-20170228 13:55:25.757 - DEBUG - Jemmy: Frame "Frame with name or title 'Gamegogy'" has been opened in 2 milliseconds
+20170302 16:08:51.425 - INFO - +--- START KW: SwingLibrary.Select Window [ Gamegogy ]
+20170302 16:08:51.622 - DEBUG - Jemmy: Start to wait frame "Frame with name or title 'Gamegogy'" opened
+20170302 16:08:51.737 - DEBUG - Jemmy: Frame "Frame with name or title 'Gamegogy'" has been opened in 2 milliseconds
     javax.swing.JFrame[frame0,0,0,500x500,layout=java.awt.BorderLayout,title=Gamegogy,resizable,normal,defaultCloseOperation=EXIT_ON_CLOSE,rootPane=javax.swing.JRootPane[,8,31,484x461,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
-20170228 13:55:25.770 - INFO - +--- END KW: SwingLibrary.Select Window (278)
+20170302 16:08:51.768 - INFO - +--- END KW: SwingLibrary.Select Window (342)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:25.772 - INFO - +--- START KW: SwingLibrary.Get Selected Item From Combo Box [ courseComboBox ]
-20170228 13:55:25.856 - DEBUG - Jemmy: Waiting for "courseComboBox" subcomponent
-20170228 13:55:25.857 - DEBUG - Jemmy: Start to wait action "Wait for "courseComboBox" subcomponent to be displayed"
-20170228 13:55:25.859 - DEBUG - Jemmy: "Wait for "courseComboBox" subcomponent to be displayed" action has been produced in 2 milliseconds with result 
+20170302 16:08:51.774 - INFO - +--- START KW: SwingLibrary.Get Selected Item From Combo Box [ courseComboBox ]
+20170302 16:08:51.883 - DEBUG - Jemmy: Waiting for "courseComboBox" subcomponent
+20170302 16:08:51.884 - DEBUG - Jemmy: Start to wait action "Wait for "courseComboBox" subcomponent to be displayed"
+20170302 16:08:51.887 - DEBUG - Jemmy: "Wait for "courseComboBox" subcomponent to be displayed" action has been produced in 2 milliseconds with result 
     : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
-20170228 13:55:25.920 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
-20170228 13:55:25.920 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
-20170228 13:55:25.921 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
-    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@2a683b21,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
-20170228 13:55:26.003 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
-20170228 13:55:26.207 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 204 milliseconds with result 
+20170302 16:08:51.949 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
+20170302 16:08:51.949 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
+20170302 16:08:51.951 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 2 milliseconds with result 
+    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@7cefe148,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
+20170302 16:08:52.065 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
+20170302 16:08:52.276 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 212 milliseconds with result 
     : Reached!
-20170228 13:55:26.234 - INFO - ${courseId} = 99000
-20170228 13:55:26.241 - INFO - +--- END KW: SwingLibrary.Get Selected Item From Combo Box (465)
+20170302 16:08:52.288 - INFO - ${courseId} = 99000
+20170302 16:08:52.291 - INFO - +--- END KW: SwingLibrary.Get Selected Item From Combo Box (520)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.244 - INFO - +--- START KW: BuiltIn.Should Be Equal [ 99000 | ${courseId} ]
-20170228 13:55:26.259 - INFO - +--- END KW: BuiltIn.Should Be Equal (14)
+20170302 16:08:52.293 - INFO - +--- START KW: BuiltIn.Should Be Equal [ 99000 | ${courseId} ]
+20170302 16:08:52.299 - INFO - +--- END KW: BuiltIn.Should Be Equal (6)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.261 - INFO - +--- START KW: SwingLibrary.Get Selected Item From Combo Box [ columnComboBox ]
-20170228 13:55:26.266 - DEBUG - Jemmy: Waiting for "columnComboBox" subcomponent
-20170228 13:55:26.266 - DEBUG - Jemmy: Start to wait action "Wait for "columnComboBox" subcomponent to be displayed"
-20170228 13:55:26.268 - DEBUG - Jemmy: "Wait for "columnComboBox" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
+20170302 16:08:52.301 - INFO - +--- START KW: SwingLibrary.Get Selected Item From Combo Box [ columnComboBox ]
+20170302 16:08:52.305 - DEBUG - Jemmy: Waiting for "columnComboBox" subcomponent
+20170302 16:08:52.305 - DEBUG - Jemmy: Start to wait action "Wait for "columnComboBox" subcomponent to be displayed"
+20170302 16:08:52.306 - DEBUG - Jemmy: "Wait for "columnComboBox" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
     : javax.swing.JComboBox[columnComboBox,386,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=Total]
-20170228 13:55:26.271 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
-20170228 13:55:26.271 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
-20170228 13:55:26.272 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
-    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@2a683b21,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
-20170228 13:55:26.318 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
-20170228 13:55:26.544 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 226 milliseconds with result 
+20170302 16:08:52.308 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
+20170302 16:08:52.308 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
+20170302 16:08:52.308 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
+    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@7cefe148,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
+20170302 16:08:52.358 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
+20170302 16:08:52.579 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 222 milliseconds with result 
     : Reached!
-20170228 13:55:26.559 - INFO - ${columnName} = Total
-20170228 13:55:26.564 - INFO - +--- END KW: SwingLibrary.Get Selected Item From Combo Box (302)
+20170302 16:08:52.584 - INFO - ${columnName} = Total
+20170302 16:08:52.585 - INFO - +--- END KW: SwingLibrary.Get Selected Item From Combo Box (284)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.568 - INFO - +--- START KW: BuiltIn.Should Be Equal [ Total | ${columnName} ]
-20170228 13:55:26.582 - INFO - +--- END KW: BuiltIn.Should Be Equal (12)
+20170302 16:08:52.587 - INFO - +--- START KW: BuiltIn.Should Be Equal [ Total | ${columnName} ]
+20170302 16:08:52.592 - INFO - +--- END KW: BuiltIn.Should Be Equal (5)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.586 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ courseTerm | Spring 2013 ]
-20170228 13:55:26.628 - DEBUG - Jemmy: Waiting for "courseTerm" subcomponent
-20170228 13:55:26.628 - DEBUG - Jemmy: Start to wait action "Wait for "courseTerm" subcomponent to be displayed"
-20170228 13:55:26.629 - DEBUG - Jemmy: "Wait for "courseTerm" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
-    : javax.swing.JLabel[courseTerm,80,0,80x153,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=Spring 2013,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:26.645 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (59)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.646 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ courseEnrollment | 11 ]
-20170228 13:55:26.650 - DEBUG - Jemmy: Waiting for "courseEnrollment" subcomponent
-20170228 13:55:26.650 - DEBUG - Jemmy: Start to wait action "Wait for "courseEnrollment" subcomponent to be displayed"
-20170228 13:55:26.652 - DEBUG - Jemmy: "Wait for "courseEnrollment" subcomponent to be displayed" action has been produced in 2 milliseconds with result 
-    : javax.swing.JLabel[courseEnrollment,80,0,80x153,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=11,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:26.657 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (10)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.658 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ studentId | 111318 ]
-20170228 13:55:26.662 - DEBUG - Jemmy: Waiting for "studentId" subcomponent
-20170228 13:55:26.662 - DEBUG - Jemmy: Start to wait action "Wait for "studentId" subcomponent to be displayed"
-20170228 13:55:26.663 - DEBUG - Jemmy: "Wait for "studentId" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
-    : javax.swing.JLabel[studentId,0,1,241x37,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=111318,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:26.669 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (10)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.670 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ studentName | Cathleen Guzman ]
-20170228 13:55:26.672 - DEBUG - Jemmy: Waiting for "studentName" subcomponent
-20170228 13:55:26.673 - DEBUG - Jemmy: Start to wait action "Wait for "studentName" subcomponent to be displayed"
-20170228 13:55:26.673 - DEBUG - Jemmy: "Wait for "studentName" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
-    : javax.swing.JLabel[studentName,0,38,241x37,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=Cathleen Guzman,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:26.677 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (7)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.678 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ studentEmail | cguzman@jsu.edu ]
-20170228 13:55:26.681 - DEBUG - Jemmy: Waiting for "studentEmail" subcomponent
-20170228 13:55:26.681 - DEBUG - Jemmy: Start to wait action "Wait for "studentEmail" subcomponent to be displayed"
-20170228 13:55:26.681 - DEBUG - Jemmy: "Wait for "studentEmail" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
-    : javax.swing.JLabel[studentEmail,0,75,241x37,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=cguzman@jsu.edu,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:26.686 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (8)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.687 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ studentScore | 925.0 ]
-20170228 13:55:26.689 - DEBUG - Jemmy: Waiting for "studentScore" subcomponent
-20170228 13:55:26.689 - DEBUG - Jemmy: Start to wait action "Wait for "studentScore" subcomponent to be displayed"
-20170228 13:55:26.690 - DEBUG - Jemmy: "Wait for "studentScore" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
-    : javax.swing.JLabel[studentScore,0,112,241x37,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=925,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:26.714 - FAIL - Expected label 'studentScore' value to be '925.0', but was '925'
-20170228 13:55:26.716 - DEBUG - java.lang.RuntimeException: 
+20170302 16:08:52.594 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ courseTerm | Spring 2013 ]
+20170302 16:08:52.623 - DEBUG - Jemmy: Waiting for "courseTerm" subcomponent
+20170302 16:08:52.623 - DEBUG - Jemmy: Start to wait action "Wait for "courseTerm" subcomponent to be displayed"
+20170302 16:08:52.624 - DEBUG - Jemmy: "Wait for "courseTerm" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
+    : javax.swing.JLabel[courseTerm,80,0,80x153,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=,verticalAlignment=CENTER,verticalTextPosition=CENTER]
+20170302 16:08:52.661 - FAIL - Expected label 'courseTerm' value to be 'Spring 2013', but was ''
+20170302 16:08:52.663 - DEBUG - java.lang.RuntimeException: 
 	at org.robotframework.javalib.library.AnnotationLibrary.retrieveInnerException(AnnotationLibrary.java:148)
 	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:130)
 	at org.robotframework.swing.SwingLibrary.runKeyword(SwingLibrary.java:112)
@@ -342,7 +307,7 @@
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.AssertionError: Expected label 'studentScore' value to be '925.0', but was '925'
+Caused by: java.lang.AssertionError: Expected label 'courseTerm' value to be 'Spring 2013', but was ''
 	at org.junit.Assert.fail(Assert.java:93)
 	at org.junit.Assert.assertTrue(Assert.java:43)
 	at org.robotframework.swing.keyword.label.LabelKeywords.labelTextShouldBe(LabelKeywords.java:70)
@@ -351,233 +316,41 @@ Caused by: java.lang.AssertionError: Expected label 'studentScore' value to be '
 	at org.robotframework.javalib.library.KeywordFactoryBasedLibrary.runKeyword(KeywordFactoryBasedLibrary.java:37)
 	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:128)
 	... 260 more
-20170228 13:55:26.719 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (31)
+20170302 16:08:52.666 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (72)
 ------------------------------------------------------------------------------
-20170228 13:55:26.725 - INFO - +-- END TEST: Test Gamegogy Default Values (1750)
+20170302 16:08:52.672 - INFO - +-- END TEST: Test Gamegogy Default Values (5838)
 ------------------------------------------------------------------------------
-20170228 13:55:26.728 - INFO - +-- START TEST: Test Gamegogy Course Select [ ]
+20170302 16:08:52.675 - INFO - +-- START TEST: Test Gamegogy Course Select [ ]
 ------------------------------------------------------------------------------
-20170228 13:55:26.732 - INFO - +--- START KW: SwingLibrary.Start Application [ edu.jsu.mcis.Main ]
-20170228 13:55:26.809 - INFO - +--- END KW: SwingLibrary.Start Application (76)
+20170302 16:08:52.678 - INFO - +--- START KW: SwingLibrary.Start Application [ edu.jsu.mcis.Main ]
+20170302 16:08:52.762 - INFO - +--- END KW: SwingLibrary.Start Application (83)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.811 - INFO - +--- START KW: SwingLibrary.Select Window [ Gamegogy ]
-20170228 13:55:26.815 - DEBUG - Jemmy: Start to wait frame "Frame with name or title 'Gamegogy'" opened
-20170228 13:55:26.845 - DEBUG - Jemmy: Frame "Frame with name or title 'Gamegogy'" has been opened in 0 milliseconds
+20170302 16:08:52.765 - INFO - +--- START KW: SwingLibrary.Select Window [ Gamegogy ]
+20170302 16:08:52.774 - DEBUG - Jemmy: Start to wait frame "Frame with name or title 'Gamegogy'" opened
+20170302 16:08:52.791 - DEBUG - Jemmy: Frame "Frame with name or title 'Gamegogy'" has been opened in 0 milliseconds
     javax.swing.JFrame[frame0,0,0,500x500,invalid,layout=java.awt.BorderLayout,title=Gamegogy,resizable,normal,defaultCloseOperation=EXIT_ON_CLOSE,rootPane=javax.swing.JRootPane[,8,31,484x461,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
-20170228 13:55:26.862 - INFO - +--- END KW: SwingLibrary.Select Window (50)
+20170302 16:08:52.810 - INFO - +--- END KW: SwingLibrary.Select Window (45)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:26.864 - INFO - +--- START KW: SwingLibrary.Select From Combo Box [ courseComboBox | 7 ]
-20170228 13:55:26.867 - DEBUG - Jemmy: Waiting for "courseComboBox" subcomponent
-20170228 13:55:26.867 - DEBUG - Jemmy: Start to wait action "Wait for "courseComboBox" subcomponent to be displayed"
-20170228 13:55:26.883 - DEBUG - Jemmy: "Wait for "courseComboBox" subcomponent to be displayed" action has been produced in 16 milliseconds with result 
+20170302 16:08:52.813 - INFO - +--- START KW: SwingLibrary.Select From Combo Box [ courseComboBox | 7 ]
+20170302 16:08:52.817 - DEBUG - Jemmy: Waiting for "courseComboBox" subcomponent
+20170302 16:08:52.817 - DEBUG - Jemmy: Start to wait action "Wait for "courseComboBox" subcomponent to be displayed"
+20170302 16:08:52.827 - DEBUG - Jemmy: "Wait for "courseComboBox" subcomponent to be displayed" action has been produced in 10 milliseconds with result 
     : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
-20170228 13:55:26.891 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
-20170228 13:55:26.892 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
-20170228 13:55:26.892 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
-    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@2a683b21,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
-20170228 13:55:26.921 - DEBUG - Jemmy: Select 7'th item in combobox
+20170302 16:08:52.830 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
+20170302 16:08:52.830 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
+20170302 16:08:52.830 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
+    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@7cefe148,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
+20170302 16:08:52.852 - DEBUG - Jemmy: Select 7'th item in combobox
     : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
-20170228 13:55:26.923 - DEBUG - Jemmy: Wait item of index "7" available in combo box 
+20170302 16:08:52.854 - DEBUG - Jemmy: Wait item of index "7" available in combo box 
     : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
-20170228 13:55:26.994 - DEBUG - Jemmy: Scroll JList to 7'th item
+20170302 16:08:52.937 - DEBUG - Jemmy: Scroll JList to 7'th item
     : javax.swing.plaf.basic.BasicComboPopup$1[ComboBox.list,0,0,77x450,alignmentX=0.0,alignmentY=0.0,border=,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=163,g=184,b=204],selectionForeground=sun.swing.PrintColorUIResource[r=51,g=51,b=51],visibleRowCount=8,layoutOrientation=0]
-20170228 13:55:27.056 - DEBUG - Jemmy: Start to wait action "Couldn't get the selected item from the combobox."
-20170228 13:55:27.058 - DEBUG - Jemmy: "Couldn't get the selected item from the combobox." action has been produced in 2 milliseconds with result 
-    : 7
-20170228 13:55:27.059 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
-20170228 13:55:27.266 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 207 milliseconds with result 
+20170302 16:08:53.037 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
+20170302 16:08:53.260 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 223 milliseconds with result 
     : Reached!
-20170228 13:55:27.295 - INFO - +--- END KW: SwingLibrary.Select From Combo Box (429)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:27.299 - INFO - +--- START KW: SwingLibrary.Get Selected Item From Combo Box [ columnComboBox ]
-20170228 13:55:27.307 - DEBUG - Jemmy: Waiting for "columnComboBox" subcomponent
-20170228 13:55:27.308 - DEBUG - Jemmy: Start to wait action "Wait for "columnComboBox" subcomponent to be displayed"
-20170228 13:55:27.310 - DEBUG - Jemmy: "Wait for "columnComboBox" subcomponent to be displayed" action has been produced in 2 milliseconds with result 
-    : javax.swing.JComboBox[columnComboBox,386,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=Total]
-20170228 13:55:27.312 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
-20170228 13:55:27.312 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
-20170228 13:55:27.313 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 1 milliseconds with result 
-    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@2a683b21,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
-20170228 13:55:27.336 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
-20170228 13:55:27.561 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 225 milliseconds with result 
-    : Reached!
-20170228 13:55:27.578 - INFO - ${columnName} = Total
-20170228 13:55:27.586 - INFO - +--- END KW: SwingLibrary.Get Selected Item From Combo Box (285)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:27.590 - INFO - +--- START KW: BuiltIn.Should Be Equal [ Total | ${columnName} ]
-20170228 13:55:27.602 - INFO - +--- END KW: BuiltIn.Should Be Equal (11)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:27.606 - INFO - +--- START KW: SwingLibrary.Label Text Should Be [ courseTerm | Spring 2012 ]
-20170228 13:55:27.616 - DEBUG - Jemmy: Waiting for "courseTerm" subcomponent
-20170228 13:55:27.616 - DEBUG - Jemmy: Start to wait action "Wait for "courseTerm" subcomponent to be displayed"
-20170228 13:55:27.620 - DEBUG - Jemmy: "Wait for "courseTerm" subcomponent to be displayed" action has been produced in 3 milliseconds with result 
-    : javax.swing.JLabel[courseTerm,80,0,80x153,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=Spring 2013,verticalAlignment=CENTER,verticalTextPosition=CENTER]
-20170228 13:55:27.664 - FAIL - Expected label 'courseTerm' value to be 'Spring 2012', but was 'Spring 2013'
-20170228 13:55:27.666 - DEBUG - java.lang.RuntimeException: 
-	at org.robotframework.javalib.library.AnnotationLibrary.retrieveInnerException(AnnotationLibrary.java:148)
-	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:130)
-	at org.robotframework.swing.SwingLibrary.runKeyword(SwingLibrary.java:112)
-	at robot.model.testcase$py.visit$7(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testcase.py:73)
-	at robot.model.testcase$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testcase.py)
-	at robot.model.itemlist$py.visit$10(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py:68)
-	at robot.model.itemlist$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py)
-	at robot.model.visitor$py.visit_suite$2(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py:87)
-	at robot.model.visitor$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py)
-	at robot.model.testsuite$py.visit$19(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py:160)
-	at robot.model.testsuite$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py)
-	at robot.model.itemlist$py.visit$10(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py:68)
-	at robot.model.itemlist$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py)
-	at robot.model.visitor$py.visit_suite$2(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py:87)
-	at robot.model.visitor$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py)
-	at robot.model.testsuite$py.visit$19(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py:160)
-	at robot.model.testsuite$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py)
-	at robot.run$py.main$3(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py:441)
-	at robot.run$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py)
-	at robot.utils.application$py._execute$10(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py:91)
-	at robot.utils.application$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py)
-	at robot.utils.application$py.execute_cli$5(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py:46)
-	at robot.utils.application$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py)
-	at robot.run$py.run_cli$7(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py:466)
-	at robot.run$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py)
-	at robot.jarrunner$py._run$3(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py:63)
-	at robot.jarrunner$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py)
-	at robot.jarrunner$py.run$2(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py:56)
-	at robot.jarrunner$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py)
-	at org.robotframework.RobotRunner.run(RobotRunner.java:73)
-	at org.robotframework.RobotFramework.run(RobotFramework.java:60)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
-	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.invoke(StaticMetaMethodSite.java:46)
-	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:91)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at org.roboscratch.gradle.RunRobot.run(RunRobot.groovy:184)
-	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:73)
-	at org.gradle.api.internal.project.taskfactory.DefaultTaskClassInfoStore$StandardTaskAction.doExecute(DefaultTaskClassInfoStore.java:141)
-	at org.gradle.api.internal.project.taskfactory.DefaultTaskClassInfoStore$StandardTaskAction.execute(DefaultTaskClassInfoStore.java:134)
-	at org.gradle.api.internal.project.taskfactory.DefaultTaskClassInfoStore$StandardTaskAction.execute(DefaultTaskClassInfoStore.java:123)
-	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:632)
-	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:615)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeAction(ExecuteActionsTaskExecuter.java:95)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:76)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:55)
-	at org.gradle.api.internal.tasks.execution.SkipUpToDateTaskExecuter.execute(SkipUpToDateTaskExecuter.java:62)
-	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:58)
-	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:88)
-	at org.gradle.api.internal.tasks.execution.ResolveTaskArtifactStateTaskExecuter.execute(ResolveTaskArtifactStateTaskExecuter.java:46)
-	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:51)
-	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:54)
-	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
-	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:34)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker$1.execute(DefaultTaskGraphExecuter.java:236)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker$1.execute(DefaultTaskGraphExecuter.java:228)
-	at org.gradle.internal.Transformers$4.transform(Transformers.java:169)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:106)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:61)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:228)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:215)
-	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.processTask(AbstractTaskPlanExecutor.java:77)
-	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.run(AbstractTaskPlanExecutor.java:58)
-	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor.process(DefaultTaskPlanExecutor.java:32)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter.execute(DefaultTaskGraphExecuter.java:113)
-	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:37)
-	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:37)
-	at org.gradle.execution.DefaultBuildExecuter.access$000(DefaultBuildExecuter.java:23)
-	at org.gradle.execution.DefaultBuildExecuter$1.proceed(DefaultBuildExecuter.java:43)
-	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:32)
-	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:37)
-	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:30)
-	at org.gradle.initialization.DefaultGradleLauncher$3.execute(DefaultGradleLauncher.java:196)
-	at org.gradle.initialization.DefaultGradleLauncher$3.execute(DefaultGradleLauncher.java:193)
-	at org.gradle.internal.Transformers$4.transform(Transformers.java:169)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:106)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:56)
-	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:193)
-	at org.gradle.initialization.DefaultGradleLauncher.doBuild(DefaultGradleLauncher.java:119)
-	at org.gradle.initialization.DefaultGradleLauncher.run(DefaultGradleLauncher.java:102)
-	at org.gradle.launcher.exec.GradleBuildController.run(GradleBuildController.java:71)
-	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:28)
-	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:41)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:26)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:75)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:49)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:44)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:29)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:67)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:47)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:26)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:34)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:74)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:72)
-	at org.gradle.util.Swapper.swap(Swapper.java:38)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:72)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:55)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:60)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:72)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:50)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
-	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.AssertionError: Expected label 'courseTerm' value to be 'Spring 2012', but was 'Spring 2013'
-	at org.junit.Assert.fail(Assert.java:93)
-	at org.junit.Assert.assertTrue(Assert.java:43)
-	at org.robotframework.swing.keyword.label.LabelKeywords.labelTextShouldBe(LabelKeywords.java:70)
-	at org.robotframework.javalib.reflection.KeywordInvoker.invoke(KeywordInvoker.java:50)
-	at org.robotframework.javalib.beans.annotation.AnnotationKeywordExtractor$1.execute(AnnotationKeywordExtractor.java:62)
-	at org.robotframework.javalib.library.KeywordFactoryBasedLibrary.runKeyword(KeywordFactoryBasedLibrary.java:37)
-	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:128)
-	... 260 more
-20170228 13:55:27.672 - INFO - +--- END KW: SwingLibrary.Label Text Should Be (66)
-------------------------------------------------------------------------------
-20170228 13:55:27.679 - INFO - +-- END TEST: Test Gamegogy Course Select (947)
-------------------------------------------------------------------------------
-20170228 13:55:27.683 - INFO - +-- START TEST: Test Gamegogy Column Select [ ]
-------------------------------------------------------------------------------
-20170228 13:55:27.689 - INFO - +--- START KW: SwingLibrary.Start Application [ edu.jsu.mcis.Main ]
-20170228 13:55:27.757 - INFO - +--- END KW: SwingLibrary.Start Application (66)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:27.766 - INFO - +--- START KW: SwingLibrary.Select Window [ Gamegogy ]
-20170228 13:55:27.773 - DEBUG - Jemmy: Start to wait frame "Frame with name or title 'Gamegogy'" opened
-20170228 13:55:27.791 - DEBUG - Jemmy: Frame "Frame with name or title 'Gamegogy'" has been opened in 0 milliseconds
-    javax.swing.JFrame[frame0,0,0,500x500,invalid,layout=java.awt.BorderLayout,title=Gamegogy,resizable,normal,defaultCloseOperation=EXIT_ON_CLOSE,rootPane=javax.swing.JRootPane[,8,31,484x461,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
-20170228 13:55:27.803 - INFO - +--- END KW: SwingLibrary.Select Window (39)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-20170228 13:55:27.807 - INFO - +--- START KW: SwingLibrary.Select From Combo Box [ courseComboBox | 9 ]
-20170228 13:55:27.811 - DEBUG - Jemmy: Waiting for "courseComboBox" subcomponent
-20170228 13:55:27.811 - DEBUG - Jemmy: Start to wait action "Wait for "courseComboBox" subcomponent to be displayed"
-20170228 13:55:27.831 - DEBUG - Jemmy: "Wait for "courseComboBox" subcomponent to be displayed" action has been produced in 20 milliseconds with result 
-    : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99007]
-20170228 13:55:27.832 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
-20170228 13:55:27.832 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
-20170228 13:55:27.832 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
-    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@2a683b21,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
-20170228 13:55:27.855 - DEBUG - Jemmy: Select 9'th item in combobox
-    : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99007]
-20170228 13:55:27.856 - DEBUG - Jemmy: Wait item of index "9" available in combo box 
-    : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99007]
-20170228 13:55:27.887 - DEBUG - Jemmy: Scroll JList to 9'th item
-    : javax.swing.plaf.basic.BasicComboPopup$1[ComboBox.list,0,0,77x450,alignmentX=0.0,alignmentY=0.0,border=,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=163,g=184,b=204],selectionForeground=sun.swing.PrintColorUIResource[r=51,g=51,b=51],visibleRowCount=8,layoutOrientation=0]
-20170228 13:55:27.922 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
-20170228 13:55:28.150 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 228 milliseconds with result 
-    : Reached!
-20170228 13:55:28.196 - FAIL - Exception in Path selecting
-20170228 13:55:28.198 - DEBUG - java.lang.RuntimeException: 
+20170302 16:08:53.316 - FAIL - Exception in Path selecting
+20170302 16:08:53.317 - DEBUG - java.lang.RuntimeException: 
 	at org.robotframework.javalib.library.AnnotationLibrary.retrieveInnerException(AnnotationLibrary.java:148)
 	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:130)
 	at org.robotframework.swing.SwingLibrary.runKeyword(SwingLibrary.java:112)
@@ -714,12 +487,184 @@ Caused by: org.netbeans.jemmy.JemmyException: Exception in Path selecting
 	at org.robotframework.javalib.beans.annotation.AnnotationKeywordExtractor$1.execute(AnnotationKeywordExtractor.java:62)
 	at org.robotframework.javalib.library.KeywordFactoryBasedLibrary.runKeyword(KeywordFactoryBasedLibrary.java:37)
 	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:128)
-	... 259 more
-20170228 13:55:28.203 - INFO - +--- END KW: SwingLibrary.Select From Combo Box (395)
+	... 260 more
+20170302 16:08:53.321 - INFO - +--- END KW: SwingLibrary.Select From Combo Box (507)
 ------------------------------------------------------------------------------
-20170228 13:55:28.211 - INFO - +-- END TEST: Test Gamegogy Column Select (525)
+20170302 16:08:53.328 - INFO - +-- END TEST: Test Gamegogy Course Select (650)
 ------------------------------------------------------------------------------
-20170228 13:55:28.259 - INFO - +- END SUITE: Acceptancetest.Feature03 (14944)
+20170302 16:08:53.331 - INFO - +-- START TEST: Test Gamegogy Column Select [ ]
+------------------------------------------------------------------------------
+20170302 16:08:53.336 - INFO - +--- START KW: SwingLibrary.Start Application [ edu.jsu.mcis.Main ]
+20170302 16:08:53.399 - INFO - +--- END KW: SwingLibrary.Start Application (63)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170302 16:08:53.402 - INFO - +--- START KW: SwingLibrary.Select Window [ Gamegogy ]
+20170302 16:08:53.407 - DEBUG - Jemmy: Start to wait frame "Frame with name or title 'Gamegogy'" opened
+20170302 16:08:53.427 - DEBUG - Jemmy: Frame "Frame with name or title 'Gamegogy'" has been opened in 0 milliseconds
+    javax.swing.JFrame[frame0,0,0,500x500,invalid,layout=java.awt.BorderLayout,title=Gamegogy,resizable,normal,defaultCloseOperation=EXIT_ON_CLOSE,rootPane=javax.swing.JRootPane[,8,31,484x461,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+20170302 16:08:53.442 - INFO - +--- END KW: SwingLibrary.Select Window (41)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20170302 16:08:53.445 - INFO - +--- START KW: SwingLibrary.Select From Combo Box [ courseComboBox | 9 ]
+20170302 16:08:53.448 - DEBUG - Jemmy: Waiting for "courseComboBox" subcomponent
+20170302 16:08:53.449 - DEBUG - Jemmy: Start to wait action "Wait for "courseComboBox" subcomponent to be displayed"
+20170302 16:08:53.459 - DEBUG - Jemmy: "Wait for "courseComboBox" subcomponent to be displayed" action has been produced in 10 milliseconds with result 
+    : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
+20170302 16:08:53.462 - DEBUG - Jemmy: Waiting for "Button for combobox popup menu opening" subcomponent
+20170302 16:08:53.462 - DEBUG - Jemmy: Start to wait action "Wait for "Button for combobox popup menu opening" subcomponent to be displayed"
+20170302 16:08:53.463 - DEBUG - Jemmy: "Wait for "Button for combobox popup menu opening" subcomponent to be displayed" action has been produced in 0 milliseconds with result 
+    : javax.swing.plaf.metal.MetalComboBoxButton[,76,0,20x153,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@7cefe148,flags=12583208,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=java.awt.Insets[top=0,left=1,bottom=1,right=3],paintBorder=true,paintFocus=false,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=,defaultCapable=true]
+20170302 16:08:53.490 - DEBUG - Jemmy: Select 9'th item in combobox
+    : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
+20170302 16:08:53.490 - DEBUG - Jemmy: Wait item of index "9" available in combo box 
+    : javax.swing.JComboBox[courseComboBox,98,0,96x153,layout=javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,alignmentX=0.0,alignmentY=0.0,border=,flags=328,maximumSize=,minimumSize=,preferredSize=java.awt.Dimension[width=100,height=65],isEditable=false,lightWeightPopupEnabled=true,maximumRowCount=8,selectedItemReminder=99000]
+20170302 16:08:53.522 - DEBUG - Jemmy: Scroll JList to 9'th item
+    : javax.swing.plaf.basic.BasicComboPopup$1[ComboBox.list,0,0,77x450,alignmentX=0.0,alignmentY=0.0,border=,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=163,g=184,b=204],selectionForeground=sun.swing.PrintColorUIResource[r=51,g=51,b=51],visibleRowCount=8,layoutOrientation=0]
+20170302 16:08:53.570 - DEBUG - Jemmy: Start to wait action "No event under 11111110111111111111 event mask during 200 milliseconds"
+20170302 16:08:53.798 - DEBUG - Jemmy: "No event under 11111110111111111111 event mask during 200 milliseconds" action has been produced in 228 milliseconds with result 
+    : Reached!
+20170302 16:08:53.860 - FAIL - Exception in Path selecting
+20170302 16:08:53.861 - DEBUG - java.lang.RuntimeException: 
+	at org.robotframework.javalib.library.AnnotationLibrary.retrieveInnerException(AnnotationLibrary.java:148)
+	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:130)
+	at org.robotframework.swing.SwingLibrary.runKeyword(SwingLibrary.java:112)
+	at robot.model.testcase$py.visit$7(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testcase.py:73)
+	at robot.model.testcase$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testcase.py)
+	at robot.model.itemlist$py.visit$10(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py:68)
+	at robot.model.itemlist$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py)
+	at robot.model.visitor$py.visit_suite$2(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py:87)
+	at robot.model.visitor$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py)
+	at robot.model.testsuite$py.visit$19(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py:160)
+	at robot.model.testsuite$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py)
+	at robot.model.itemlist$py.visit$10(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py:68)
+	at robot.model.itemlist$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/itemlist.py)
+	at robot.model.visitor$py.visit_suite$2(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py:87)
+	at robot.model.visitor$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/visitor.py)
+	at robot.model.testsuite$py.visit$19(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py:160)
+	at robot.model.testsuite$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/model/testsuite.py)
+	at robot.run$py.main$3(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py:441)
+	at robot.run$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py)
+	at robot.utils.application$py._execute$10(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py:91)
+	at robot.utils.application$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py)
+	at robot.utils.application$py.execute_cli$5(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py:46)
+	at robot.utils.application$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/utils/application.py)
+	at robot.run$py.run_cli$7(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py:466)
+	at robot.run$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/run.py)
+	at robot.jarrunner$py._run$3(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py:63)
+	at robot.jarrunner$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py)
+	at robot.jarrunner$py.run$2(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py:56)
+	at robot.jarrunner$py.call_function(/Users/jmalinen/Documents/workspace/robotframework/build/Lib/robot/jarrunner.py)
+	at org.robotframework.RobotRunner.run(RobotRunner.java:73)
+	at org.robotframework.RobotFramework.run(RobotFramework.java:60)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.invoke(StaticMetaMethodSite.java:46)
+	at org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.call(StaticMetaMethodSite.java:91)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.roboscratch.gradle.RunRobot.run(RunRobot.groovy:184)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:73)
+	at org.gradle.api.internal.project.taskfactory.DefaultTaskClassInfoStore$StandardTaskAction.doExecute(DefaultTaskClassInfoStore.java:141)
+	at org.gradle.api.internal.project.taskfactory.DefaultTaskClassInfoStore$StandardTaskAction.execute(DefaultTaskClassInfoStore.java:134)
+	at org.gradle.api.internal.project.taskfactory.DefaultTaskClassInfoStore$StandardTaskAction.execute(DefaultTaskClassInfoStore.java:123)
+	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:632)
+	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:615)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeAction(ExecuteActionsTaskExecuter.java:95)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:76)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.SkipUpToDateTaskExecuter.execute(SkipUpToDateTaskExecuter.java:62)
+	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:58)
+	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:88)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskArtifactStateTaskExecuter.execute(ResolveTaskArtifactStateTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:54)
+	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker$1.execute(DefaultTaskGraphExecuter.java:236)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker$1.execute(DefaultTaskGraphExecuter.java:228)
+	at org.gradle.internal.Transformers$4.transform(Transformers.java:169)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:106)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:61)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:228)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:215)
+	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.processTask(AbstractTaskPlanExecutor.java:77)
+	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.run(AbstractTaskPlanExecutor.java:58)
+	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor.process(DefaultTaskPlanExecutor.java:32)
+	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter.execute(DefaultTaskGraphExecuter.java:113)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:37)
+	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:37)
+	at org.gradle.execution.DefaultBuildExecuter.access$000(DefaultBuildExecuter.java:23)
+	at org.gradle.execution.DefaultBuildExecuter$1.proceed(DefaultBuildExecuter.java:43)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:32)
+	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:37)
+	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:30)
+	at org.gradle.initialization.DefaultGradleLauncher$3.execute(DefaultGradleLauncher.java:196)
+	at org.gradle.initialization.DefaultGradleLauncher$3.execute(DefaultGradleLauncher.java:193)
+	at org.gradle.internal.Transformers$4.transform(Transformers.java:169)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:106)
+	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:56)
+	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:193)
+	at org.gradle.initialization.DefaultGradleLauncher.doBuild(DefaultGradleLauncher.java:119)
+	at org.gradle.initialization.DefaultGradleLauncher.run(DefaultGradleLauncher.java:102)
+	at org.gradle.launcher.exec.GradleBuildController.run(GradleBuildController.java:71)
+	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:28)
+	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
+	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:41)
+	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:26)
+	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:75)
+	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:49)
+	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:44)
+	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:29)
+	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:67)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:47)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:26)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:34)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:74)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:72)
+	at org.gradle.util.Swapper.swap(Swapper.java:38)
+	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:72)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:55)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:60)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:72)
+	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
+	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:120)
+	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:50)
+	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.netbeans.jemmy.JemmyException: Exception in Path selecting
+	at org.netbeans.jemmy.QueueTool.invokeAndWait(QueueTool.java:414)
+	at org.netbeans.jemmy.QueueTool.invokeSmoothly(QueueTool.java:344)
+	at org.netbeans.jemmy.drivers.lists.JListMouseDriver.clickOnItem(JListMouseDriver.java:86)
+	at org.netbeans.jemmy.drivers.lists.JListMouseDriver.clickOnItem(JListMouseDriver.java:73)
+	at org.netbeans.jemmy.drivers.lists.JListMouseDriver.selectItem(JListMouseDriver.java:57)
+	at org.netbeans.jemmy.drivers.lists.JComboMouseDriver.selectItem(JComboMouseDriver.java:79)
+	at org.netbeans.jemmy.operators.JComboBoxOperator.selectItem(JComboBoxOperator.java:543)
+	at org.robotframework.swing.combobox.ComboBoxOperator$1.executeWhenComboBoxOpen(ComboBoxOperator.java:48)
+	at org.robotframework.swing.combobox.ComboBoxOperator$ComboboxAction.execute(ComboBoxOperator.java:144)
+	at org.robotframework.swing.combobox.ComboBoxOperator.selectItem(ComboBoxOperator.java:41)
+	at org.robotframework.swing.keyword.combobox.ComboBoxKeywords.selectFromComboBox(ComboBoxKeywords.java:43)
+	at org.robotframework.javalib.reflection.KeywordInvoker.invoke(KeywordInvoker.java:50)
+	at org.robotframework.javalib.beans.annotation.AnnotationKeywordExtractor$1.execute(AnnotationKeywordExtractor.java:62)
+	at org.robotframework.javalib.library.KeywordFactoryBasedLibrary.runKeyword(KeywordFactoryBasedLibrary.java:37)
+	at org.robotframework.javalib.library.AnnotationLibrary.runKeyword(AnnotationLibrary.java:128)
+	... 260 more
+20170302 16:08:53.864 - INFO - +--- END KW: SwingLibrary.Select From Combo Box (420)
+------------------------------------------------------------------------------
+20170302 16:08:53.869 - INFO - +-- END TEST: Test Gamegogy Column Select (537)
+------------------------------------------------------------------------------
+20170302 16:08:53.905 - INFO - +- END SUITE: Acceptancetest.Feature03 (9132)
 ==============================================================================
-20170228 13:55:28.302 - INFO - + END SUITE: Acceptancetest (16085)
+20170302 16:08:53.934 - INFO - + END SUITE: Acceptancetest (10238)
 ==============================================================================

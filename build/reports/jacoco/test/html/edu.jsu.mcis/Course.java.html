@@ -1,52 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Course.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Leaderboard_master</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis</a> &gt; <span class="el_source">Course.java</span></div><h1>Course.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis;
 
+import java.io.*;
+import au.com.bytecode.opencsv.*;
 import java.util.*;
 
 public class Course {
+	
 	private String courseID;
 	private String term;
 	private String year;
 	private String classSize;
-	
-	
-<span class="fc" id="L12">	public Course() {</span>
-<span class="fc" id="L13">		courseID = &quot; &quot;;</span>
-<span class="fc" id="L14">		term = &quot; &quot;;</span>
-<span class="fc" id="L15">		year = &quot; &quot;;</span>
-<span class="fc" id="L16">		classSize = &quot; &quot;;</span>
+	private Grades grades;
+
+<span class="fc" id="L15">	public Course() {</span>
+<span class="fc" id="L16">		courseID = &quot; &quot;;</span>
+<span class="fc" id="L17">		term = &quot; &quot;;</span>
+<span class="fc" id="L18">		year = &quot; &quot;;</span>
+<span class="fc" id="L19">		classSize = &quot; &quot;;</span>
 		
-<span class="fc" id="L18">	}</span>
+<span class="fc" id="L21">	}</span>
+	
+	private void readData(String fileName) {
+		try{
+<span class="fc" id="L25">			CSVReader gradesReader = new CSVReader(new FileReader(&quot;src/main/resources/courses/&quot; + fileName + &quot;.csv&quot;));</span>
+			try{
+<span class="fc" id="L27">				List&lt;String[]&gt; gradesData =  gradesReader.readAll();</span>
+<span class="fc" id="L28">				int rowSize = gradesData.size();</span>
+<span class="fc" id="L29">				int colSize = gradesData.get(0).length;</span>
+<span class="fc" id="L30">				String[][] gradesArray = new String[rowSize][colSize];</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">				for(int i = 0; i &lt; rowSize; i++) {</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">					for(int j = 0; j &lt; colSize; j++) {</span>
+<span class="fc" id="L33">						gradesArray[i][j] = gradesData.get(i)[j];</span>
+					}
+				}
+<span class="fc" id="L36">				grades = new Grades(gradesArray);</span>
+			}
+<span class="pc" id="L38">			catch(IOException e) {}</span>
+			
+		}
+<span class="pc" id="L41">		catch(FileNotFoundException e) {}</span>
+<span class="fc" id="L42">	}</span>
+	
+	public Grades getGrades() {
+<span class="fc" id="L45">		readData(courseID);</span>
+<span class="fc" id="L46">		return grades;</span>
+	}
 	
 	public String getCourseID() {
-<span class="fc" id="L21">		return courseID;</span>
+<span class="fc" id="L50">		return courseID;</span>
 	}
 	public void setCourseID(String courseID) {
-<span class="fc" id="L24">		this.courseID = courseID;</span>
-<span class="fc" id="L25">	}</span>
+<span class="fc" id="L53">		this.courseID = courseID;</span>
+<span class="fc" id="L54">	}</span>
 	
 	public String getCourseTerm() {
-<span class="fc" id="L28">		return term;</span>
+<span class="fc" id="L57">		return term;</span>
 	}
 	public void setCourseTerm(String term){
-<span class="fc" id="L31">		this.term = term;</span>
-<span class="fc" id="L32">	}</span>
+<span class="fc" id="L60">		this.term = term;</span>
+<span class="fc" id="L61">	}</span>
 	
 	public String getCourseYear() {
-<span class="fc" id="L35">		return year;</span>
+<span class="fc" id="L64">		return year;</span>
 	}
 	public void setCourseYear(String year) {
-<span class="fc" id="L38">		this.year = year;</span>
-<span class="fc" id="L39">	}</span>
+<span class="fc" id="L67">		this.year = year;</span>
+<span class="fc" id="L68">	}</span>
 	
 	public String getCourseSize() {
-<span class="fc" id="L42">		return classSize;</span>
+<span class="fc" id="L71">		return classSize;</span>
 	}
 	public void setCourseSize(String classSize){
-<span class="fc" id="L45">		this.classSize = classSize;</span>
-<span class="fc" id="L46">	}</span>
+<span class="fc" id="L74">		this.classSize = classSize;</span>
+<span class="fc" id="L75">	}</span>
 	
 	public String toString(){
-<span class="fc" id="L49">		return &quot;[&quot; +courseID+ &quot;]&quot; + &quot; &quot; +term+ &quot; &quot; + year+ &quot; (&quot; +classSize+ &quot; students)&quot;;</span>
+<span class="fc" id="L78">		return &quot;[&quot; +courseID+ &quot;]&quot; + &quot; &quot; +term+ &quot; &quot; + year+ &quot; (&quot; +classSize+ &quot; students)&quot;;</span>
 	}
 
 }
