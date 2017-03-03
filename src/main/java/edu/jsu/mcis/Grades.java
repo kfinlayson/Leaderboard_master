@@ -15,13 +15,13 @@ public class Grades {
 	}
 	
 	public void findMaxScore(String assignment) {
-		int max = 0;
+		float max = 0;
 		int temp = 0;
 		for(int i = 0; i < gradesArray[0].length; i++) {
 			if(gradesArray[0][i].equals(assignment)){
 				for(int j = 1; j < gradesArray.length; j++){
-					if(Integer.parseInt(gradesArray[j][i]) > max){
-						max = Integer.parseInt(gradesArray[j][i]);
+					if(Float.parseFloat(gradesArray[j][i]) > max){
+						max = Float.parseFloat(gradesArray[j][i]);
 						temp = j;
 					}
 				}
@@ -29,7 +29,7 @@ public class Grades {
 		}			
 		
 		maxScoreID = gradesArray[temp][0];
-		maxScore = "" + max + ".0";
+		maxScore = "" + max;
 	
 	}
 	
@@ -64,9 +64,9 @@ public class Grades {
 		}
 		else {
 			Map<String,Integer> studentGrades = new TreeMap<String,Integer>();
-			for(int i = 0; i < gradesArray[0].length; i++) {
+			for(int i = 0; i < gradesArray.length; i++) {
 				if(gradesArray[i][0].equals(studentID)) {
-					for(int j = 1; j < gradesArray.length; j++) {
+					for(int j = 1; j < gradesArray[0].length; j++) {
 						int grade = Integer.parseInt(gradesArray[i][j]);
 						studentGrades.put(gradesArray[0][j], grade);
 					}
@@ -84,9 +84,9 @@ public class Grades {
 		}
 		else {
 			Map<String,Integer> assignmentGrades = new TreeMap<String,Integer>();
-			for(int i = 0; i < gradesArray.length; i++) {
+			for(int i = 0; i < gradesArray[0].length; i++) {
 				if(gradesArray[0][i].equals(assignment)) {
-					for(int j = 1; j < gradesArray[0].length; j++) {
+					for(int j = 1; j < gradesArray.length; j++) {
 						int grade = Integer.parseInt(gradesArray[j][i]);
 						assignmentGrades.put(gradesArray[j][0], grade);
 					}
