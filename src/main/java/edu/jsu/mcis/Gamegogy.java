@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent; 
 import javax.swing.*;
 
-public class Gamegogy extends JPanel{
+public class Gamegogy extends JPanel implements ActionListener{
 	
 	private Database database;
 	
@@ -25,24 +25,14 @@ public class Gamegogy extends JPanel{
 		
 		database = new Database();
 		courseComboBox = new JComboBox(database.getAllCourseIDsArray());
+		columnComboBox = new JComboBox();
 		courseComboBox.setName("courseComboBox");
-		courseComboBox.addItemListener(new ItemListener(){
-			public void itemStateChanged(ItemEvent item){
-				updateColumnComboBox();
-				updateLabels();
-			}
-		});
-		courseComboBox.setSelectedIndex(0);
-		Course course = database.getCourse((String)courseComboBox.getSelectedItem());
-		Grades grades = course.getGrades();
-		columnComboBox = new JComboBox(grades.getAssignmentList());
+		courseComboBox.addActionListener(this);
+		
 		columnComboBox.setName("columnComboBox");
-		columnComboBox.setSelectedIndex(0);
-		columnComboBox.addItemListener(new ItemListener(){
-			public void itemStateChanged(ItemEvent item){
-				updateLabels();
-			}
-		});
+		//columnComboBox.setSelectedIndex(0);
+		columnComboBox.addActionListener(this);
+
 		
 		
 		courseComboBox.setPreferredSize(new Dimension(100,65));
@@ -91,16 +81,16 @@ public class Gamegogy extends JPanel{
 		
 		JPanel studentInfoBox2 = new JPanel();
 		studentInfoBox2.setLayout(new GridLayout(4,1));
-		studentId = new JLabel();
+		studentId = new JLabel("");
 		studentId.setName("studentId");
 		studentInfoBox2.add(studentId);
-		studentName = new JLabel();
+		studentName = new JLabel("");
 		studentName.setName("studentName");
 		studentInfoBox2.add(studentName);
-		studentEmail = new JLabel();
+		studentEmail = new JLabel("");
 		studentEmail.setName("studentEmail");
 		studentInfoBox2.add(studentEmail);
-		studentScore = new JLabel();
+		studentScore = new JLabel("");
 		studentScore.setName("studentScore");
 		studentInfoBox2.add(studentScore);
 		
@@ -114,19 +104,36 @@ public class Gamegogy extends JPanel{
 		add(labelGridMain);
 		add(studentInfoBoxMain);
 		
+		courseComboBox.setSelectedIndex(0);
 	
 		
 	}
 	
-	private void updateColumnComboBox(){
+	public void actionPerformed(ActionEvent event) {
+		if(event.getSource() == courseComboBox){ 
 			String courseID = (String)courseComboBox.getSelectedItem();
+			System.out.println("changing course combo -- " + courseID);
 			Course course = database.getCourse(courseID);
 			Grades temp = course.getGrades();
+			
 			DefaultComboBoxModel model = new DefaultComboBoxModel(temp.getAssignmentList());
-			columnComboBox = new JComboBox(model);
-			//columnComboBox.setSelectedIndex(0);
-	}
-	private void updateLabels(){
+			columnComboBox.setModel(model);
+			
+			temp.findMaxScore("Total");
+			Student student = database.getStudent(temp.getMaxScoreID());
+			
+			String assignmentString = (String)columnComboBox.getSelectedItem();
+			courseTerm.setText(course.getCourseTerm() + " " + course.getCourseYear());
+			
+			courseEnrollment.setText(course.getCourseSize());
+			
+			studentId.setText(student.getID());
+			studentName.setText(student.getFirstName() + " " + student.getLastName()) ;
+			studentEmail.setText(student.getStudentEmail() + "@jsu.edu");
+			studentScore.setText(temp.getMaxScore());
+			
+		}
+		else{
 			String courseID = (String)courseComboBox.getSelectedItem();
 			Course course = database.getCourse(courseID);
 			Grades temp = course.getGrades();
@@ -136,11 +143,21 @@ public class Gamegogy extends JPanel{
 			courseEnrollment.setText(database.getCourse(courseID).getCourseSize());
 				
 			temp.findMaxScore(assignmentString);
-			studentId.setText(temp.getMaxScoreID());
-			studentName.setText(database.getStudent(temp.getMaxScore()).getFirstName() + " " + database.getStudent(temp.getMaxScore()).getLastName()) ;
-			studentEmail.setText(database.getStudent(temp.getMaxScore()).getStudentEmail() + "@jsu.edu");
+			Student student = database.getStudent(temp.getMaxScoreID());	
+			studentId.setText(student.getID());
+			studentName.setText(student.getFirstName() + " " + student.getLastName()) ;
+			studentEmail.setText(student.getStudentEmail() + "@jsu.edu");
 			studentScore.setText(temp.getMaxScore());
+		}
+	}
+/*	
+	private void updateColumnComboBox(){
+			
+			//columnComboBox.setSelectedIndex(0);
+	}
+	private void updateLabels(){
+			
 		
 	}
-	
+*/	
 }

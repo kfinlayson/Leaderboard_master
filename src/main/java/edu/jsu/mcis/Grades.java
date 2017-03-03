@@ -115,6 +115,7 @@ public class Grades {
 		return false;
 	}
 	
+	
 	public String[] getAssignmentList() {
 		String[] assignmentList = new String[gradesArray.length-1];
 		for(int i = 1; i < gradesArray.length; i++) {
