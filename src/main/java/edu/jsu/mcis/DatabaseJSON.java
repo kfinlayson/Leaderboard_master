@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.*;
 import au.com.bytecode.opencsv.*;
 
-public class Database {
+public class DatabaseJSON {
 	
 	private Map<String, Student> studentMap;
 	private Map<String, Course> courseMap;
 	
-	public Database() {
+	public DatabaseJSON() {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
 		readData();

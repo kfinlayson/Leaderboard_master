@@ -12,7 +12,7 @@ public class LeaderboardTest {
 	
 	@Before
 	public void setUp() {
-		Database data = new Database();
+		DatabaseCSV data = new DatabaseCSV();
 		Course course = data.getCourse("99001");
 		Grades grades = course.getGrades();
 		leaderboard = new Leaderboard(grades);
