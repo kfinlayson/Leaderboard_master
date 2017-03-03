@@ -19,14 +19,16 @@ public class Course {
 		classSize = " ";
 		
 	}
+	private int rowSize;
+	private int colSize;
 	
 	private void readData(String fileName) {
 		try{
 			CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + fileName + ".csv"));
 			try{
 				List<String[]> gradesData =  gradesReader.readAll();
-				int rowSize = gradesData.size();
-				int colSize = gradesData.get(0).length;
+				rowSize = gradesData.size();
+				colSize = gradesData.get(0).length;
 				String[][] gradesArray = new String[rowSize][colSize];
 				for(int i = 0; i < rowSize; i++) {
 					for(int j = 0; j < colSize; j++) {
@@ -39,6 +41,12 @@ public class Course {
 			
 		}
 		catch(FileNotFoundException e) {}
+	}
+	public int getCol(){
+		return colSize;
+	}
+	public int getRow(){
+		return rowSize;
 	}
 	
 	public Grades getGrades() {

@@ -45,7 +45,7 @@ public class GradesTest {
 	@Test
 	public void testAssignmentGetMaxScore(){
 		grades.findMaxScore("Assignment 1");
-		assertEquals("65",grades.getMaxScore());
+		assertEquals("65.0",grades.getMaxScore());
 	}
 	
 	@Test
@@ -102,6 +102,14 @@ public class GradesTest {
 		String[] actual = grades.getAssignmentList();
 		for(int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
+		}
+		Database data = new Database();
+		Course course = data.getCourse("99001");
+		grades = course.getGrades();
+		String[] expected1 = { "Total", "Assignment 1", "Assignment 2", "Assignment 3", "Exam 1", "Exam 2", "Exam 3" };
+		String[] actual1 = grades.getAssignmentList();
+		for(int i = 0; i < expected1.length; i++) {
+			assertEquals(expected1[i], actual1[i]);
 		}
 	}
 	

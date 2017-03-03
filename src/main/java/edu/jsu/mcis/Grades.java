@@ -17,9 +17,9 @@ public class Grades {
 	public void findMaxScore(String assignment) {
 		int max = 0;
 		int temp = 0;
-		for(int i = 0; i < gradesArray.length; i++) {
+		for(int i = 0; i < gradesArray[0].length; i++) {
 			if(gradesArray[0][i].equals(assignment)){
-				for(int j = 1; j < gradesArray[0].length; j++){
+				for(int j = 1; j < gradesArray.length; j++){
 					if(Integer.parseInt(gradesArray[j][i]) > max){
 						max = Integer.parseInt(gradesArray[j][i]);
 						temp = j;
@@ -29,7 +29,7 @@ public class Grades {
 		}			
 		
 		maxScoreID = gradesArray[temp][0];
-		maxScore = "" + max;
+		maxScore = "" + max + ".0";
 	
 	}
 	
@@ -117,9 +117,9 @@ public class Grades {
 	
 	
 	public String[] getAssignmentList() {
-		String[] assignmentList = new String[gradesArray.length-1];
-		for(int i = 1; i < gradesArray.length; i++) {
-			assignmentList[i-1] = gradesArray[0][i];
+		String[] assignmentList = new String[gradesArray[0].length - 1];
+		for(int i = 0; i < assignmentList.length; i++) {
+			assignmentList[i] = gradesArray[0][i+1];
 		}
 		return assignmentList;
 	}
@@ -132,4 +132,15 @@ public class Grades {
 		return maxScoreID;
 	}
 	
+	@Override
+	public String toString(){
+		String s = "";
+		for(int i = 0; i < gradesArray.length;i++){
+			for(int j = 0;j < gradesArray[0].length; j++){
+				s += " " + gradesArray[i][j];
+			}
+			s += "\n";
+		}
+		return s;
+	}
 }
