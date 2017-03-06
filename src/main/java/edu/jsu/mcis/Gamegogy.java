@@ -112,10 +112,9 @@ public class Gamegogy extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == courseComboBox){ 
 			String courseID = (String)courseComboBox.getSelectedItem();
-			System.out.println("changing course combo -- " + courseID);
 			Course course = database.getCourse(courseID);
 			Grades temp = course.getGrades();
-			DefaultComboBoxModel model = new DefaultComboBoxModel(temp.getAssignmentList());
+			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(temp.getAssignmentList());
 			columnComboBox.setModel(model);
 			
 			temp.findMaxScore(temp.getAssignmentList()[0]);

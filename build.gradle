@@ -6,6 +6,7 @@ buildscript {
         classpath 'com.googlecode.json-simple:json-simple:1.1.1'
         classpath 'org.robotframework:swinglibrary:1.9.6'
         classpath 'org.robotframework:javalib-core:1.2.1'
+		classpath 'org.jfree:jfreechart:1.0.19'
     }
 }
 plugins {
