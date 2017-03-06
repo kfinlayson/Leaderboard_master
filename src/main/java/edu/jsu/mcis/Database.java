@@ -4,30 +4,31 @@ import java.io.*;
 import java.util.*;
 import au.com.bytecode.opencsv.*;
 
-public class DatabaseJSON {
+public class Database {
 	
 	private Map<String, Student> studentMap;
 	private Map<String, Course> courseMap;
 	
-	public DatabaseJSON() {
+	public Database() {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
 		readData();
 	}
 	
+	public Database(String basicURL) {
+		JSONWebSource website = new JSONWebSource();
+		website.getJSONStudent();
+		website.getJSONCourse();
+		website.getJSONGrades();
+	}
+	
 	//replace path with file name passed by user
-	private void readData() {
+	//Make more changes and stuff.
+	private void readData(String fileName, Map map) {
 		try{
-			CSVReader studentReader = new CSVReader(new FileReader("src/main/resources/students.csv"));
+			CSVReader reader = new CSVReader(new FileReader(fileName));
 			try{
-				List<String[]> studentData =  studentReader.readAll();
-				setStudentMaps(studentData);
-			}
-			catch(IOException e) {}
-			
-			CSVReader courseReader = new CSVReader(new FileReader("src/main/resources/courses.csv"));
-			try{
-				List<String[]> courseData =  courseReader.readAll();
+				List<String[]> map =  reader.readAll();
 				setCourseMaps(courseData);
 			}
 			catch(IOException e) {}
