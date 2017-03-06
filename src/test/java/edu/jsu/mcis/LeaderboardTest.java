@@ -20,10 +20,19 @@ public class LeaderboardTest {
 	
 	@Test
 	public void testGetSortedGrades() {
-		int[] sorted = leaderboard.getSortedGrades("Total");
-		int[] expected = { 886, 823, 820, 669, 593, 557, 548, 499, 494 };
-		for(int i = 0; i < expected.length; i++) {
-			assertEquals(expected[i], sorted[i]);
+		List<Integer> sorted = leaderboard.getSortedGrades("Total");
+		List<Integer> expected = new ArrayList<Integer>();
+		expected.add(886);
+		expected.add(823);
+		expected.add(820);
+		expected.add(669);
+		expected.add(593);
+		expected.add(557);
+		expected.add(548);
+		expected.add(499);
+		expected.add(494);
+		for(int i = 0; i < expected.size(); i++) {
+			assertEquals(expected.get(i), sorted.get(i));
 		}
 	}
 }
