@@ -24,17 +24,26 @@ public class Database {
 	
 	//replace path with file name passed by user
 	//Make more changes and stuff.
-	private void readData(String fileName, Map map) {
+	private void readData() {
 		try{
-			CSVReader reader = new CSVReader(new FileReader(fileName));
+			CSVReader studentReader = new CSVReader(new FileReader("src/main/resources/students.csv"));
 			try{
-				List<String[]> map =  reader.readAll();
+				List<String[]> studentData =  studentReader.readAll();
+				setStudentMaps(studentData);
+			}
+			catch(IOException e) {}
+			
+			CSVReader courseReader = new CSVReader(new FileReader("src/main/resources/courses.csv"));
+			try{
+				List<String[]> courseData =  courseReader.readAll();
 				setCourseMaps(courseData);
 			}
 			catch(IOException e) {}
 		}
 		catch(FileNotFoundException e) {}
+		
 	}
+	
 	
 	@SuppressWarnings("unchecked")
 	private void setStudentMaps(List<String[]> studentData) {
