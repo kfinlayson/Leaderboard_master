@@ -5,7 +5,6 @@ import au.com.bytecode.opencsv.*;
 import java.util.*;
 
 public class Course {
-	
 	private String courseID;
 	private String term;
 	private String year;

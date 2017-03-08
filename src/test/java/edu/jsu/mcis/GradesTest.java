@@ -7,17 +7,15 @@ import java.io.*;
 import java.util.*;
 
 public class GradesTest {
-	
 	private Grades grades;
 	
 	@Before
 	public void setUp() {
-		Database data = new Database();
+		Database data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		Course course = data.getCourse("99000");
 		grades = course.getGrades();
 		
 	}
-	
 	
 	@Rule
 	public ExpectedException expectedEx = ExpectedException.none();
@@ -103,7 +101,7 @@ public class GradesTest {
 		for(int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
 		}
-		Database data = new Database();
+		Database data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		Course course = data.getCourse("99001");
 		grades = course.getGrades();
 		String[] expected1 = { "Total", "Assignment 1", "Assignment 2", "Assignment 3", "Exam 1", "Exam 2", "Exam 3" };

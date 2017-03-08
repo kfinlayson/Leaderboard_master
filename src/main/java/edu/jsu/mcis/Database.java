@@ -5,45 +5,42 @@ import java.util.*;
 import au.com.bytecode.opencsv.*;
 
 public class Database {
-	
 	private Map<String, Student> studentMap;
-	private Map<String, Course> courseMap;
+	private Map<String, Course> courseMap;	
+	
+	public Database(String studentFile, String courseFile) {
+		studentMap = new TreeMap<String, Student>();
+		courseMap = new TreeMap<String, Course>();
+		setStudentMaps(readData(studentFile));
+		setCourseMaps(readData(courseFile));
+		
+	}	
 	
 	public Database() {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
-		readData();
 	}
 	
 	public Database(String basicURL) {
-		JSONWebSource website = new JSONWebSource();
-		website.getJSONStudent();
-		website.getJSONCourse();
+		JSONWebSource website = new JSONWebSource(basicURL);
+		setStudentMaps(website.getJSONStudent());
+		setCourseMaps(website.getJSONCourse());
 		website.getJSONGrades();
 	}
 	
-	//replace path with file name passed by user
-	//Make more changes and stuff.
-	private void readData() {
+	private List<String[]> readData(String fileName) {
+		List<String[]> mapData = new ArrayList<String[]>();
 		try{
-			CSVReader studentReader = new CSVReader(new FileReader("src/main/resources/students.csv"));
+			CSVReader reader = new CSVReader(new FileReader(fileName));
 			try{
-				List<String[]> studentData =  studentReader.readAll();
-				setStudentMaps(studentData);
-			}
-			catch(IOException e) {}
-			
-			CSVReader courseReader = new CSVReader(new FileReader("src/main/resources/courses.csv"));
-			try{
-				List<String[]> courseData =  courseReader.readAll();
-				setCourseMaps(courseData);
+				mapData =  reader.readAll();
+				
 			}
 			catch(IOException e) {}
 		}
 		catch(FileNotFoundException e) {}
-		
+		return mapData;
 	}
-	
 	
 	@SuppressWarnings("unchecked")
 	private void setStudentMaps(List<String[]> studentData) {

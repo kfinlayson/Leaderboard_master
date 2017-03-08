@@ -5,7 +5,6 @@ import java.util.*;
 import au.com.bytecode.opencsv.*;
 
 public class Grades {
-	
 	private String maxScore;
 	private String maxScoreID;
 	private String[][] gradesArray;
@@ -27,7 +26,6 @@ public class Grades {
 				}
 			}
 		}			
-		
 		maxScoreID = gradesArray[temp][0];
 		maxScore = "" + max;
 	

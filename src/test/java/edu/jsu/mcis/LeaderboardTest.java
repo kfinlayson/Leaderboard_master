@@ -7,12 +7,11 @@ import java.io.*;
 import java.util.*;
 
 public class LeaderboardTest {
-	
 	private Leaderboard leaderboard;
 	
 	@Before
 	public void setUp() {
-		Database data = new Database();
+		Database data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		Course course = data.getCourse("99001");
 		Grades grades = course.getGrades();
 		leaderboard = new Leaderboard(grades);

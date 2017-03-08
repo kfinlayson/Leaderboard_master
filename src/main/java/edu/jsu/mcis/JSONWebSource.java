@@ -9,7 +9,11 @@ import java.util.logging.Logger;
 
 
 public class JSONWebSource {
-	private static String basicURL = " http://inspired.jsu.edu:7272/gamegogy/";
+	private static String basicURL;
+	
+	public JSONWebSource(String basicURL) {
+		this.basicURL = basicURL;
+	}
 	
 	public static String createConnection(String relativeURL) {
 		String completeURL = basicURL + relativeURL;

@@ -16,7 +16,7 @@ public class DatabaseTest {
 
     @Before
     public void setUp(){
-		data = new Database();
+		data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		studentID = "111111";
 		courseID = "99018";
 		allStudentIDs = "111111\n111112\n111113\n111114\n111115\n111116\n111117\n111118\n111119\n111120\n111121\n111122\n111123\n111124\n" +
