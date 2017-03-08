@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent; 
 import javax.swing.*;
 
-public class Gamegogy extends JPanel implements ActionListener{
+public class Gamegogy extends JPanel implements ActionListener, MouseListener{
 	
 	private Database database;
 	
@@ -20,6 +20,8 @@ public class Gamegogy extends JPanel implements ActionListener{
 	private JLabel studentEmail;
 	private JLabel studentScore;
 	
+	private BarChartDemo barGraph;
+	
 	@SuppressWarnings("unchecked")
 	public Gamegogy() {
 		
@@ -30,7 +32,6 @@ public class Gamegogy extends JPanel implements ActionListener{
 		courseComboBox.addActionListener(this);
 		
 		columnComboBox.setName("columnComboBox");
-		//columnComboBox.setSelectedIndex(0);
 		columnComboBox.addActionListener(this);
 
 		
@@ -79,6 +80,13 @@ public class Gamegogy extends JPanel implements ActionListener{
 		studentInfoBox1.add(new JLabel("Email: "));
 		studentInfoBox1.add(new JLabel("Score: "));
 		
+		JPanel barGraphBox = new JPanel();
+		barGraphBox.setLayout(new FlowLayout());
+		barGraph = new BarChartDemo();
+		barGraph.addMouseListener(this); 
+		barGraphBox.add(barGraph);
+		barGraphBox.add(new JLabel("Scores"));
+		
 		JPanel studentInfoBox2 = new JPanel();
 		studentInfoBox2.setLayout(new GridLayout(4,1));
 		studentId = new JLabel("");
@@ -99,9 +107,10 @@ public class Gamegogy extends JPanel implements ActionListener{
 		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		
-		setLayout(new GridLayout(3,1));
+		setLayout(new GridLayout(4,1));
 		add(dropDownGrid);
 		add(labelGridMain);
+		add(barGraphBox);
 		add(studentInfoBoxMain);
 		
 		courseComboBox.setSelectedIndex(0);
@@ -148,14 +157,34 @@ public class Gamegogy extends JPanel implements ActionListener{
 			studentScore.setText(temp.getMaxScore());
 		}
 	}
-/*	
-	private void updateColumnComboBox(){
-			
-			//columnComboBox.setSelectedIndex(0);
-	}
-	private void updateLabels(){
-			
+	
+	public void mouseClicked(MouseEvent e) { 
+		int x = barGraph.getStudentPlacement();
+	
+	} 
+
+	public void mousePressed(MouseEvent e) { 
+		int x = barGraph.getStudentPlacement();
 		
+	} 
+
+	public void mouseReleased(MouseEvent e) { 
+	
+	} 
+
+	public void mouseEntered(MouseEvent e) { 
+
+	} 
+
+	public void mouseExited(MouseEvent e) { 
+	
+	} 
+
+	public void mouseDragged(MouseEvent e) { 
+	
+	} 
+
+	public void mouseMoved(MouseEvent e) { 
+	
 	}
-*/	
 }
