@@ -4,6 +4,20 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
+import java.awt.Color;
+import java.awt.Insets;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.ApplicationFrame;
+import org.jfree.ui.RefineryUtilities;
+
 public class Leaderboard {
 	
 	private Grades grades;
@@ -12,7 +26,7 @@ public class Leaderboard {
 		this.grades = grades;
 	}
 	
-	public List<Integer> getSortedGrades(String assignment) {
+	public Map<String,Integer> getSortedGrades(String assignment) {
 		Map<String,Integer> map = grades.getAssignmentGrades(assignment);
 		List<Integer> sorted = new ArrayList<Integer>();
 		
@@ -28,7 +42,19 @@ public class Leaderboard {
 		for(Map.Entry<String, Integer> entry:list){
             sorted.add(entry.getValue());
         }
-		return sorted;
+		
+		Map<String,Integer> sortedMap = new TreeMap<String,Integer>();
+		String key = "";
+		for(int i = 0; i < sorted.size(); i++) {
+			for(Map.Entry<String,Integer> entry:map.entrySet()) {
+				if(entry.getValue() == sorted.get(i)) {
+					sortedMap.put(entry.getKey(),sorted.get(i));
+					key = entry.getKey();
+				}
+			}
+			map.remove(key);
+		}
+		return sortedMap;
 	}
 	
 }
