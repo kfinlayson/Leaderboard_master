@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent; 
 import javax.swing.*;
 
-public class Gamegogy extends JPanel implements ActionListener{
+public class Gamegogy extends JPanel implements ActionListener,BarGraphEventListener{
+	
 	private Database database;
 	
 	private JComboBox courseComboBox;
@@ -19,17 +20,18 @@ public class Gamegogy extends JPanel implements ActionListener{
 	private JLabel studentEmail;
 	private JLabel studentScore;
 	
+	private BarChartDemo barGraph;
+	
 	@SuppressWarnings("unchecked")
 	public Gamegogy() {
 		
-		database = new Database();
+		database = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		courseComboBox = new JComboBox(database.getAllCourseIDsArray());
 		columnComboBox = new JComboBox();
 		courseComboBox.setName("courseComboBox");
 		courseComboBox.addActionListener(this);
 		
 		columnComboBox.setName("columnComboBox");
-		//columnComboBox.setSelectedIndex(0);
 		columnComboBox.addActionListener(this);
 
 		
@@ -78,6 +80,13 @@ public class Gamegogy extends JPanel implements ActionListener{
 		studentInfoBox1.add(new JLabel("Email: "));
 		studentInfoBox1.add(new JLabel("Score: "));
 		
+		JPanel barGraphBox = new JPanel();
+		barGraphBox.setLayout(new FlowLayout());
+		barGraph = new BarChartDemo();
+		barGraph.addBarGraphEventListener(this); 
+		barGraphBox.add(barGraph);
+		barGraphBox.add(new JLabel("Scores"));
+		
 		JPanel studentInfoBox2 = new JPanel();
 		studentInfoBox2.setLayout(new GridLayout(4,1));
 		studentId = new JLabel("");
@@ -98,9 +107,10 @@ public class Gamegogy extends JPanel implements ActionListener{
 		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		
-		setLayout(new GridLayout(3,1));
+		setLayout(new GridLayout(4,1));
 		add(dropDownGrid);
 		add(labelGridMain);
+		add(barGraphBox);
 		add(studentInfoBoxMain);
 		
 		courseComboBox.setSelectedIndex(0);
@@ -147,14 +157,9 @@ public class Gamegogy extends JPanel implements ActionListener{
 			studentScore.setText(temp.getMaxScore());
 		}
 	}
-/*	
-	private void updateColumnComboBox(){
-			
-			//columnComboBox.setSelectedIndex(0);
+	
+	public void barPressed(BarGraphEvent e){
+		studentId.setText("" + barGraph.getStudentPlacement());
 	}
-	private void updateLabels(){
-			
-		
-	}
-*/	
+	
 }

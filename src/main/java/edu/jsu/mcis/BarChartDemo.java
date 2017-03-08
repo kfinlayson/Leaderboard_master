@@ -6,6 +6,9 @@ import java.awt.Insets;
 import org.junit.*;
 import java.io.*;
 import java.util.*;
+import java.util.EventListener;
+import java.util.EventObject;
+import javax.swing.event.EventListenerList;
 
 import java.awt.*;
 import java.awt.event.*; 
@@ -27,19 +30,28 @@ import org.jfree.ui.RefineryUtilities;
 import org.jfree.data.general.DatasetUtilities;
 import org.jfree.data.category.CategoryDataset;
 
-/**
- * Another horizontal bar chart demo.  This time all the extras (titles, legend and axes) are
- * removed, to display just a single bar.
- *
- */
 public class BarChartDemo extends JPanel{
+	
+	protected EventListenerList listenerList = new EventListenerList();
+
+	public void addBarGraphEventListener(BarGraphEventListener listener) {
+		listenerList.add(BarGraphEventListener.class, listener);
+	}
+	public void removeBarGraphEventListener(BarGraphEventListener listener) {
+		listenerList.remove(BarGraphEventListener.class, listener);
+	}
+	void fireMyEvent(BarGraphEvent event) {
+		Object[] listeners = listenerList.getListenerList();
+		for (int i = 0; i < listeners.length; i = i+2) {
+		  if (listeners[i] == BarGraphEventListener.class) {
+			((BarGraphEventListener) listeners[i+1]).barPressed(event);
+			}	
+		}
+	}
+
 		
 	private int studentPlacement;
-    /**
-     * Creates a new demo.
-     *
-     * @param title  the frame title.
-     */
+    
 	private CategoryDataset createDataset() { 
         final double[][] data = new double[][] {
             {65.0,55.0,40.0,34.0,41.0,36.0,41.0,58.0,36.0,34.0,46.0}
@@ -49,9 +61,8 @@ public class BarChartDemo extends JPanel{
 	
     public BarChartDemo() {
 
-        //super(title);
 		studentPlacement = -1;
-        // create a dataset...
+        
 		
         Map<String,Integer> MockGrades = new TreeMap<String,Integer>();
 		MockGrades.put("111318", 65);
@@ -67,7 +78,7 @@ public class BarChartDemo extends JPanel{
 		MockGrades.put("111262", 46);
 		
 		final CategoryDataset dataset = createDataset();
-        // create the chart...
+      
         final JFreeChart chart = ChartFactory.createBarChart(
             null,  // chart title
             "Category",             // domain axis label
@@ -79,10 +90,8 @@ public class BarChartDemo extends JPanel{
             false
         );
 
-        // NOW DO SOME OPTIONAL CUSTOMISATION OF THE CHART...
-        //chart.setBackgroundPaint(Color.yellow);  // not seen
-        final CategoryPlot plot = chart.getCategoryPlot();
-//        plot.setInsets(new Insets(0, 0, 0, 0));
+        
+        final CategoryPlot plot = chart.getCategoryPlot();    
         plot.setRangeGridlinesVisible(false);
         final CategoryAxis domainAxis = plot.getDomainAxis();
         domainAxis.setLowerMargin(0.10);
@@ -91,12 +100,13 @@ public class BarChartDemo extends JPanel{
         final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
         rangeAxis.setRange(0.0, 100.0);
         rangeAxis.setVisible(false);
-        // OPTIONAL CUSTOMISATION COMPLETED.
+       
 	
 
-        // add the chart to a panel...
+       
         final ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new java.awt.Dimension(500, 135));
+		
 		chartPanel.addChartMouseListener(new ChartMouseListener(){
 			
 			@Override
@@ -105,6 +115,7 @@ public class BarChartDemo extends JPanel{
 					String s = chartMouseEvent.getEntity().getToolTipText();
 					s = s.substring(6,s.indexOf(")"));
 					studentPlacement = Integer.parseInt(s);
+					fireMyEvent(new BarGraphEvent(new Object()));
 				}
 				catch(NullPointerException e){
 					
@@ -116,11 +127,49 @@ public class BarChartDemo extends JPanel{
 				
 			}
 		});
+		
         add(chartPanel);
 		setVisible(true);
 		
 		
 		
+	}
+	
+	private Grades grades;
+	
+	public Leaderboard(Grades grades) {
+		this.grades = grades;
+	}
+	
+	public Map<String,Integer> getSortedGrades(String assignment) {
+		Map<String,Integer> map = grades.getAssignmentGrades(assignment);
+		List<Integer> sorted = new ArrayList<Integer>();
+		
+		Set<Entry<String, Integer>> set = map.entrySet();
+        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+        Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
+        {
+            public int compare( Map.Entry<String, Integer> map1, Map.Entry<String, Integer> map2 )
+            {
+                return (map2.getValue()).compareTo( map1.getValue() );
+            }
+        } );
+		for(Map.Entry<String, Integer> entry:list){
+            sorted.add(entry.getValue());
+        }
+		
+		Map<String,Integer> sortedMap = new TreeMap<String,Integer>();
+		String key = "";
+		for(int i = 0; i < sorted.size(); i++) {
+			for(Map.Entry<String,Integer> entry:map.entrySet()) {
+				if(entry.getValue() == sorted.get(i)) {
+					sortedMap.put(entry.getKey(),sorted.get(i));
+					key = entry.getKey();
+				}
+			}
+			map.remove(key);
+		}
+		return sortedMap;
 	}
 	
 	public int getStudentPlacement(){
