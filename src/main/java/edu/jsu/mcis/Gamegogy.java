@@ -20,7 +20,7 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 	private JLabel studentEmail;
 	private JLabel studentScore;
 	
-	private BarChartDemo barGraph;
+	private Leaderboard barGraph;
 	
 	@SuppressWarnings("unchecked")
 	public Gamegogy() {
@@ -80,13 +80,6 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		studentInfoBox1.add(new JLabel("Email: "));
 		studentInfoBox1.add(new JLabel("Score: "));
 		
-		JPanel barGraphBox = new JPanel();
-		barGraphBox.setLayout(new FlowLayout());
-		barGraph = new BarChartDemo();
-		barGraph.addBarGraphEventListener(this); 
-		barGraphBox.add(barGraph);
-		barGraphBox.add(new JLabel("Scores"));
-		
 		JPanel studentInfoBox2 = new JPanel();
 		studentInfoBox2.setLayout(new GridLayout(4,1));
 		studentId = new JLabel("");
@@ -106,6 +99,17 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		studentInfoBoxMain.add(studentInfoBox2);
 		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));
 		
+		courseComboBox.setSelectedIndex(0);
+		
+		String courseID = (String)courseComboBox.getSelectedItem();
+		Course course = database.getCourse(courseID);
+		Grades grades = course.getGrades();
+		JPanel barGraphBox = new JPanel();
+		barGraphBox.setLayout(new FlowLayout());
+		barGraph = new Leaderboard(grades);
+		barGraph.addBarGraphEventListener(this); 
+		barGraphBox.add(barGraph);
+		barGraphBox.add(new JLabel("Scores"));
 		
 		setLayout(new GridLayout(4,1));
 		add(dropDownGrid);
@@ -113,7 +117,7 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		add(barGraphBox);
 		add(studentInfoBoxMain);
 		
-		courseComboBox.setSelectedIndex(0);
+		
 	
 		
 	}

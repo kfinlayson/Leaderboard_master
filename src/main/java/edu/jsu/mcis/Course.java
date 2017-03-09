@@ -41,6 +41,7 @@ public class Course {
 		}
 		catch(FileNotFoundException e) {}
 	}
+	
 	public int getCol(){
 		return colSize;
 	}
