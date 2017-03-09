@@ -25,7 +25,7 @@ public class Database {
 		JSONWebSource website = new JSONWebSource(basicURL);
 		setStudentMaps(website.getJSONStudent());
 		setCourseMaps(website.getJSONCourse());
-		website.getJSONGrades();
+		//website.getJSONGrades();
 	}
 	
 	private List<String[]> readData(String fileName) {

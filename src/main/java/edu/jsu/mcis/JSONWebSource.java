@@ -72,41 +72,40 @@ public class JSONWebSource {
 		}
 		return courseList;
 	}
-		
-	public List<List<String[]>> getJSONGrades() {
+	/*	
+	public List<String[]> getJSONGrades() {
 		String IDList = createConnection("courselist");
 		JSONArray IDs = new JSONArray(IDList);
-		List<List<String[]>> grades = new ArrayList<>();
 		
-		for(Object ID : IDs) {
-			List<String[]> gradeList = new ArrayList<>();
-			String course = createConnection("course/" + ID);
-			JSONObject temp = new JSONObject(course);
-			JSONObject object = temp.getJSONObject("grades");
-			
-			JSONArray headerTemp = object.getJSONArray("columnHeaders");
-			JSONArray IDTemp = object.getJSONArray("rowHeaders");
-			JSONArray dataTemp = object.getJSONArray("data");
-			
-			String[] header = new String[headerTemp.length()];
-			int k = 0;
-			for(Object column : headerTemp) {
-				header[k++] = "" + column;
-			}
-			gradeList.add(header);
-			
-			for(int i = 0; i <IDTemp.length(); i++) {
-				JSONArray subTemp = dataTemp.getJSONArray(i);
-				String [] data = new String[subTemp.length()+1];
-				data[0] = IDTemp.getString(i);
-				for(int j = 0; j < subTemp.length(); j++) {
-					data[j+1] = "" + subTemp.getDouble(j);
-				}
-				gradeList.add(data);
-			}
-			grades.add(gradeList);
+		
+		List<String[]> gradeList = new ArrayList<>();
+		String course = createConnection("course/" + ID);
+		JSONObject temp = new JSONObject(course);
+		JSONObject object = temp.getJSONObject("grades");
+		
+		JSONArray headerTemp = object.getJSONArray("columnHeaders");
+		JSONArray IDTemp = object.getJSONArray("rowHeaders");
+		JSONArray dataTemp = object.getJSONArray("data");
+		
+		String[] header = new String[headerTemp.length()];
+		int k = 0;
+		for(Object column : headerTemp) {
+			header[k++] = "" + column;
 		}
-		return grades;
+		gradeList.add(header);
+		
+		for(int i = 0; i <IDTemp.length(); i++) {
+			JSONArray subTemp = dataTemp.getJSONArray(i);
+			String [] data = new String[subTemp.length()+1];
+			data[0] = IDTemp.getString(i);
+			for(int j = 0; j < subTemp.length(); j++) {
+				data[j+1] = "" + subTemp.getDouble(j);
+			}
+			gradeList.add(data);
+		}
+			
+		return gradesList;
 	}
+	*/
 }	
 		

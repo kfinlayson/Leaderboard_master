@@ -1,22 +1,18 @@
 package edu.jsu.mcis;
 
-import java.awt.Color;
-import java.awt.Insets;
 
 import org.junit.*;
 import java.io.*;
 import java.util.Map.Entry;
 import java.util.*;
-import java.util.EventListener;
-import java.util.EventObject;
 import javax.swing.event.EventListenerList;
 
+import java.awt.*;
 import java.awt.event.*; 
-import java.awt.event.ActionListener; 
-import java.awt.event.ActionEvent; 
 import javax.swing.*;
 
 import org.jfree.chart.*;
+import org.jfree.chart.entity.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -51,6 +47,7 @@ public class Leaderboard extends JPanel{
 
 	private Grades grades;
 	private int studentPlacement;
+	private ChartPanel chartPanel;
     
 	private CategoryDataset createDataset() { 
         final double[][] data = new double[][] {
@@ -106,7 +103,7 @@ public class Leaderboard extends JPanel{
 	
 
        
-        final ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new java.awt.Dimension(500, 135));
 		
 		chartPanel.addChartMouseListener(new ChartMouseListener(){
@@ -117,6 +114,28 @@ public class Leaderboard extends JPanel{
 					String s = chartMouseEvent.getEntity().getToolTipText();
 					s = s.substring(6,s.indexOf(")"));
 					studentPlacement = Integer.parseInt(s);
+
+												System.out.println("hi");
+												EntityCollection entities = chartPanel.getChartRenderingInfo().getEntityCollection();
+												for(int i = 0; i < entities.getEntityCount(); i++) {
+													System.out.println(entities.getEntity(i));
+													String coords = entities.getEntity(i).getShapeCoords();
+													java.util.Scanner scanner = new java.util.Scanner(coords);
+													scanner.useDelimiter(",");
+													int ulx = scanner.nextInt();
+													int uly = scanner.nextInt();
+													int lrx = scanner.nextInt();
+													int lry = scanner.nextInt();
+													System.out.println(ulx);
+													System.out.println(uly);
+													System.out.println(lrx);
+													System.out.println(lry);
+													int x = (ulx + lrx) / 2;
+													int y = (uly + lry) / 2;
+													System.out.println("(" + x + ", " + y + ")");
+												}
+					
+					
 					fireMyEvent(new BarGraphEvent(new Object()));
 				}
 				catch(NullPointerException e){
@@ -130,19 +149,19 @@ public class Leaderboard extends JPanel{
 			}
 		});
 		
-        add(chartPanel);
+        add(chartPanel);		
+		
 		setVisible(true);
 		
-		
-		
+
 	}
 	
 	public Map<String,Integer> getSortedGrades(String assignment) {
 		Map<String,Integer> map = grades.getAssignmentGrades(assignment);
-		List<Integer> sorted = new ArrayList<Integer>();
+		java.util.List<Integer> sorted = new ArrayList<Integer>();
 		
 		Set<Entry<String, Integer>> set = map.entrySet();
-        List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+        java.util.List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
         Collections.sort( list, new Comparator<Map.Entry<String, Integer>>()
         {
             public int compare( Map.Entry<String, Integer> map1, Map.Entry<String, Integer> map2 )
@@ -172,5 +191,24 @@ public class Leaderboard extends JPanel{
 		return studentPlacement;
 	}
 	
-	
+	public Shape[] getShapes() {
+		EntityCollection entities = chartPanel.getChartRenderingInfo().getEntityCollection();
+		java.util.List<Shape> shapes = new ArrayList<>();
+		for(int i = 0; i < entities.getEntityCount(); i++) {
+			ChartEntity e = entities.getEntity(i);
+			if(e instanceof CategoryItemEntity) {
+				System.out.println(e);
+				String coords = e.getShapeCoords();
+				java.util.Scanner scanner = new java.util.Scanner(coords);
+				scanner.useDelimiter(",");
+				int ulx = scanner.nextInt();
+				int uly = scanner.nextInt();
+				int lrx = scanner.nextInt();
+				int lry = scanner.nextInt();
+				shapes.add(new Rectangle(ulx, uly, lrx - ulx, lry - uly));
+			}
+		}
+		
+		return shapes.toArray(new Shape[1]);
+	}
 }
