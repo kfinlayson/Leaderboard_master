@@ -72,14 +72,14 @@ public class JSONWebSource {
 		}
 		return courseList;
 	}
-	/*	
-	public List<String[]> getJSONGrades() {
+		
+	public List<String[]> getJSONGrades(String course) {
 		String IDList = createConnection("courselist");
 		JSONArray IDs = new JSONArray(IDList);
-		
-		
 		List<String[]> gradeList = new ArrayList<>();
-		String course = createConnection("course/" + ID);
+		
+		
+		String courseID = createConnection("course/" + course);
 		JSONObject temp = new JSONObject(course);
 		JSONObject object = temp.getJSONObject("grades");
 		
@@ -103,9 +103,7 @@ public class JSONWebSource {
 			}
 			gradeList.add(data);
 		}
-			
-		return gradesList;
-	}
-	*/
-}	
 		
+		return gradeList;
+	}
+}
