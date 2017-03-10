@@ -106,7 +106,7 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		Grades grades = course.getGrades();
 		JPanel barGraphBox = new JPanel();
 		barGraphBox.setLayout(new FlowLayout());
-		barGraph = new Leaderboard(grades);
+		barGraph = new Leaderboard(grades,"Total");
 		barGraph.addBarGraphEventListener(this); 
 		barGraphBox.add(barGraph);
 		barGraphBox.add(new JLabel("Scores"));

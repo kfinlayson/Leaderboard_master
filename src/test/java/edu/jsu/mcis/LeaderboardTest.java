@@ -14,7 +14,7 @@ public class LeaderboardTest {
 		Database data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		Course course = data.getCourse("99001");
 		Grades grades = course.getGrades();
-		leaderboard = new Leaderboard(grades);
+		leaderboard = new Leaderboard(grades,"Total");
 	}
 	
 	@Test

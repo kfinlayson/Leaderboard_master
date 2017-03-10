@@ -27,56 +27,33 @@ import org.jfree.data.general.DatasetUtilities;
 import org.jfree.data.category.CategoryDataset;
 
 public class Leaderboard extends JPanel{
-	
-	protected EventListenerList listenerList = new EventListenerList();
-
-	public void addBarGraphEventListener(BarGraphEventListener listener) {
-		listenerList.add(BarGraphEventListener.class, listener);
-	}
-	public void removeBarGraphEventListener(BarGraphEventListener listener) {
-		listenerList.remove(BarGraphEventListener.class, listener);
-	}
-	void fireMyEvent(BarGraphEvent event) {
-		Object[] listeners = listenerList.getListenerList();
-		for (int i = 0; i < listeners.length; i = i+2) {
-		  if (listeners[i] == BarGraphEventListener.class) {
-			((BarGraphEventListener) listeners[i+1]).barPressed(event);
-			}	
-		}
-	}
 
 	private Grades grades;
 	private int studentPlacement;
 	private ChartPanel chartPanel;
+	private double[][] data;
     
-	private CategoryDataset createDataset() { 
-        final double[][] data = new double[][] {
-            {65.0,55.0,40.0,34.0,41.0,36.0,41.0,58.0,36.0,34.0,46.0}
-        };
+	private CategoryDataset createDataset(Map<String,Integer> map) { 
+		data = new double[1][map.size()]; //note sizing may be wrong
+		
+		for(Map.Entry<String,Integer> entry:map.entrySet()){
+			for(int i = 0; i < map.size(); i++){
+				data[0][i] = entry.getValue();
+				System.out.println(data[0][i]);
+			}		
+		}
         return DatasetUtilities.createCategoryDataset("A", "S", data);
     }
 	
-    public Leaderboard(Grades grades) {
+    public Leaderboard(Grades grades, String assignment) {
 		this.grades = grades;
 	
 
 		studentPlacement = -1;
-        
+       
 		
-        Map<String,Integer> MockGrades = new TreeMap<String,Integer>();
-		MockGrades.put("111318", 65);
-		MockGrades.put("111383", 55);
-		MockGrades.put("111190", 40);
-		MockGrades.put("111406", 34);
-		MockGrades.put("111115", 41);
-		MockGrades.put("111211", 36);
-		MockGrades.put("111208", 41);
-		MockGrades.put("111310", 58);
-		MockGrades.put("111335", 36);
-		MockGrades.put("111141", 34);
-		MockGrades.put("111262", 46);
-		
-		final CategoryDataset dataset = createDataset();
+		Map<String,Integer> map = getSortedGrades(assignment);
+		final CategoryDataset dataset = createDataset(map);
       
         final JFreeChart chart = ChartFactory.createBarChart(
             null,  // chart title
@@ -97,7 +74,7 @@ public class Leaderboard extends JPanel{
         domainAxis.setUpperMargin(0.10);
         domainAxis.setVisible(false);
         final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-        rangeAxis.setRange(0.0, 100.0);
+        rangeAxis.setRange(0.0, ((map.get(map.keySet().toArray()[0]) * 0.2) + map.get(map.keySet().toArray()[0])));
         rangeAxis.setVisible(false);
        
 	
@@ -113,29 +90,7 @@ public class Leaderboard extends JPanel{
 				try{
 					String s = chartMouseEvent.getEntity().getToolTipText();
 					s = s.substring(6,s.indexOf(")"));
-					studentPlacement = Integer.parseInt(s);
-
-												System.out.println("hi");
-												EntityCollection entities = chartPanel.getChartRenderingInfo().getEntityCollection();
-												for(int i = 0; i < entities.getEntityCount(); i++) {
-													System.out.println(entities.getEntity(i));
-													String coords = entities.getEntity(i).getShapeCoords();
-													java.util.Scanner scanner = new java.util.Scanner(coords);
-													scanner.useDelimiter(",");
-													int ulx = scanner.nextInt();
-													int uly = scanner.nextInt();
-													int lrx = scanner.nextInt();
-													int lry = scanner.nextInt();
-													System.out.println(ulx);
-													System.out.println(uly);
-													System.out.println(lrx);
-													System.out.println(lry);
-													int x = (ulx + lrx) / 2;
-													int y = (uly + lry) / 2;
-													System.out.println("(" + x + ", " + y + ")");
-												}
-					
-					
+					studentPlacement = Integer.parseInt(s);					
 					fireMyEvent(new BarGraphEvent(new Object()));
 				}
 				catch(NullPointerException e){
@@ -189,6 +144,23 @@ public class Leaderboard extends JPanel{
 	
 	public int getStudentPlacement(){
 		return studentPlacement;
+	}
+	
+	protected EventListenerList listenerList = new EventListenerList();
+
+	public void addBarGraphEventListener(BarGraphEventListener listener) {
+		listenerList.add(BarGraphEventListener.class, listener);
+	}
+	public void removeBarGraphEventListener(BarGraphEventListener listener) {
+		listenerList.remove(BarGraphEventListener.class, listener);
+	}
+	void fireMyEvent(BarGraphEvent event) {
+		Object[] listeners = listenerList.getListenerList();
+		for (int i = 0; i < listeners.length; i = i+2) {
+		  if (listeners[i] == BarGraphEventListener.class) {
+			((BarGraphEventListener) listeners[i+1]).barPressed(event);
+			}	
+		}
 	}
 	
 	public Shape[] getShapes() {
