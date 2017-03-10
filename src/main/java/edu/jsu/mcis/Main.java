@@ -27,7 +27,7 @@ public class Main {
 			JFrame win = new JFrame("Gamegogy");
 			win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			win.add(new Gamegogy());
-			win.setSize(500, 500);
+			win.setSize(600, 600);
 			win.setVisible(true);
 		}
 	}

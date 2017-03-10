@@ -16,7 +16,7 @@ public class GamegogyKeywords {
 	private boolean argumentGiven;
 	
 	public GamegogyKeywords() {
-		data = new Database();
+		data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		rt = Runtime.getRuntime();
 		arg1 = "";
 		arg2 = "";

@@ -20,6 +20,8 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 	private JLabel studentEmail;
 	private JLabel studentScore;
 	
+	private JPanel barGraphBox;
+	
 	private Leaderboard barGraph;
 	
 	@SuppressWarnings("unchecked")
@@ -100,13 +102,12 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		courseComboBox.setSelectedIndex(0);
-		
 		String courseID = (String)courseComboBox.getSelectedItem();
 		Course course = database.getCourse(courseID);
 		Grades grades = course.getGrades();
-		JPanel barGraphBox = new JPanel();
+		barGraphBox = new JPanel();
 		barGraphBox.setLayout(new FlowLayout());
-		barGraph = new Leaderboard(grades,"Total");
+		barGraph = new Leaderboard(grades,(String)columnComboBox.getSelectedItem());
 		barGraph.addBarGraphEventListener(this); 
 		barGraphBox.add(barGraph);
 		barGraphBox.add(new JLabel("Scores"));
@@ -130,6 +131,7 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(temp.getAssignmentList());
 			columnComboBox.setModel(model);
 			
+			
 			temp.findMaxScore(temp.getAssignmentList()[0]);
 			Student student = database.getStudent(temp.getMaxScoreID());
 			
@@ -137,6 +139,8 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 			courseTerm.setText(course.getCourseTerm() + " " + course.getCourseYear());
 			
 			courseEnrollment.setText(course.getCourseSize());
+			
+			
 			
 			studentId.setText(student.getID());
 			studentName.setText(student.getFirstName() + " " + student.getLastName()) ;
@@ -148,8 +152,15 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 			String courseID = (String)courseComboBox.getSelectedItem();
 			Course course = database.getCourse(courseID);
 			Grades temp = course.getGrades();
-				
 			String assignmentString = (String)columnComboBox.getSelectedItem();
+			Leaderboard barGraph = new Leaderboard(temp,assignmentString);
+			barGraphBox.removeAll();
+			barGraphBox.setLayout(new FlowLayout());
+			barGraph.addBarGraphEventListener(this); 
+			barGraphBox.add(barGraph);
+			barGraphBox.add(new JLabel("Scores"));
+				
+			
 			courseTerm.setText(database.getCourse(courseID).getCourseTerm() + " " + database.getCourse(courseID).getCourseYear());
 			courseEnrollment.setText(database.getCourse(courseID).getCourseSize());
 				
@@ -163,7 +174,11 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 	}
 	
 	public void barPressed(BarGraphEvent e){
-		studentId.setText("" + barGraph.getStudentPlacement());
+		Student student = database.getStudent(barGraph.getStudentID());	
+		studentId.setText(student.getID());
+		studentName.setText(student.getFirstName() + " " + student.getLastName()) ;
+		studentEmail.setText(student.getStudentEmail() + "@jsu.edu");
+		studentScore.setText("" + barGraph.getStudentScore());
 	}
 	
 }

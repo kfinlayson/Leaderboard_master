@@ -14,22 +14,22 @@ public class LeaderboardTest {
 		Database data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
 		Course course = data.getCourse("99001");
 		Grades grades = course.getGrades();
-		leaderboard = new Leaderboard(grades,"Total");
+		leaderboard = new Leaderboard(grades, "Total");
 	}
 	
 	@Test
 	public void testGetSortedGrades() {
-		Map<String,Integer> sorted = leaderboard.getSortedGrades("Total");
-		Map<String,Integer> expected = new TreeMap<String,Integer>();
-		expected.put("111143", 886);
-		expected.put("111291", 823);
-		expected.put("111254", 820);
-		expected.put("111236", 669);
-		expected.put("111157", 593);
-		expected.put("111208", 557);
-		expected.put("111293", 548);
-		expected.put("111326", 499);
-		expected.put("111148", 494);
+		Map<Integer,String> sorted = leaderboard.getSortedGrades("Total");
+		Map<Integer,String> expected = new TreeMap<Integer,String>();
+		expected.put(886, "111143");
+		expected.put(823, "111291");
+		expected.put(820, "111254");
+		expected.put(669, "111236");
+		expected.put(593, "111157");
+		expected.put(557, "111208");
+		expected.put(548, "111293");
+		expected.put(499, "111326");
+		expected.put(494, "111148");
 		assertEquals(expected, sorted);
 	}
 }

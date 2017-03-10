@@ -30,17 +30,17 @@ public class Leaderboard extends JPanel{
 
 	private Grades grades;
 	private int studentPlacement;
+	private Map<Integer,String> map;
 	private ChartPanel chartPanel;
 	private double[][] data;
     
-	private CategoryDataset createDataset(Map<String,Integer> map) { 
+	private CategoryDataset createDataset(Map<Integer,String> map) { 
 		data = new double[1][map.size()]; //note sizing may be wrong
-		
-		for(Map.Entry<String,Integer> entry:map.entrySet()){
-			for(int i = 0; i < map.size(); i++){
-				data[0][i] = entry.getValue();
-				System.out.println(data[0][i]);
-			}		
+		int i = 0;
+		for(Map.Entry<Integer,String> entry:map.entrySet()){
+			data[0][i] = entry.getKey();
+			System.out.println(data[0][i]);
+			i++;	
 		}
         return DatasetUtilities.createCategoryDataset("A", "S", data);
     }
@@ -52,7 +52,7 @@ public class Leaderboard extends JPanel{
 		studentPlacement = -1;
        
 		
-		Map<String,Integer> map = getSortedGrades(assignment);
+		map = getSortedGrades(assignment);
 		final CategoryDataset dataset = createDataset(map);
       
         final JFreeChart chart = ChartFactory.createBarChart(
@@ -74,7 +74,9 @@ public class Leaderboard extends JPanel{
         domainAxis.setUpperMargin(0.10);
         domainAxis.setVisible(false);
         final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-        rangeAxis.setRange(0.0, ((map.get(map.keySet().toArray()[0]) * 0.2) + map.get(map.keySet().toArray()[0])));
+		Map.Entry<Integer,String> entry = map.entrySet().iterator().next();
+		Integer key = entry.getKey();
+        rangeAxis.setRange(0.0, (key * 0.2) + key);
         rangeAxis.setVisible(false);
        
 	
@@ -88,9 +90,11 @@ public class Leaderboard extends JPanel{
 			@Override
 			public void chartMouseClicked(ChartMouseEvent chartMouseEvent) { 
 				try{
+					System.out.println("I've been clicked " + chartMouseEvent);
 					String s = chartMouseEvent.getEntity().getToolTipText();
-					s = s.substring(6,s.indexOf(")"));
-					studentPlacement = Integer.parseInt(s);					
+					System.out.println(s);
+					s = s.substring(s.lastIndexOf("=") + 1);
+					studentPlacement = Integer.parseInt(s.trim());
 					fireMyEvent(new BarGraphEvent(new Object()));
 				}
 				catch(NullPointerException e){
@@ -111,7 +115,7 @@ public class Leaderboard extends JPanel{
 
 	}
 	
-	public Map<String,Integer> getSortedGrades(String assignment) {
+	public Map<Integer,String> getSortedGrades(String assignment) {
 		Map<String,Integer> map = grades.getAssignmentGrades(assignment);
 		java.util.List<Integer> sorted = new ArrayList<Integer>();
 		
@@ -128,12 +132,12 @@ public class Leaderboard extends JPanel{
             sorted.add(entry.getValue());
         }
 		
-		Map<String,Integer> sortedMap = new TreeMap<String,Integer>();
+		Map<Integer,String> sortedMap = new TreeMap<Integer,String>(Collections.reverseOrder());
 		String key = "";
 		for(int i = 0; i < sorted.size(); i++) {
 			for(Map.Entry<String,Integer> entry:map.entrySet()) {
 				if(entry.getValue() == sorted.get(i)) {
-					sortedMap.put(entry.getKey(),sorted.get(i));
+					sortedMap.put(sorted.get(i),entry.getKey());
 					key = entry.getKey();
 				}
 			}
@@ -142,7 +146,11 @@ public class Leaderboard extends JPanel{
 		return sortedMap;
 	}
 	
-	public int getStudentPlacement(){
+	public String getStudentID(){
+		return map.get(studentPlacement);
+	}
+	
+	public int getStudentScore() {
 		return studentPlacement;
 	}
 	
@@ -169,7 +177,6 @@ public class Leaderboard extends JPanel{
 		for(int i = 0; i < entities.getEntityCount(); i++) {
 			ChartEntity e = entities.getEntity(i);
 			if(e instanceof CategoryItemEntity) {
-				System.out.println(e);
 				String coords = e.getShapeCoords();
 				java.util.Scanner scanner = new java.util.Scanner(coords);
 				scanner.useDelimiter(",");
