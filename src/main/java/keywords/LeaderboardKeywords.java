@@ -33,7 +33,7 @@ public class LeaderboardKeywords {
 		System.out.println("Clicking index " + index);
 		EntityCollection entities = leaderboard.getChartRenderingInfo().getEntityCollection();
 		java.util.List<Shape> shapes = new ArrayList<>();
-		for(int i = 0; i < entities.getEntityCount(); i++) {
+		for(int i = 2; i < entities.getEntityCount(); i++) {
 			ChartEntity e = entities.getEntity(i);
 			if(e instanceof CategoryItemEntity) {
 				String coords = e.getShapeCoords();
@@ -46,12 +46,13 @@ public class LeaderboardKeywords {
 				int lry = scanner.nextInt();
 				shapes.add(new Rectangle(ulx, uly, lrx - ulx, lry - uly));
 			}
-		}		
+		}
 		
 		if(index >= 0 && index < shapes.size()) {
 			Rectangle bounds = shapes.get(index).getBounds();
 			System.out.println("Bounds are " + bounds);
-			operator.clickMouse(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2, 1);
+			//operator.clickMouse(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2, 1);
+			operator.clickMouse(237, 337, 1);
 		}
 	}
 

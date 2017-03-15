@@ -19,6 +19,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.ui.RectangleInsets;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
@@ -39,11 +40,12 @@ public class Leaderboard extends JPanel{
 		int i = 0;
 		for(Map.Entry<Integer,String> entry:map.entrySet()){
 			data[0][i] = entry.getKey();
-			System.out.println(data[0][i]);
 			i++;	
 		}
         return DatasetUtilities.createCategoryDataset("A", "S", data);
     }
+	
+	public Leaderboard() {}
 	
     public Leaderboard(Grades grades, String assignment) {
 		this.grades = grades;
@@ -67,11 +69,11 @@ public class Leaderboard extends JPanel{
         );
 
         
-        final CategoryPlot plot = chart.getCategoryPlot();    
+        final CategoryPlot plot = chart.getCategoryPlot();  
         plot.setRangeGridlinesVisible(false);
         final CategoryAxis domainAxis = plot.getDomainAxis();
-        domainAxis.setLowerMargin(0.10);
-        domainAxis.setUpperMargin(0.10);
+        domainAxis.setLowerMargin(0);
+        domainAxis.setUpperMargin(0);
         domainAxis.setVisible(false);
         final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
 		Map.Entry<Integer,String> entry = map.entrySet().iterator().next();
