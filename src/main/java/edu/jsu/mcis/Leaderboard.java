@@ -71,9 +71,11 @@ public class Leaderboard extends JPanel{
         
         final CategoryPlot plot = chart.getCategoryPlot();  
         plot.setRangeGridlinesVisible(false);
+		plot.setAxisOffset(RectangleInsets.ZERO_INSETS);
         final CategoryAxis domainAxis = plot.getDomainAxis();
-        domainAxis.setLowerMargin(0);
-        domainAxis.setUpperMargin(0);
+        domainAxis.setLowerMargin(0.0);
+        domainAxis.setUpperMargin(0.0);
+		domainAxis.setCategoryMargin(0.0);
         domainAxis.setVisible(false);
         final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
 		Map.Entry<Integer,String> entry = map.entrySet().iterator().next();
@@ -88,11 +90,11 @@ public class Leaderboard extends JPanel{
         chartPanel.setPreferredSize(new java.awt.Dimension(500, 135));
 		
 		chartPanel.addChartMouseListener(new ChartMouseListener(){
-			
+		
 			@Override
 			public void chartMouseClicked(ChartMouseEvent chartMouseEvent) { 
 				try{
-					System.out.println("I've been clicked " + chartMouseEvent);
+					System.out.println("I've been clicked " + chartMouseEvent.getTrigger().getLocationOnScreen());
 					String s = chartMouseEvent.getEntity().getToolTipText();
 					System.out.println(s);
 					s = s.substring(s.lastIndexOf("=") + 1);
@@ -114,7 +116,7 @@ public class Leaderboard extends JPanel{
 		
 		setVisible(true);
 		
-
+		
 	}
 	
 	public Map<Integer,String> getSortedGrades(String assignment) {

@@ -18,7 +18,6 @@ import org.jfree.chart.entity.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 
-
 import edu.jsu.mcis.*;
 
 public class LeaderboardKeywords {
@@ -48,11 +47,15 @@ public class LeaderboardKeywords {
 			}
 		}
 		
-		if(index >= 0 && index < shapes.size()) {
+		if(index >= 0 && index < shapes.size() - 1) {
 			Rectangle bounds = shapes.get(index).getBounds();
 			System.out.println("Bounds are " + bounds);
-			//operator.clickMouse(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2, 1);
-			operator.clickMouse(237, 337, 1);
+			operator.clickMouse((bounds.x + bounds.width / 2) - 8, (bounds.y + bounds.height / 2) - 31, 1);
+			
+		}
+		else{
+		Rectangle bounds = shapes.get(index).getBounds();
+		operator.clickMouse((bounds.x + bounds.width / 2) - 8, (bounds.y + bounds.height / 2) - 58, 1);
 		}
 	}
 
