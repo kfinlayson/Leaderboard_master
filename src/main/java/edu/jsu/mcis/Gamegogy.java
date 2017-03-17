@@ -25,9 +25,9 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 	private Leaderboard barGraph;
 	
 	@SuppressWarnings("unchecked")
-	public Gamegogy() {
+	public Gamegogy(Database database) {
 		
-		database = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+		this.database = database;
 		courseComboBox = new JComboBox(database.getAllCourseIDsArray());
 		columnComboBox = new JComboBox();
 		courseComboBox.setName("courseComboBox");

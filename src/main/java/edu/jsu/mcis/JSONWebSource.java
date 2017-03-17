@@ -67,7 +67,7 @@ public class JSONWebSource {
 		for(Object courseID : courseIDS) {
 			String course = createConnection("course/" + courseID);
 			JSONObject object = new JSONObject(course);
-			String[] array = {object.getString("id"), object.getString("term"), object.getString("year"), object.getString("size")};
+			String[] array = {object.getString("id"), object.getString("term"), object.getString("year"), "" + object.getInt("size")};
 			courseList.add(array);
 		}
 		return courseList;
@@ -90,7 +90,8 @@ public class JSONWebSource {
 		String[] header = new String[headerTemp.length()];
 		int k = 0;
 		for(Object column : headerTemp) {
-			header[k++] = "" + column;
+			header[k] = "" + column;
+			k += 1;
 		}
 		gradeList.add(header);
 		

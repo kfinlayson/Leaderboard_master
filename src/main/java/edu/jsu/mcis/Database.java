@@ -6,7 +6,8 @@ import au.com.bytecode.opencsv.*;
 
 public class Database {
 	private Map<String, Student> studentMap;
-	private Map<String, Course> courseMap;	
+	private Map<String, Course> courseMap;
+	private JSONWebSource website;
 	
 	public Database(String studentFile, String courseFile) {
 		studentMap = new TreeMap<String, Student>();
@@ -16,16 +17,12 @@ public class Database {
 		
 	}	
 	
-	public Database() {
+	public Database(String basicURL) {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
-	}
-	
-	public Database(String basicURL) {
 		JSONWebSource website = new JSONWebSource(basicURL);
 		setStudentMaps(website.getJSONStudent());
-		setCourseMaps(website.getJSONCourse());
-		//website.getJSONGrades(); - Make appropriate changes to Grades
+		setCourseMapsJSON(website.getJSONCourse());
 	}
 	
 	private List<String[]> readData(String fileName) {
@@ -74,6 +71,32 @@ public class Database {
 		String key = "";
 		for(String[] token : courseData) {
 			Course course = new Course();
+			if(token != courseData.get(0)) {
+				for(String element : token) {
+					if(element.equals(token[0])) {
+						key = element;
+						course.setCourseID(element);
+					}
+					else if(element.equals(token[1])) {
+						course.setCourseTerm(element);
+					}
+					else if(element.equals(token[2])) {
+						course.setCourseYear(element);
+					}
+					else if(element.equals(token[3])) {
+						course.setCourseSize(element);
+					}
+					courseMap.put(key, course);
+				}
+			}
+		}
+		
+	}
+	
+	private void setCourseMapsJSON(List<String[]> courseData) {
+		String key = "";
+		for(String[] token : courseData) {
+			Course course = new Course(website);
 			if(token != courseData.get(0)) {
 				for(String element : token) {
 					if(element.equals(token[0])) {

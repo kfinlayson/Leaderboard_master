@@ -10,36 +10,63 @@ public class Course {
 	private String year;
 	private String classSize;
 	private Grades grades;
+	private boolean isWebSource = false;
+	private JSONWebSource website;
 
 	public Course() {
 		courseID = " ";
 		term = " ";
 		year = " ";
 		classSize = " ";
-		
 	}
+	
+	public Course(JSONWebSource website) {
+		courseID = " ";
+		term = " ";
+		year = " ";
+		classSize = " ";
+		this.website = website;
+		isWebSource = true;
+	}
+	
 	private int rowSize;
 	private int colSize;
 	
-	private void readData(String fileName) {
-		try{
-			CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + fileName + ".csv"));
-			try{
-				List<String[]> gradesData =  gradesReader.readAll();
-				rowSize = gradesData.size();
-				colSize = gradesData.get(0).length;
-				String[][] gradesArray = new String[rowSize][colSize];
-				for(int i = 0; i < rowSize; i++) {
-					for(int j = 0; j < colSize; j++) {
-						gradesArray[i][j] = gradesData.get(i)[j];
-					}
+	private void readData() {
+		if(isWebSource) {
+			System.out.println(courseID);
+			List<String[]> gradesData = website.getJSONGrades(courseID);
+			rowSize = gradesData.size();
+			colSize = gradesData.get(0).length;
+			String[][] gradesArray = new String[rowSize][colSize];
+			for(int i = 0; i < rowSize; i++) {
+				for(int j = 0; j < colSize; j++) {
+					gradesArray[i][j] = gradesData.get(i)[j];
 				}
-				grades = new Grades(gradesArray);
 			}
-			catch(IOException e) {}
-			
+			grades = new Grades(gradesArray);			
 		}
-		catch(FileNotFoundException e) {}
+		
+		else {
+			try{
+				CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + courseID + ".csv"));
+				try{
+					List<String[]> gradesData =  gradesReader.readAll();
+					rowSize = gradesData.size();
+					colSize = gradesData.get(0).length;
+					String[][] gradesArray = new String[rowSize][colSize];
+					for(int i = 0; i < rowSize; i++) {
+						for(int j = 0; j < colSize; j++) {
+							gradesArray[i][j] = gradesData.get(i)[j];
+						}
+					}
+					grades = new Grades(gradesArray);
+				}
+				catch(IOException e) {}
+				
+			}
+			catch(FileNotFoundException e) {}
+		}
 	}
 	
 	public int getCol(){
@@ -50,7 +77,7 @@ public class Course {
 	}
 	
 	public Grades getGrades() {
-		readData(courseID);
+		readData();
 		return grades;
 	}
 	
