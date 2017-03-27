@@ -1,6 +1,7 @@
 package edu.jsu.mcis;
 
 import java.io.*;
+import org.json.*;
 import au.com.bytecode.opencsv.*;
 import java.util.*;
 
@@ -34,7 +35,6 @@ public class Course {
 	
 	private void readData() {
 		if(isWebSource) {
-			System.out.println(courseID);
 			List<String[]> gradesData = website.getJSONGrades(courseID);
 			rowSize = gradesData.size();
 			colSize = gradesData.get(0).length;

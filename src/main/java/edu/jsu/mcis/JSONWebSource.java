@@ -12,7 +12,12 @@ public class JSONWebSource {
 	private static String basicURL;
 	
 	public JSONWebSource(String basicURL) {
-		this.basicURL = basicURL;
+		if(basicURL.charAt(basicURL.length()-1) != '/') {
+			this.basicURL = basicURL + "/";
+		}
+		else {
+			this.basicURL = basicURL;
+		}
 	}
 	
 	public static String createConnection(String relativeURL) {
@@ -74,23 +79,23 @@ public class JSONWebSource {
 	}
 		
 	public List<String[]> getJSONGrades(String course) {
-		String IDList = createConnection("courselist");
-		JSONArray IDs = new JSONArray(IDList);
-		List<String[]> gradeList = new ArrayList<>();
+		List<String[]> gradeList = new ArrayList<String[]>();
 		
 		
 		String courseID = createConnection("course/" + course);
-		JSONObject temp = new JSONObject(course);
+		JSONObject temp = new JSONObject(courseID);
 		JSONObject object = temp.getJSONObject("grades");
 		
-		JSONArray headerTemp = object.getJSONArray("columnHeaders");
+		JSONArray headerTemp = object.getJSONArray("colHeaders");
 		JSONArray IDTemp = object.getJSONArray("rowHeaders");
 		JSONArray dataTemp = object.getJSONArray("data");
 		
-		String[] header = new String[headerTemp.length()];
-		int k = 0;
+		String[] header = new String[headerTemp.length()+1];
+		header[0] = "ID";
+		int k = 1;
 		for(Object column : headerTemp) {
 			header[k] = "" + column;
+			System.out.println(header[k]);
 			k += 1;
 		}
 		gradeList.add(header);
@@ -100,7 +105,7 @@ public class JSONWebSource {
 			String [] data = new String[subTemp.length()+1];
 			data[0] = IDTemp.getString(i);
 			for(int j = 0; j < subTemp.length(); j++) {
-				data[j+1] = "" + subTemp.getDouble(j);
+				data[j+1] = "" + subTemp.getInt(j);
 			}
 			gradeList.add(data);
 		}

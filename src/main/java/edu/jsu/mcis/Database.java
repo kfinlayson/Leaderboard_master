@@ -20,8 +20,8 @@ public class Database {
 	public Database(String basicURL) {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
-		JSONWebSource website = new JSONWebSource(basicURL);
-		setStudentMaps(website.getJSONStudent());
+		website = new JSONWebSource(basicURL);
+		setStudentMapsJSON(website.getJSONStudent());
 		setCourseMapsJSON(website.getJSONCourse());
 	}
 	
@@ -67,6 +67,31 @@ public class Database {
 	}
 	
 	@SuppressWarnings("unchecked")
+	private void setStudentMapsJSON(List<String[]> studentData) {
+		String key = "";
+		for(String[] token : studentData) {
+			Student student = new Student();
+			for(String element : token) {
+				if(element.equals(token[0])) {
+					key = element;
+					student.setID(element);
+				}
+				else if(element.equals(token[1])) {
+					student.setFirstName(element);
+				}
+				else if(element.equals(token[2])) {
+					student.setLastName(element);
+				}
+				else if(element.equals(token[3])) {
+					student.setStudentEmail(element);
+				}
+				studentMap.put(key, student);
+			}
+		}
+		
+	}
+	
+	@SuppressWarnings("unchecked")
 	private void setCourseMaps(List<String[]> courseData) {
 		String key = "";
 		for(String[] token : courseData) {
@@ -97,23 +122,21 @@ public class Database {
 		String key = "";
 		for(String[] token : courseData) {
 			Course course = new Course(website);
-			if(token != courseData.get(0)) {
-				for(String element : token) {
-					if(element.equals(token[0])) {
-						key = element;
-						course.setCourseID(element);
-					}
-					else if(element.equals(token[1])) {
-						course.setCourseTerm(element);
-					}
-					else if(element.equals(token[2])) {
-						course.setCourseYear(element);
-					}
-					else if(element.equals(token[3])) {
-						course.setCourseSize(element);
-					}
-					courseMap.put(key, course);
+			for(String element : token) {
+				if(element.equals(token[0])) {
+					key = element;
+					course.setCourseID(element);
 				}
+				else if(element.equals(token[1])) {
+					course.setCourseTerm(element);
+				}
+				else if(element.equals(token[2])) {
+					course.setCourseYear(element);
+				}
+				else if(element.equals(token[3])) {
+					course.setCourseSize(element);
+				}
+				courseMap.put(key, course);
 			}
 		}
 		
