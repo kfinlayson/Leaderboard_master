@@ -66,6 +66,16 @@ jacocoTestReport {
     group = 'Reporting'
     description = 'Generate Jacoco coverage reports after running tests.'
     additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+	
+	afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "**/*keywords**",
+                    "**/*Gamegogy**",
+					"**/*Main**"
+            ])
+        })
+    }
 }
 
 gradle.projectsEvaluated {
