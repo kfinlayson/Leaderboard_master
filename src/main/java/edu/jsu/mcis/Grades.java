@@ -130,15 +130,4 @@ public class Grades {
 		return maxScoreID;
 	}
 	
-	@Override
-	public String toString(){
-		String s = "";
-		for(int i = 0; i < gradesArray.length;i++){
-			for(int j = 0;j < gradesArray[0].length; j++){
-				s += " " + gradesArray[i][j];
-			}
-			s += "\n";
-		}
-		return s;
-	}
 }

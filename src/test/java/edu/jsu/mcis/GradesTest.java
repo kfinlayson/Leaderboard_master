@@ -54,12 +54,18 @@ public class GradesTest {
 	
 	@Test
 	public void testGetStudentAssignmentGrade(){
+		Database data = new Database("http://inspired.jsu.edu:7272/gamegogy/");
+		Course course = data.getCourse("99000");
+		grades = course.getGrades();
 		int grade = grades.getStudentAssignmentGrade("111318", "Assignment 1");
 		assertEquals(65, grade);
 	}
 	
 	@Test
 	public void testGetStudentGrades() {
+		Database data = new Database("http://inspired.jsu.edu:7272/gamegogy/");
+		Course course = data.getCourse("99000");
+		grades = course.getGrades();
 		Map<String,Integer> expected = new TreeMap<String,Integer>();
 		expected.put("Total", 925);
 		expected.put("Assignment 1", 65);
