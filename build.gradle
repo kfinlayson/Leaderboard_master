@@ -72,7 +72,8 @@ jacocoTestReport {
             fileTree(dir: it, exclude: [
                     "**/*keywords**",
                     "**/*Gamegogy**",
-					"**/*Main**"
+					"**/*Main**",
+					"**/*Leaderboard**"
             ])
         })
     }
