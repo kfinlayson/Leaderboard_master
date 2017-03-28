@@ -13,6 +13,8 @@ public class Course {
 	private Grades grades;
 	private boolean isWebSource = false;
 	private JSONWebSource website;
+	private int rowSize;
+	private int colSize;
 
 	public Course() {
 		courseID = " ";
@@ -29,9 +31,6 @@ public class Course {
 		this.website = website;
 		isWebSource = true;
 	}
-	
-	private int rowSize;
-	private int colSize;
 	
 	private void readData() {
 		if(isWebSource) {
@@ -67,13 +66,6 @@ public class Course {
 			}
 			catch(FileNotFoundException e) {}
 		}
-	}
-	
-	public int getCol(){
-		return colSize;
-	}
-	public int getRow(){
-		return rowSize;
 	}
 	
 	public Grades getGrades() {

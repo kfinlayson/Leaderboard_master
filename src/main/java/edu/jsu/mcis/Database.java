@@ -56,7 +56,7 @@ public class Database {
 					else if(element.equals(token[2])) {
 						student.setLastName(element);
 					}
-					else if(element.equals(token[3])) {
+					else {
 						student.setStudentEmail(element);
 					}
 					studentMap.put(key, student);
@@ -82,7 +82,7 @@ public class Database {
 				else if(element.equals(token[2])) {
 					student.setLastName(element);
 				}
-				else if(element.equals(token[3])) {
+				else {
 					student.setStudentEmail(element);
 				}
 				studentMap.put(key, student);
@@ -108,7 +108,7 @@ public class Database {
 					else if(element.equals(token[2])) {
 						course.setCourseYear(element);
 					}
-					else if(element.equals(token[3])) {
+					else {
 						course.setCourseSize(element);
 					}
 					courseMap.put(key, course);
@@ -133,7 +133,7 @@ public class Database {
 				else if(element.equals(token[2])) {
 					course.setCourseYear(element);
 				}
-				else if(element.equals(token[3])) {
+				else {
 					course.setCourseSize(element);
 				}
 				courseMap.put(key, course);
