@@ -21,6 +21,9 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 	private JLabel studentScore;
 	
 	private JPanel barGraphBox;
+	private JPanel dropDownGrid;
+	private JPanel labelGridMain;
+	private JPanel studentInfoBoxMain;
 	
 	private Leaderboard barGraph;
 	
@@ -28,6 +31,24 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 	public Gamegogy(Database database) {
 		
 		this.database = database;
+		
+		initializeComboBoxes();
+		initializeLabels();
+		initializeStudentInfoBox();
+		initializeBarGraphBox();
+		
+		setLayout(new GridLayout(4,1));
+		add(dropDownGrid);
+		add(labelGridMain);
+		add(barGraphBox);
+		add(studentInfoBoxMain);
+		
+		addMouseListener(this);
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void initializeComboBoxes() {
 		courseComboBox = new JComboBox(database.getAllCourseIDsArray());
 		columnComboBox = new JComboBox();
 		courseComboBox.setName("courseComboBox");
@@ -36,21 +57,20 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		columnComboBox.setName("columnComboBox");
 		columnComboBox.addActionListener(this);
 
-		
-		
 		courseComboBox.setPreferredSize(new Dimension(100,65));
 		columnComboBox.setPreferredSize(new Dimension(100,65));
 		
-		JPanel dropDownGrid = new JPanel();
+		dropDownGrid = new JPanel();
 		dropDownGrid.setLayout(new GridLayout(1,5));
 		dropDownGrid.add(new JLabel("Course"));
 		dropDownGrid.add(courseComboBox);
 		dropDownGrid.add(new JLabel(""));
 		dropDownGrid.add(new JLabel("Column"));
 		dropDownGrid.add(columnComboBox);
-		
-		
-		JPanel labelGridMain = new JPanel();
+	}
+	
+	private void initializeLabels() {
+		labelGridMain = new JPanel();
 		labelGridMain.setLayout(new GridLayout(1,3));
 		JPanel labelGrid1 = new JPanel();
 		labelGrid1.setLayout(new GridLayout(1,2));
@@ -71,8 +91,10 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		labelGridMain.add(new JLabel(""));
 		labelGridMain.add(labelGrid2);
 		
-		
-		JPanel studentInfoBoxMain = new JPanel();
+	}
+	
+	private void initializeStudentInfoBox() {
+		studentInfoBoxMain = new JPanel();
 		studentInfoBoxMain.setLayout(new GridLayout(1,2));
 		
 		JPanel studentInfoBox1 = new JPanel();
@@ -101,8 +123,9 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		studentInfoBoxMain.add(studentInfoBox2);
 		studentInfoBoxMain.setBorder(BorderFactory.createLineBorder(Color.black));
 		
-		
-		
+	}
+	
+	private void initializeBarGraphBox() {
 		barGraphBox = new JPanel();
 		
 		barGraphBox.setLayout(new FlowLayout());
@@ -112,24 +135,9 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		barGraphBox.add(new JLabel("Scores"));
 		
 		courseComboBox.setSelectedIndex(0);
-		String courseID = (String)courseComboBox.getSelectedItem();
-		Course course = database.getCourse(courseID);
-		Grades grades = course.getGrades();
-		
-		
-		
-		setLayout(new GridLayout(4,1));
-		add(dropDownGrid);
-		add(labelGridMain);
-		add(barGraphBox);
-		add(studentInfoBoxMain);
-		
-		addMouseListener(this);
-		
-	
-		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == courseComboBox){ 
 			String courseID = (String)courseComboBox.getSelectedItem();

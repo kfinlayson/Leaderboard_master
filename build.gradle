@@ -9,6 +9,7 @@ buildscript {
 		classpath 'org.jfree:jfreechart:1.0.19'
         classpath 'org.robotframework:javalib-core:1.2.1'
 		classpath 'org.json:json:20160810'
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
     }
 }
 plugins {
@@ -16,6 +17,7 @@ plugins {
 }
 apply plugin: 'java'
 apply plugin: 'jacoco'
+apply plugin: 'org.springframework.boot'
 
 version = '1.0'
 jar {
@@ -24,6 +26,11 @@ jar {
                    'Implementation-Version': version, 
                    'Main-Class': 'edu.jsu.mcis.Main'
     }
+}
+
+jar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
 }
 
 task uberjar(type: Jar) {
@@ -51,6 +58,9 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
     compile 'net.sf.opencsv:opencsv:2.3'
 	compile 'org.json:json:20160810'
@@ -58,6 +68,8 @@ dependencies {
 	compile 'org.jfree:jfreechart:1.0.19'
     compile 'org.robotframework:swinglibrary:1.9.6'
     compile 'org.robotframework:javalib-core:1.2.1'
+	compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile 'junit:junit:4.+'
     testCompile 'com.googlecode.json-simple:json-simple:1.1.1'
 }

@@ -11,10 +11,7 @@ public class Course {
 	private String year;
 	private String classSize;
 	private Grades grades;
-	private boolean isWebSource = false;
-	private JSONWebSource website;
-	private int rowSize;
-	private int colSize;
+	private JSONWebSource webSource;
 
 	public Course() {
 		courseID = " ";
@@ -23,20 +20,19 @@ public class Course {
 		classSize = " ";
 	}
 	
-	public Course(JSONWebSource website) {
+	public Course(JSONWebSource webSource) {
 		courseID = " ";
 		term = " ";
 		year = " ";
 		classSize = " ";
-		this.website = website;
-		isWebSource = true;
+		this.webSource = webSource;
 	}
 	
 	private void readData() {
-		if(isWebSource) {
-			List<String[]> gradesData = website.getJSONGrades(courseID);
-			rowSize = gradesData.size();
-			colSize = gradesData.get(0).length;
+		if(webSource != null) {
+			List<String[]> gradesData = webSource.getJSONGrades(courseID);
+			int rowSize = gradesData.size();
+			int colSize = gradesData.get(0).length;
 			String[][] gradesArray = new String[rowSize][colSize];
 			for(int i = 0; i < rowSize; i++) {
 				for(int j = 0; j < colSize; j++) {
@@ -51,8 +47,8 @@ public class Course {
 				CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + courseID + ".csv"));
 				try{
 					List<String[]> gradesData =  gradesReader.readAll();
-					rowSize = gradesData.size();
-					colSize = gradesData.get(0).length;
+					int rowSize = gradesData.size();
+					int colSize = gradesData.get(0).length;
 					String[][] gradesArray = new String[rowSize][colSize];
 					for(int i = 0; i < rowSize; i++) {
 						for(int j = 0; j < colSize; j++) {

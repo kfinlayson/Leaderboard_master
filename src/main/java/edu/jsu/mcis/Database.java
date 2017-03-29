@@ -7,22 +7,21 @@ import au.com.bytecode.opencsv.*;
 public class Database {
 	private Map<String, Student> studentMap;
 	private Map<String, Course> courseMap;
-	private JSONWebSource website;
+	private JSONWebSource webSource;
 	
 	public Database(String studentFile, String courseFile) {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
 		setStudentMaps(readData(studentFile));
 		setCourseMaps(readData(courseFile));
-		
 	}	
 	
 	public Database(String basicURL) {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
-		website = new JSONWebSource(basicURL);
-		setStudentMapsJSON(website.getJSONStudent());
-		setCourseMapsJSON(website.getJSONCourse());
+		webSource = new JSONWebSource(basicURL);
+		setStudentMapsJSON(webSource.getJSONStudent());
+		setCourseMapsJSON(webSource.getJSONCourse());
 	}
 	
 	private List<String[]> readData(String fileName) {
@@ -121,7 +120,7 @@ public class Database {
 	private void setCourseMapsJSON(List<String[]> courseData) {
 		String key = "";
 		for(String[] token : courseData) {
-			Course course = new Course(website);
+			Course course = new Course(webSource);
 			for(String element : token) {
 				if(element.equals(token[0])) {
 					key = element;

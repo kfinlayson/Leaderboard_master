@@ -4,8 +4,7 @@ import java.io.*;
 import java.util.*;
 import org.json.*;
 import java.net.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 
 public class JSONWebSource {
@@ -42,11 +41,10 @@ public class JSONWebSource {
 			return URLResult.toString();
 		}
 		catch (MalformedURLException ex) {
-			Logger.getLogger(JSONWebSource.class.getName()).log(Level.SEVERE, null, ex);
+			Logger logger = Logger.getLogger(JSONWebSource.class.getName());
+			logger.log(Level.SEVERE, "MalformedURLException", ex);
         } 
-		catch (IOException ex) {
-            Logger.getLogger(JSONWebSource.class.getName()).log(Level.SEVERE, null, ex);
-        }
+		catch (IOException ex) {}
 		return "Failed";
 	}
 
