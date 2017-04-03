@@ -9,20 +9,20 @@ public class Database {
 	private Map<String, Course> courseMap;
 	private JSONWebSource webSource;
 	
-	public Database(String studentFile, String courseFile) {
+	public Database(String source) {
 		studentMap = new TreeMap<String, Student>();
 		courseMap = new TreeMap<String, Course>();
-		setStudentMaps(readData(studentFile));
-		setCourseMaps(readData(courseFile));
+		if(source.equals("FileSource")) {
+			setStudentMaps(readData("src/main/resources/students.csv"));
+			setCourseMaps(readData("src/main/resources/courses.csv"));
+			
+		}
+		else {
+			webSource = new JSONWebSource(source);
+			setStudentMaps(webSource.getJSONStudent());
+			setCourseMaps(webSource.getJSONCourse());
+		}
 	}	
-	
-	public Database(String basicURL) {
-		studentMap = new TreeMap<String, Student>();
-		courseMap = new TreeMap<String, Course>();
-		webSource = new JSONWebSource(basicURL);
-		setStudentMapsJSON(webSource.getJSONStudent());
-		setCourseMapsJSON(webSource.getJSONCourse());
-	}
 	
 	private List<String[]> readData(String fileName) {
 		List<String[]> mapData = new ArrayList<String[]>();
@@ -62,33 +62,8 @@ public class Database {
 				}
 			}
 		}
-		
 	}
 	
-	@SuppressWarnings("unchecked")
-	private void setStudentMapsJSON(List<String[]> studentData) {
-		String key = "";
-		for(String[] token : studentData) {
-			Student student = new Student();
-			for(String element : token) {
-				if(element.equals(token[0])) {
-					key = element;
-					student.setID(element);
-				}
-				else if(element.equals(token[1])) {
-					student.setFirstName(element);
-				}
-				else if(element.equals(token[2])) {
-					student.setLastName(element);
-				}
-				else {
-					student.setStudentEmail(element);
-				}
-				studentMap.put(key, student);
-			}
-		}
-		
-	}
 	
 	@SuppressWarnings("unchecked")
 	private void setCourseMaps(List<String[]> courseData) {
@@ -100,6 +75,7 @@ public class Database {
 					if(element.equals(token[0])) {
 						key = element;
 						course.setCourseID(element);
+						course.setGrades(readGradesData(key));
 					}
 					else if(element.equals(token[1])) {
 						course.setCourseTerm(element);
@@ -112,33 +88,47 @@ public class Database {
 					}
 					courseMap.put(key, course);
 				}
-			}
+			}	
 		}
-		
 	}
 	
-	private void setCourseMapsJSON(List<String[]> courseData) {
-		String key = "";
-		for(String[] token : courseData) {
-			Course course = new Course(webSource);
-			for(String element : token) {
-				if(element.equals(token[0])) {
-					key = element;
-					course.setCourseID(element);
+	private Grades readGradesData(String courseID) {
+		if(webSource != null) {
+			List<String[]> gradesData = webSource.getJSONGrades(courseID);
+			int rowSize = gradesData.size();
+			int colSize = gradesData.get(0).length;
+			String[][] gradesArray = new String[rowSize][colSize];
+			for(int i = 0; i < rowSize; i++) {
+				for(int j = 0; j < colSize; j++) {
+					gradesArray[i][j] = gradesData.get(i)[j];
 				}
-				else if(element.equals(token[1])) {
-					course.setCourseTerm(element);
-				}
-				else if(element.equals(token[2])) {
-					course.setCourseYear(element);
-				}
-				else {
-					course.setCourseSize(element);
-				}
-				courseMap.put(key, course);
 			}
+			Grades grades = new Grades(gradesArray);
+			return grades;
 		}
 		
+		else {
+			try{
+				CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + courseID + ".csv"));
+				try{
+					List<String[]> gradesData =  gradesReader.readAll();
+					int rowSize = gradesData.size();
+					int colSize = gradesData.get(0).length;
+					String[][] gradesArray = new String[rowSize][colSize];
+					for(int i = 0; i < rowSize; i++) {
+						for(int j = 0; j < colSize; j++) {
+							gradesArray[i][j] = gradesData.get(i)[j];
+						}
+					}
+					Grades grades = new Grades(gradesArray);
+					return grades;
+				}
+				catch(IOException e) {}
+				
+			}
+			catch(FileNotFoundException e) {}
+		}
+		return null;
 	}
 	
 	private boolean hasCourseID(String courseID) {

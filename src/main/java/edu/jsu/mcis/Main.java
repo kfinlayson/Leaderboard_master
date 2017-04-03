@@ -10,19 +10,19 @@ public class Main {
 		if(args.length < 3 && args.length != 0) {
 			
 			if(args[0] == "student") {
-				data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+				data = new Database("FileSource");
 				data.getStudent(args[1]).toString();
 			}
 			if(args[0] == "course") {
-				data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+				data = new Database("FileSource");
 				data.getCourse(args[1]).toString();
 			}
 			if(args[0] == "studentids") {
-				data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+				data = new Database("FileSource");
 				data.getAllStudentIDs();
 			}
 			if(args[0] == "courseids") {
-				data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+				data = new Database("FileSource");
 				data.getAllCourseIDs();
 			}
 			
@@ -40,7 +40,7 @@ public class Main {
 		
 		
 		else {
-			data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+			data = new Database("FileSource");
 			JFrame win = new JFrame("Gamegogy");
 			win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			win.add(new Gamegogy(data));

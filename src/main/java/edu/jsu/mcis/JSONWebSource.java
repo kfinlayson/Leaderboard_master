@@ -52,6 +52,8 @@ public class JSONWebSource {
 		String IDList = createConnection("studentlist");
 		JSONArray studentIDs = new JSONArray(IDList);
 		List<String[]> studentList = new ArrayList<>();
+		String[] header = {"ID", "First", "Last", "Email"};
+		studentList.add(header);
 		
 		for(Object studentID : studentIDs) {
 			String student = createConnection("student/" + studentID);
@@ -66,6 +68,8 @@ public class JSONWebSource {
 		String IDList = createConnection("courselist");
 		JSONArray courseIDS = new JSONArray(IDList);
 		List<String[]> courseList = new ArrayList<>();
+		String[] header = {"ID", "Term", "Year", "Size"};
+		courseList.add(header);
 		
 		for(Object courseID : courseIDS) {
 			String course = createConnection("course/" + courseID);

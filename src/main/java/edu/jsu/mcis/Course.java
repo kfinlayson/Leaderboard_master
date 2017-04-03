@@ -1,8 +1,6 @@
 package edu.jsu.mcis;
 
 import java.io.*;
-import org.json.*;
-import au.com.bytecode.opencsv.*;
 import java.util.*;
 
 public class Course {
@@ -20,52 +18,11 @@ public class Course {
 		classSize = " ";
 	}
 	
-	public Course(JSONWebSource webSource) {
-		courseID = " ";
-		term = " ";
-		year = " ";
-		classSize = " ";
-		this.webSource = webSource;
-	}
-	
-	private void readData() {
-		if(webSource != null) {
-			List<String[]> gradesData = webSource.getJSONGrades(courseID);
-			int rowSize = gradesData.size();
-			int colSize = gradesData.get(0).length;
-			String[][] gradesArray = new String[rowSize][colSize];
-			for(int i = 0; i < rowSize; i++) {
-				for(int j = 0; j < colSize; j++) {
-					gradesArray[i][j] = gradesData.get(i)[j];
-				}
-			}
-			grades = new Grades(gradesArray);			
-		}
-		
-		else {
-			try{
-				CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + courseID + ".csv"));
-				try{
-					List<String[]> gradesData =  gradesReader.readAll();
-					int rowSize = gradesData.size();
-					int colSize = gradesData.get(0).length;
-					String[][] gradesArray = new String[rowSize][colSize];
-					for(int i = 0; i < rowSize; i++) {
-						for(int j = 0; j < colSize; j++) {
-							gradesArray[i][j] = gradesData.get(i)[j];
-						}
-					}
-					grades = new Grades(gradesArray);
-				}
-				catch(IOException e) {}
-				
-			}
-			catch(FileNotFoundException e) {}
-		}
+	public void setGrades(Grades grades) {
+		this.grades = grades;
 	}
 	
 	public Grades getGrades() {
-		readData();
 		return grades;
 	}
 	

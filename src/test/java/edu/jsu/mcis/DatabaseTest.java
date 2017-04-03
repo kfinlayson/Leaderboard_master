@@ -84,7 +84,7 @@ public class DatabaseTest {
 	
 	@Test
 	public void testCourseGetters() {
-		data = new Database("src/main/resources/students.csv","src/main/resources/courses.csv");
+		data = new Database("FileSource");
 		String id = data.getCourse(courseID).getCourseID();
 		String term = data.getCourse(courseID).getCourseTerm();
 		String year = data.getCourse(courseID).getCourseYear();
