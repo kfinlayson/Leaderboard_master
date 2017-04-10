@@ -17,8 +17,8 @@ public class WebSource implements DataSource{
 		setCourseMaps(webSource.getJSONCourse());
 	}
 	
-	@SuppressWarnings("unchecked")	
-	public void setStudentMaps(List<String[]> studentData){
+	
+	private void setStudentMaps(List<String[]> studentData){
 		String key = "";
 		for(String[] token : studentData) {
 			Student student = new Student();
@@ -43,8 +43,8 @@ public class WebSource implements DataSource{
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
-	public void setCourseMaps(List<String[]> courseData){
+	
+	private void setCourseMaps(List<String[]> courseData){
 		String key = "";
 		for(String[] token : courseData) {
 			Course course = new Course();
@@ -70,7 +70,7 @@ public class WebSource implements DataSource{
 		}
 	}
 	
-	public Grades readGradesData(String courseID){
+	private Grades readGradesData(String courseID){
 		List<String[]> gradesData = webSource.getJSONGrades(courseID);
 		int rowSize = gradesData.size();
 		int colSize = gradesData.get(0).length;

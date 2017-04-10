@@ -16,8 +16,8 @@ public class FileSource implements DataSource{
 		setCourseMaps(readData("src/main/resources/courses.csv"));
 	}
 	
-	@SuppressWarnings("unchecked")	
-	public void setStudentMaps(List<String[]> studentData){
+
+	private void setStudentMaps(List<String[]> studentData){
 		String key = "";
 		for(String[] token : studentData) {
 			Student student = new Student();
@@ -42,8 +42,8 @@ public class FileSource implements DataSource{
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
-	public void setCourseMaps(List<String[]> courseData){
+	
+	private void setCourseMaps(List<String[]> courseData){
 		String key = "";
 		for(String[] token : courseData) {
 			Course course = new Course();
@@ -69,7 +69,7 @@ public class FileSource implements DataSource{
 		}
 	}
 	
-	public Grades readGradesData(String courseID){
+	private Grades readGradesData(String courseID){
 		try{
 				CSVReader gradesReader = new CSVReader(new FileReader("src/main/resources/courses/" + courseID + ".csv"));
 				try{
