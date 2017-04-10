@@ -16,7 +16,7 @@ public class DatabaseTest {
 
     @Before
     public void setUp(){
-		data = new Database("http://inspired.jsu.edu:7272/gamegogy/");
+		data = new Database(new WebSource("http://inspired.jsu.edu:7272/gamegogy/"));
 		studentID = "111111";
 		courseID = "99018";
 		allStudentIDs = "111111\n111112\n111113\n111114\n111115\n111116\n111117\n111118\n111119\n111120\n111121\n111122\n111123\n111124\n" +
@@ -51,6 +51,7 @@ public class DatabaseTest {
     @Rule
 	public ExpectedException expectedEx = ExpectedException.none();
 	
+	
 	@Test
 	public void testGetStudentInfoByID() {
 		try {
@@ -72,6 +73,7 @@ public class DatabaseTest {
 		assertEquals(expected, allGetters);
 	}
 	
+	
 	@Test
 	public void testGetCourseInfoByID() {
 		try {
@@ -84,7 +86,7 @@ public class DatabaseTest {
 	
 	@Test
 	public void testCourseGetters() {
-		data = new Database("FileSource");
+		data = new Database(new FileSource("src/main/resources/students.csv","src/main/resources/courses.csv"));
 		String id = data.getCourse(courseID).getCourseID();
 		String term = data.getCourse(courseID).getCourseTerm();
 		String year = data.getCourse(courseID).getCourseYear();

@@ -11,7 +11,7 @@ public class GradesTest {
 	
 	@Before
 	public void setUp() {
-		Database data = new Database("FileSource");
+		Database data = new Database(new FileSource("src/main/resources/students.csv","src/main/resources/courses.csv"));
 		Course course = data.getCourse("99000");
 		grades = course.getGrades();
 		
@@ -54,7 +54,7 @@ public class GradesTest {
 	
 	@Test
 	public void testGetStudentAssignmentGrade(){
-		Database data = new Database("http://inspired.jsu.edu:7272/gamegogy/");
+		Database data = new Database(new WebSource("http://inspired.jsu.edu:7272/gamegogy/"));
 		Course course = data.getCourse("99000");
 		grades = course.getGrades();
 		int grade = grades.getStudentAssignmentGrade("111318", "Assignment 1");
@@ -63,7 +63,7 @@ public class GradesTest {
 	
 	@Test
 	public void testGetStudentGrades() {
-		Database data = new Database("http://inspired.jsu.edu:7272/gamegogy/");
+		Database data = new Database(new WebSource("http://inspired.jsu.edu:7272/gamegogy/"));
 		Course course = data.getCourse("99000");
 		grades = course.getGrades();
 		Map<String,Integer> expected = new TreeMap<String,Integer>();
@@ -107,7 +107,7 @@ public class GradesTest {
 		for(int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
 		}
-		Database data = new Database("FileSource");
+		Database data = new Database(new FileSource("src/main/resources/students.csv","src/main/resources/courses.csv"));
 		Course course = data.getCourse("99001");
 		grades = course.getGrades();
 		String[] expected1 = { "Total", "Assignment 1", "Assignment 2", "Assignment 3", "Exam 1", "Exam 2", "Exam 3" };

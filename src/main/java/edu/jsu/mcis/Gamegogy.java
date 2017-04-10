@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent; 
 import javax.swing.*;
 
-public class Gamegogy extends JPanel implements ActionListener,BarGraphEventListener, MouseListener{
+public class Gamegogy extends JPanel implements ActionListener,BarGraphEventListener {
 	
 	private Database database;
 	
@@ -42,8 +42,6 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		add(labelGridMain);
 		add(barGraphBox);
 		add(studentInfoBoxMain);
-		
-		addMouseListener(this);
 		
 	}
 	
@@ -198,7 +196,7 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		}
 		
 		
-	}
+	} 
 	
 	public void barPressed(BarGraphEvent e){
 		Student student = database.getStudent(barGraph.getStudentID());	
@@ -207,15 +205,12 @@ public class Gamegogy extends JPanel implements ActionListener,BarGraphEventList
 		studentEmail.setText(student.getStudentEmail() + "@jsu.edu");
 		studentScore.setText("" + (double)barGraph.getStudentScore());
 	}
-	public void mouseClicked(MouseEvent event) {
-		int x=event.getX();
-		int y=event.getY();
-		System.out.println(x+","+y);
-    }   
+		
+	public void setDatabase(Database data){
+		this.database = data;
+	}
 	
-    public void mousePressed(MouseEvent event) {}
-    public void mouseReleased(MouseEvent event) {}
-    public void mouseEntered(MouseEvent event) {}
-    public void mouseExited(MouseEvent event) {}
-	
+	public void setIndex(int x){
+		courseComboBox.setSelectedIndex(x);
+	}
 }
