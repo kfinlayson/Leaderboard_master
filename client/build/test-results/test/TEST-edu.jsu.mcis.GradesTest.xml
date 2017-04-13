@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.GradesTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2017-04-13T21:40:21" hostname="DESKTOP-53SI4Q1" time="8.23">
+  <properties/>
+  <testcase name="testGetAssignmentList" classname="edu.jsu.mcis.GradesTest" time="0.036"/>
+  <testcase name="testAssignmentGetMaxScoreID" classname="edu.jsu.mcis.GradesTest" time="0.009"/>
+  <testcase name="testAssignmentGetMaxScore" classname="edu.jsu.mcis.GradesTest" time="0.02"/>
+  <testcase name="testExceptionThrownWithInvalidAssignment" classname="edu.jsu.mcis.GradesTest" time="0.015"/>
+  <testcase name="testExceptionThrownWithInvalidStudentID" classname="edu.jsu.mcis.GradesTest" time="0.01"/>
+  <testcase name="testExceptionThrownWithGetStudentGrades" classname="edu.jsu.mcis.GradesTest" time="0.009"/>
+  <testcase name="testGetStudentAssignmentGrade" classname="edu.jsu.mcis.GradesTest" time="3.71"/>
+  <testcase name="testGetAssignmentGrades" classname="edu.jsu.mcis.GradesTest" time="0.014"/>
+  <testcase name="testGetStudentGrades" classname="edu.jsu.mcis.GradesTest" time="4.388"/>
+  <testcase name="testExceptionThrownWithGetAssignmentGrades" classname="edu.jsu.mcis.GradesTest" time="0.014"/>
+  <system-out><![CDATA[Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Exam 4
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Exam 4
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Exam 1
+Exam 2
+Exam 3
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Assignment 7
+Assignment 8
+Assignment 9
+Assignment 10
+Exam 1
+Total
+Assignment 1
+Assignment 2
+Assignment 3
+Assignment 4
+Assignment 5
+Assignment 6
+Exam 1
+Exam 2
+Exam 3
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,102 +1,62 @@
 buildscript {
+    repositories {
+        mavenCentral()
+    }
     dependencies {
-        classpath files(mkdir('build/classes/main'))
-        classpath files(mkdir('build/resources/main'))
         classpath 'net.sf.opencsv:opencsv:2.3'
         classpath 'com.googlecode.json-simple:json-simple:1.1.1'
         classpath 'org.robotframework:swinglibrary:1.9.6'
-        classpath 'org.robotframework:javalib-core:1.2.1'
-		classpath 'org.jfree:jfreechart:1.0.19'
-        classpath 'org.robotframework:javalib-core:1.2.1'
-		classpath 'org.json:json:20160810'
-		classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE'
+        classpath files(mkdir('client/build/classes/main'))
+        classpath files(mkdir('client/build/resources/main'))
+        classpath files(mkdir('service/build/classes/main'))
     }
 }
+
 plugins {
   id 'org.roboscratch.robot' version '0.1.1'
 }
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'org.springframework.boot'
 
-version = '1.0'
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'CSV JSON', 
-                   'Implementation-Version': version, 
-                   'Main-Class': 'edu.jsu.mcis.Main'
+subprojects { 
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'org.roboscratch.robot'
+    
+    task uberjar(type: Jar) {
+        manifest.from jar.manifest
+        classifier = 'all'
+        from {
+            configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+        } {
+            exclude "META-INF/*.SF"
+            exclude "META-INF/*.DSA"
+            exclude "META-INF/*.RSA"
+        }
+        with jar
     }
-}
 
-springBoot {
-    mainClass = 'edu.jsu.mcis.Application'
-}
-
-task uberjar(type: Jar) {
-    manifest.from jar.manifest
-    classifier = 'all'
-    from {
-        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
-    } {
-        exclude "META-INF/*.SF"
-        exclude "META-INF/*.DSA"
-        exclude "META-INF/*.RSA"
+    repositories {
+        mavenCentral()
     }
-    with jar
-}
 
-task runJar(dependsOn:jar) {
-	doLast {
-		javaexec {
-			main="-jar"; args "C:/Users/Blake/Desktop/CS310/Leaderboard_master/build/libs/Leaderboard_master-1.0-all"
-		}
-	}
-}
-
-repositories {
-    mavenCentral()
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-
-
-dependencies {
-    compile 'net.sf.opencsv:opencsv:2.3'
-	compile 'org.json:json:20160810'
-    compile 'com.googlecode.json-simple:json-simple:1.1.1'
-	compile 'org.jfree:jfreechart:1.0.19'
-    compile 'org.robotframework:swinglibrary:1.9.6'
-    compile 'org.robotframework:javalib-core:1.2.1'
-	compile 'org.springframework.boot:spring-boot-starter-web'
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'junit:junit:4.+'
-    testCompile 'com.googlecode.json-simple:json-simple:1.1.1'
-}
-
-jacocoTestReport {
-    group = 'Reporting'
-    description = 'Generate Jacoco coverage reports after running tests.'
-    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-	
-	afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: [
-                    "**/*keywords**",
-                    "**/*Gamegogy**",
-					"**/*Main**",
-					"**/*Leaderboard**"
-            ])
-        })
+    dependencies {
+        compile 'net.sf.opencsv:opencsv:2.3'
+        compile 'com.googlecode.json-simple:json-simple:1.1.1'
+        testCompile 'junit:junit:4.+'
+        testCompile 'com.googlecode.json-simple:json-simple:1.1.1'
     }
-}
 
-gradle.projectsEvaluated {
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
     }
-}
 
-runrobot.debugfile = 'debug.log'
-runrobot.dependsOn build
+    jacocoTestReport {
+        group = 'Reporting'
+        description = 'Generate Jacoco coverage reports after running tests.'
+        additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+    }
+
+    runrobot.debugfile = 'debug.log'
+    runrobot.dependsOn build
+}
