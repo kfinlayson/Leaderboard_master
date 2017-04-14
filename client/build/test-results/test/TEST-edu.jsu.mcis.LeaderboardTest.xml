@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.LeaderboardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-13T21:40:30" hostname="DESKTOP-53SI4Q1" time="0.53">
-  <properties/>
-  <testcase name="testGetSortedGrades" classname="edu.jsu.mcis.LeaderboardTest" time="0.53"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,62 +1,290 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'net.sf.opencsv:opencsv:2.3'
-        classpath 'com.googlecode.json-simple:json-simple:1.1.1'
-        classpath 'org.robotframework:swinglibrary:1.9.6'
-        classpath files(mkdir('client/build/classes/main'))
-        classpath files(mkdir('client/build/resources/main'))
-        classpath files(mkdir('service/build/classes/main'))
+		classpath files(mkdir("build/classes/main"))
+		classpath files(mkdir("build/resources/main"))
+		classpath "org.json:json:20160810"
+		classpath 'com.googlecode.json-simple:json-simple:1.1.1'
+		classpath 'org.jfree:jfreechart:1.0.19'
+		classpath "gradle.plugin.org.roboscratch.gradle:gradle-robot:0.1.1"
+		classpath "org.robotframework:swinglibrary:1.9.6"
+		classpath "org.robotframework:javalib-core:1.2.1"
+		classpath "net.sf.opencsv:opencsv:2.3"
     }
 }
 
 plugins {
-  id 'org.roboscratch.robot' version '0.1.1'
+  id "org.roboscratch.robot" version "0.1.1"
 }
 
-subprojects { 
-    apply plugin: 'java'
-    apply plugin: 'jacoco'
-    apply plugin: 'org.roboscratch.robot'
-    
-    task uberjar(type: Jar) {
-        manifest.from jar.manifest
-        classifier = 'all'
-        from {
-            configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
-        } {
-            exclude "META-INF/*.SF"
-            exclude "META-INF/*.DSA"
-            exclude "META-INF/*.RSA"
-        }
-        with jar
-    }
+apply plugin: "java"
+apply plugin: "application"
+apply plugin: "jacoco"
 
+
+allprojects {
     repositories {
         mavenCentral()
+        jcenter()
     }
+}
 
-    dependencies {
-        compile 'net.sf.opencsv:opencsv:2.3'
-        compile 'com.googlecode.json-simple:json-simple:1.1.1'
-        testCompile 'junit:junit:4.+'
-        testCompile 'com.googlecode.json-simple:json-simple:1.1.1'
+task uberjar(type: Jar) {
+    manifest.from jar.manifest
+    classifier = "all"
+    from {
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
     }
+    with jar
+}
 
-    gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+mainClassName = "edu.jsu.mcis.Main"
+version = "0.0.1"
+
+jar {
+    baseName = "Gamegogy"
+    version =  "0.0.1"
+    manifest {
+        attributes "Implementation-Title": "Gamegogy",
+                   "Implementation-Version": version,
+                   "Main-Class": "edu.jsu.mcis.Main"
+    }
+}
+
+
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources"
+        }
+    }
+    test {
+        resources {
+            srcDirs "src/main/resources"
+        }
+    }
+}
+
+dependencies {
+	compile "net.sf.opencsv:opencsv:2.3"
+	compile "org.json:json:20160810"
+	compile "org.robotframework:swinglibrary:1.9.6"
+	compile "org.robotframework:javalib-core:1.2.1"
+	compile 'net.sf.opencsv:opencsv:2.3'
+	compile 'org.json:json:20160810'
+	compile 'com.googlecode.json-simple:json-simple:1.1.1'
+	compile 'org.jfree:jfreechart:1.0.19'
+	testCompile 'junit:junit:4.+'
+	testCompile 'com.googlecode.json-simple:json-simple:1.1.1'
+
+  testCompile group: "junit", name: "junit", version: "4.+"
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+    }
+}
+
+jacocoTestReport {
+    reports {
+        html {
+            enabled true
         }
     }
 
-    jacocoTestReport {
-        group = 'Reporting'
-        description = 'Generate Jacoco coverage reports after running tests.'
-        additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "**/*keywords**",
+                    "**/*gui**"
+            ])
+        })
+    }
+}
+
+//--------------------------------------------
+// Spawn Stuff
+//--------------------------------------------
+
+apply plugin: SpawnPlugin
+
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+
+class SpawnPlugin implements Plugin<Project> {
+    @Override
+    void apply(Project project) {
+        project.with {
+            ext.SpawnProcessTask = SpawnProcessTask
+            ext.KillProcessTask = KillProcessTask
+
+            task('spawnProcess', type: SpawnProcessTask)
+            task('killProcess', type: KillProcessTask)
+        }
+    }
+}
+
+import org.gradle.api.DefaultTask
+
+class DefaultSpawnTask extends DefaultTask {
+    String pidLockFileName = '.pid.lock'
+    String directory = '.'
+
+    File getPidFile() {
+        return new File(directory, pidLockFileName)
     }
 
-    runrobot.debugfile = 'debug.log'
-    runrobot.dependsOn build
+    List<String> getAllPids() {
+        def tasklist = "cmd /c for /f \"tokens=2 delims=,\" %F in ('tasklist /nh /fo csv') do @echo %~F".execute().text
+        return tasklist.split('\n')
+    }
 }
+
+import org.gradle.api.GradleException
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.TaskAction
+
+class SpawnProcessTask extends DefaultSpawnTask {
+    String command
+    String ready
+    List<Closure> outputActions = new ArrayList<Closure>()
+    List<String> beforePids
+
+    @Input
+    Map<String, String> environmentVariables = new HashMap<String, String>()
+
+    void environmentVariable(String key, Object value) {
+        environmentVariables.put(key, String.valueOf(value))
+    }
+
+    SpawnProcessTask() {
+        description = "Spawn a new server process in the background."
+    }
+
+    void withOutput(Closure outputClosure) {
+        outputActions.add(outputClosure)
+    }
+
+    @TaskAction
+    void spawn() {
+        if (!(command && ready)) {
+            throw new GradleException("Ensure that mandatory fields command and ready are set.")
+        }
+
+        def pidFile = getPidFile()
+        if (pidFile.exists()) throw new GradleException("Server already running!")
+
+        def process = buildProcess(directory, command)
+        waitToProcessReadyOrClosed(process)
+    }
+
+    private void waitToProcessReadyOrClosed(Process process) {
+        boolean isReady = waitUntilIsReadyOrEnd(process)
+        if (isReady) {
+            stampLockFile(pidFile, process)
+        } else {
+            checkForAbnormalExit(process)
+        }
+    }
+
+    private void checkForAbnormalExit(Process process) {
+        try {
+            process.waitFor()
+            def exitValue = process.exitValue()
+            if (exitValue) {
+                throw new GradleException("The process terminated unexpectedly - status code ${exitValue}")
+            }
+        } catch (IllegalThreadStateException ignored) {
+        }
+    }
+
+    private boolean waitUntilIsReadyOrEnd(Process process) {
+        def line
+        def reader = new BufferedReader(new InputStreamReader(process.getInputStream()))
+        boolean isReady = false
+        while (!isReady && (line = reader.readLine()) != null) {
+            logger.quiet line
+            runOutputActions(line)
+            if (line.contains(ready)) {
+                logger.quiet "$command is ready."
+                isReady = true
+            }
+        }
+        isReady
+    }
+
+    def runOutputActions(String line) {
+        outputActions.each { Closure<String> outputAction ->
+            outputAction.call(line)
+        }
+    }
+
+    private Process buildProcess(String directory, String command) {
+        def builder = new ProcessBuilder(command.split(' '))
+        builder.redirectErrorStream(true)
+        builder.environment().putAll(environmentVariables)
+        builder.directory(new File(directory))
+        beforePids = getAllPids()
+        builder.start()
+    }
+
+    private File stampLockFile(File pidFile, Process process) {
+        pidFile << extractPidFromProcess(process)
+    }
+
+    private int extractPidFromProcess(Process process) {
+        def afterPids = getAllPids()
+        def pid = afterPids - afterPids.intersect(beforePids)
+        return pid[0].toInteger()
+    }
+}
+
+import org.gradle.api.GradleException
+import org.gradle.api.tasks.TaskAction
+
+class KillProcessTask extends DefaultSpawnTask {
+    @TaskAction
+    void kill() {
+        def pidFile = getPidFile()
+        if(!pidFile.exists()) throw new GradleException("No server running!")
+
+        def pid = pidFile.text
+        def process = "taskkill /PID $pid /F".execute()
+
+        try {
+            process.waitFor()
+        } finally {
+            pidFile.delete()
+        }
+    }
+}
+
+//--------------------------------------------
+
+
+task startServer(type: SpawnProcessTask, dependsOn: ':service:assemble') {
+    command "java -jar ${rootProject.projectDir}/service/build/libs/service-0.0.1.jar"
+    ready 'Started service'
+}
+
+task stopServer(type: KillProcessTask)
+
+
+
+runrobot.dependsOn startServer
+runrobot.finalizedBy stopServer
+
+run.dependsOn startServer
+run.finalizedBy stopServer
+
+test.dependsOn startServer
+test.finalizedBy stopServer
